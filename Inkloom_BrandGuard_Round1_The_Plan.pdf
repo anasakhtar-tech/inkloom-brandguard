@@ -1,0 +1,362 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 5862 >>
+stream
+BT /F1 22 Tf 0.06 0.12 0.25 rg 50 737 Td (INKLOOM BRANDGUARD) Tj ET
+BT /F3 11 Tf 0.28 0.35 0.45 rg 50 709 Td (Intelligent Pre-Publication Brand Governance & Compliance Platform) Tj ET
+q 0.14 0.38 0.92 RG 2 w 50 693 110 693 m l S Q
+q 0.10 0.18 0.35 rg 50 654 512 18 re f Q
+BT /F1 8.5 Tf 1 1 1 rg 56 660 Td (Submission Parameter) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 226 660 Td (Details) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 636 562 636 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 642 Td (Track & Objective) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 226 642 Td (Inkloom AI Hackathon — Pre-Publication Brand Governance) Tj ET
+q 0.96 0.97 0.98 rg 50 618 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 618 562 618 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 624 Td (Document Title) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 226 624 Td (Comprehensive 11-Point Technical & Strategic Proposal) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 600 562 600 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 606 Td (Evaluation Criteria) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 226 606 Td (Problem \(25\), Solution \(25\), Tech \(20\), Originality \(15\), Scope \(15\)) Tj ET
+q 0.96 0.97 0.98 rg 50 582 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 582 562 582 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 588 Td (Platform Status) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 226 588 Td (Interactive Working System + Pre-Loaded Enterprise Datasets) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 564 562 564 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 570 Td (Confidentiality) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 226 570 Td (Official Evaluation Document — Team Inkloom BrandGuard) Tj ET
+BT /F3 9 Tf 0.20 0.28 0.42 rg 50 554 Td (Executive Summary: Fast-scaling companies publish content across dozens of employees, creative agencies, and) Tj ET
+BT /F3 9 Tf 0.20 0.28 0.42 rg 50 541 Td (generative AI tools. This publishing velocity inevitably triggers brand drift, factual hallucinations, regulatory) Tj ET
+BT /F3 9 Tf 0.20 0.28 0.42 rg 50 528 Td (violations, and off-brand visuals. Inkloom BrandGuard is an intelligent, assistive pre-publication brand copilot.) Tj ET
+BT /F3 9 Tf 0.20 0.28 0.42 rg 50 515 Td (Rather than blindly blocking writers, it checks content across 6 dimensions against an approved Brand Vault, cites) Tj ET
+BT /F3 9 Tf 0.20 0.28 0.42 rg 50 502 Td (specific guidelines, and suggests non-destructive, context-preserving 1-click rewrites.) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 475 Td (1. Understanding of the Given Problem Statement) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 464 562 464 m l S Q
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 449 Td (The problem statement identifies a critical failure point in modern organizations: decentralized content) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 435.5 Td (proliferation without scalable brand governance. Teams publish content across distributed departments,) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 422 Td (freelance contractors, and generative AI tools at unprecedented volume. Without automated guardrails, four) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 408.5 Td (major categories of damage occur before anyone notices:) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 391 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 391 Td (Brand Identity Erosion: Writers use inconsistent tone \(e.g. aggressive sales hype vs empathetic brand) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 377.5 Td (voice\), deprecated product terminology, and incorrect trademark casing that weakens brand equity.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 362 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 362 Td (Legal & Regulatory Exposure: Unsubstantiated promotional promises \('100% risk-free guarantee', 'the only) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 348.5 Td (zero-downtime tool'\) trigger FTC, SEC, or FDA advertising penalties and litigation.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 333 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 333 Td (Factual Inaccuracies & Hallucinations: Generative AI tools and hasty copywriters invent metrics \(e.g.) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 319.5 Td (quoting 99.999% uptime instead of contractual 99.9% SLA, or fabricated user statistics\).) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 304 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 304 Td (Accessibility & Visual Misalignment: Graphics violate contrast standards \(WCAG 2.1 AA\), logos are) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 290.5 Td (distorted, and non-inclusive language \('master-slave' vs 'primary-replica'\) slips into customer-facing) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 277 Td (copy.) Tj ET
+q 0.96 0.97 0.99 rg 50 151 512 110.5 re f Q
+q 0.14 0.38 0.92 rg 50 151 3.5 110.5 re f Q
+BT /F1 9 Tf 0.12 0.24 0.55 rg 62 247.5 Td (EMPIRICAL INDUSTRY EVIDENCE) Tj ET
+BT /F3 9 Tf 0.22 0.26 0.34 rg 62 234.5 Td (According to enterprise research by Marq and Lucidpress, over 85% of scaling) Tj ET
+BT /F3 9 Tf 0.22 0.26 0.34 rg 62 222 Td (companies experience unauthorized off-brand content. Companies with strictly) Tj ET
+BT /F3 9 Tf 0.22 0.26 0.34 rg 62 209.5 Td (governed, consistent brand presentation achieve an average 23.6% revenue) Tj ET
+BT /F3 9 Tf 0.22 0.26 0.34 rg 62 197 Td (growth and avoid costly regulatory penalties.) Tj ET
+BT /F1 8.5 Tf 0.35 0.42 0.52 rg 62 182.5 Td (— State of Brand Consistency Industry Benchmark) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 131 Td (2. The Users Affected by the Problem) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 120 562 120 m l S Q
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 105 Td (Brand governance is an interdependent organizational challenge affecting three primary personas across the) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 91.5 Td (publishing lifecycle:) Tj ET
+q 0.85 0.88 0.92 RG 0.5 w 50 47 562 47 m l S Q
+BT /F2 8 Tf 0.45 0.52 0.60 rg 50 35 Td (CONFIDENTIAL - OFFICIAL EVALUATION COPY) Tj ET
+BT /F2 8 Tf 0.45 0.52 0.60 rg 507 35 Td (Page 1 of 4) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 6132 >>
+stream
+q 0.85 0.88 0.92 RG 0.5 w 50 753 562 753 m l S Q
+BT /F2 8 Tf 0.35 0.42 0.52 rg 50 757 Td (Inkloom AI Hackathon | Official Submission Proposal) Tj ET
+BT /F1 8 Tf 0.25 0.35 0.55 rg 452 757 Td (Inkloom BrandGuard) Tj ET
+q 0.10 0.18 0.35 rg 50 719 512 18 re f Q
+BT /F1 8.5 Tf 1 1 1 rg 56 725 Td (User Persona) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 146 725 Td (Organizational Context) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 256 725 Td (Primary Pain Points & Daily Friction) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 416 725 Td (Impact of Unsolved Problem) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 701 562 701 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 707 Td (Content Creator) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 146 707 Td (Copywriter / SDR / Ag..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 256 707 Td (Static 40-page PDFs are disconne..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 416 707 Td (Bottlenecks, missed launch dea..) Tj ET
+q 0.96 0.97 0.98 rg 50 683 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 683 562 683 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 689 Td (Brand Manager) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 146 689 Td (Editorial / Marketing..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 256 689 Td (Fatigued by repetitive manual re..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 416 689 Td (Review queues stall; off-brand..) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 665 562 665 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 671 Td (Compliance Officer) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 146 671 Td (Legal / Regulatory Co..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 256 671 Td (Lacks bandwidth to audit every m..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 416 671 Td (Organization faces legal expos..) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 645 Td (3. Proposed Solution: Inkloom BrandGuard) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 634 562 634 m l S Q
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 619 Td (Inkloom BrandGuard is an intelligent, non-punitive pre-publication brand governance platform designed around) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 605.5 Td (four foundational value pillars:) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 588 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 588 Td (1. The Brand Vault \(Single Source of Truth\): A structured administrative repository managing: \(a\) Tone &) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 574.5 Td (Voice parameters; \(b\) Banned vs Approved Terminology Glossaries; \(c\) Verified Factual Claims Sheet; and) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 561 Td (\(d\) Visual Asset Specifications \(hex palettes, logo clear space\).) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 545.5 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 545.5 Td (2. 6-Dimension Hybrid Inspection Engine: Combines high-speed deterministic rules \(<15ms\) for exact terms) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 532 Td (and regex checks with Google Gemini multimodal intelligence for contextual tone, claim verification, and) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 518.5 Td (image layouts.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 503 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 503 Td (3. Assistive, Explainable Suggestions: Instead of opaque 'Blocked' notices, BrandGuard highlights the) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 489.5 Td (exact sentence, cites the specific guideline clause, explains why it violates policy, and offers a 1-Click) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 476 Td ('Accept & Apply' rewrite that preserves the creator's voice.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 460.5 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 460.5 Td (4. Continuous Governance Intelligence: An analytical dashboard that aggregates recurring team mistakes and) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 447 Td (flags ambiguous guidelines \(high dispute rates\) so brand managers can proactively refine company policies.) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 421.5 Td (4. The Complete Product Workflow) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 410.5 562 410.5 m l S Q
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 395.5 Td (BrandGuard connects creators, brand managers, and legal reviewers through a seamless, auditable 5-stage) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 382 Td (lifecycle:) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 364.5 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 364.5 Td (Stage 1 — Knowledge Ingestion: Admin defines brand guidelines, approved facts, terminology glossary, and) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 351 Td (color palettes in the Brand Vault.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 335.5 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 335.5 Td (Stage 2 — Draft Creation & Instant Audit: Creator writes in the Universal Content Studio or uploads a) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 322 Td (document/banner; the hybrid engine executes real-time 6-dimension checks.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 306.5 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 306.5 Td (Stage 3 — Explainable Review & Rewrite: Violations are surfaced as interactive cards. The creator reviews) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 293 Td (guideline citations and applies 1-click rewrites with live visual diffs.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 277.5 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 277.5 Td (Stage 4 — Collaborative Approval Station: Creator submits draft. The reviewer or legal counsel inspects) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 264 Td (diffs, leaves threaded comments, and signs off \(Draft -> Under Review -> Approved\).) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 248.5 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 248.5 Td (Stage 5 — Intelligence Loop & Audit Export: Published drafts receive an immutable AI Audit Certificate;) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 235 Td (the platform logs metrics to the Governance Insights dashboard.) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 209.5 Td (5. Main Features Built & Planned) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 198.5 562 198.5 m l S Q
+q 0.85 0.88 0.92 RG 0.5 w 50 47 562 47 m l S Q
+BT /F2 8 Tf 0.45 0.52 0.60 rg 50 35 Td (CONFIDENTIAL - OFFICIAL EVALUATION COPY) Tj ET
+BT /F2 8 Tf 0.45 0.52 0.60 rg 507 35 Td (Page 2 of 4) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 11 0 R >>
+endobj
+11 0 obj
+<< /Length 8008 >>
+stream
+q 0.85 0.88 0.92 RG 0.5 w 50 753 562 753 m l S Q
+BT /F2 8 Tf 0.35 0.42 0.52 rg 50 757 Td (Inkloom AI Hackathon | Official Submission Proposal) Tj ET
+BT /F1 8 Tf 0.25 0.35 0.55 rg 452 757 Td (Inkloom BrandGuard) Tj ET
+q 0.10 0.18 0.35 rg 50 719 512 18 re f Q
+BT /F1 8.5 Tf 1 1 1 rg 56 725 Td (Module) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 176 725 Td (Core Features & Capabilities Delivered) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 701 562 701 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 707 Td (Brand Vault) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 176 707 Td (Dynamic editor for Tone & Voice, Terminology Glossary, Verified Claims DB, Visual..) Tj ET
+q 0.96 0.97 0.98 rg 50 683 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 683 562 683 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 689 Td (Content Studio) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 176 689 Td (Live multi-format editor \(Blog, Press Release, Social Ad, Image Banner\) with inst..) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 665 562 665 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 671 Td (6-Dimension Inspector) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 176 671 Td (Audits Tone, Terminology, Factual Claims, Visual Consistency, Accessibility, and ..) Tj ET
+q 0.96 0.97 0.98 rg 50 647 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 647 562 647 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 653 Td (Explainable Diff Engine) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 176 653 Td (Cites guideline rules, explains reasoning, and provides 1-Click 'Accept Suggestio..) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 629 562 629 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 635 Td (Review & Approval Hub) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 176 635 Td (Role switcher \(Creator / Reviewer / Legal\), status workflow, comment threads, rev..) Tj ET
+q 0.96 0.97 0.98 rg 50 611 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 611 562 611 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 617 Td (Governance Analytics) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 176 617 Td (Tracks top recurring mistakes, departmental compliance rankings, and ambiguous gu..) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 593 562 593 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 599 Td (Trust & Privacy Center) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 176 599 Td (Local client-side PII redactor, AI transparency watermark, and exportable complia..) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 573 Td (6. Technology Stack & Planned Integrations) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 562 562 562 m l S Q
+q 0.10 0.18 0.35 rg 50 529 512 18 re f Q
+BT /F1 8.5 Tf 1 1 1 rg 56 535 Td (Layer) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 166 535 Td (Technology Selected) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 321 535 Td (Architectural Rationale & Operational Benefit) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 511 562 511 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 517 Td (Frontend UI) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 517 Td (React 19 + TypeScript + Tailwi..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 321 517 Td (Sub-millisecond reactivity, zero layout shift, mod..) Tj ET
+q 0.96 0.97 0.98 rg 50 493 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 493 562 493 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 499 Td (Deterministic Layer) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 499 Td (AST parsing, Aho-Corasick, Regex) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 321 499 Td (Executes 500+ glossary and casing checks in under ..) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 475 562 475 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 481 Td (Semantic & Multimodal) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 481 Td (Google Gemini 2.5 / 3.8 Flash ..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 321 481 Td (Deep reasoning for tone subtlety, cross-referencin..) Tj ET
+q 0.96 0.97 0.98 rg 50 457 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 457 562 457 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 463 Td (State & Workflow) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 463 Td (Lightweight Reactive Store + R..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 321 463 Td (Maintains immutable revision histories, role-based..) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 439 562 439 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 445 Td (Client-Side Privacy) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 445 Td (Local Regex PII Scrubber) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 321 445 Td (Zero leakage of confidential pre-release metrics, ..) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 419 Td (7. Responsibilities of Each Team Member) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 408 562 408 m l S Q
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 393 Td (Our team structure assigns distinct, specialized ownership across architecture, AI compliance, and UX) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 379.5 Td (research to ensure cohesive end-to-end execution:) Tj ET
+q 0.10 0.18 0.35 rg 50 344 512 18 re f Q
+BT /F1 8.5 Tf 1 1 1 rg 56 350 Td (Team Member) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 166 350 Td (Assigned Role) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 306 350 Td (Core Responsibilities & Deliverables) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 326 562 326 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 332 Td (Team Member 1) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 332 Td (Lead Full-Stack Architect) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 306 332 Td (React 19 application core, Universal Studio UI, visua..) Tj ET
+q 0.96 0.97 0.98 rg 50 308 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 308 562 308 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 314 Td (Team Member 2) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 314 Td (AI & Compliance Engineer) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 306 314 Td (6-dimension evaluation pipeline, Google Gemini API mu..) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 290 562 290 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 296 Td (Team Member 3) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 296 Td (Product & UX Lead) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 306 296 Td (Design system, WCAG 2.1 AA accessibility audit rules,..) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 270 Td (8. Development Plan Across All Three Rounds) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 259 562 259 m l S Q
+q 0.10 0.18 0.35 rg 50 226 512 18 re f Q
+BT /F1 8.5 Tf 1 1 1 rg 56 232 Td (Hackathon Round) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 166 232 Td (Milestones & Core Deliverables) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 426 232 Td (Status & Evaluation Focus) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 208 562 208 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 214 Td (Round 1: The Plan) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 214 Td (Problem definition, user research, architecture desig..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 426 214 Td (100% Complete — Strategy Pro..) Tj ET
+q 0.96 0.97 0.98 rg 50 190 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 190 562 190 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 196 Td (Round 2: The Build) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 196 Td (Brand Vault, 6-Dimension Scanner, Suggestion Diff App..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 426 196 Td (Functional Core — Fully Inte..) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 172 562 172 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 178 Td (Round 3: The Finish) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 166 178 Td (Governance Analytics, Ambiguous Guideline Detector, A..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 426 178 Td (Scheduled Delivery — Product..) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 152 Td (9. Expected Impact of Your Solution) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 141 562 141 m l S Q
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 126 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 126 Td (75% Acceleration in Review Cycles: Eliminates editorial back-and-forth by catching repetitive errors) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 112.5 Td (directly inside the writing environment.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 97 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 97 Td (100% Elimination of High-Risk Claims: Deterministic checking against approved factsheets prevents illegal) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 83.5 Td (promotional promises and regulatory fines.) Tj ET
+q 0.85 0.88 0.92 RG 0.5 w 50 47 562 47 m l S Q
+BT /F2 8 Tf 0.45 0.52 0.60 rg 50 35 Td (CONFIDENTIAL - OFFICIAL EVALUATION COPY) Tj ET
+BT /F2 8 Tf 0.45 0.52 0.60 rg 507 35 Td (Page 3 of 4) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 13 0 R >>
+endobj
+13 0 obj
+<< /Length 4927 >>
+stream
+q 0.85 0.88 0.92 RG 0.5 w 50 753 562 753 m l S Q
+BT /F2 8 Tf 0.35 0.42 0.52 rg 50 757 Td (Inkloom AI Hackathon | Official Submission Proposal) Tj ET
+BT /F1 8 Tf 0.25 0.35 0.55 rg 452 757 Td (Inkloom BrandGuard) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 737 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 737 Td (Continuous Brand Guideline Optimization: Identifies confusing or ambiguous brand guidelines that have high) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 723.5 Td (override rates, turning governance into an iterative learning loop.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 708 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 708 Td (Agency & AI Alignment: Ensures external marketing agencies and GenAI drafts adhere strictly to corporate) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 694.5 Td (identity before publication.) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 669 Td (10. Future Scope of the Product After the Event) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 658 562 658 m l S Q
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 643 Td (Following the hackathon, Inkloom BrandGuard will expand into a comprehensive enterprise brand ecosystem) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 629.5 Td (through three primary post-event growth phases:) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 612 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 612 Td (Phase 1 — Native CMS & Browser Extensions \(Q1 2027\): Chrome/Edge browser extension bringing BrandGuard) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 598.5 Td (directly into Google Docs, Notion, WordPress, Webflow, LinkedIn, and Canva.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 583 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 583 Td (Phase 2 — Automated CI/CD Publishing Gateways \(Q2 2027\): GitHub and GitLab PR integrations that) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 569.5 Td (automatically audit markdown documentation, changelogs, and release notes before deployment.) Tj ET
+BT /F1 9.5 Tf 0.15 0.35 0.85 rg 53 554 Td (•) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 554 Td (Phase 3 — Multi-Lingual & Global Localization Governance \(Q3 2027\): Expanding the 6-dimension engine) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 540.5 Td (across 15+ languages to ensure cultural nuance and regional regulatory compliance for global multinational) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 66 527 Td (brands.) Tj ET
+BT /F1 13.5 Tf 0.08 0.16 0.32 rg 50 501.5 Td (11. Complete Team and Participant Details) Tj ET
+q 0.82 0.86 0.92 RG 0.75 w 50 490.5 562 490.5 m l S Q
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 475.5 Td (Official participant registration and individual contribution details for the Inkloom AI Hackathon) Tj ET
+BT /F2 9.5 Tf 0.18 0.22 0.28 rg 50 462 Td (evaluation:) Tj ET
+q 0.10 0.18 0.35 rg 50 426.5 512 18 re f Q
+BT /F1 8.5 Tf 1 1 1 rg 56 432.5 Td (Participant Name) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 171 432.5 Td (Role in Project) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 311 432.5 Td (Primary Contribution Area) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 516 432.5 Td (Contribution %) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 408.5 562 408.5 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 414.5 Td (Lead Participant) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 171 414.5 Td (Full-Stack Engineer & Produ..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 311 414.5 Td (System architecture, React UI studio, rev..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 516 414.5 Td (40%) Tj ET
+q 0.96 0.97 0.98 rg 50 390.5 512 18 re f Q
+q 0.88 0.90 0.93 RG 0.5 w 50 390.5 562 390.5 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 396.5 Td (Collaborating Engineer) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 171 396.5 Td (AI & Evaluation Systems Lead) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 311 396.5 Td (6-dimension engine, Gemini integration, r..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 516 396.5 Td (35%) Tj ET
+q 0.88 0.90 0.93 RG 0.5 w 50 372.5 562 372.5 m l S Q
+BT /F1 8 Tf 0.12 0.18 0.30 rg 56 378.5 Td (Product Designer / Ana..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 171 378.5 Td (UX, Governance & Research L..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 311 378.5 Td (User persona discovery, WCAG compliance r..) Tj ET
+BT /F2 8 Tf 0.22 0.26 0.32 rg 516 378.5 Td (25%) Tj ET
+BT /F3 8.5 Tf 0.30 0.35 0.45 rg 50 362.5 Td (Declaration of Originality & Submission Integrity: All architecture, workflows, and core source code submitted were) Tj ET
+BT /F3 8.5 Tf 0.30 0.35 0.45 rg 50 350.5 Td (designed and developed during the official hackathon window. Reused libraries \(React, Tailwind CSS, Lucide, Vite\) are) Tj ET
+BT /F3 8.5 Tf 0.30 0.35 0.45 rg 50 338.5 Td (open-source and utilized in accordance with their respective MIT licenses. Significant AI tools utilized for assistance) Tj ET
+BT /F3 8.5 Tf 0.30 0.35 0.45 rg 50 326.5 Td (and multimodal testing are transparently disclosed.) Tj ET
+q 0.85 0.88 0.92 RG 0.5 w 50 47 562 47 m l S Q
+BT /F2 8 Tf 0.45 0.52 0.60 rg 50 35 Td (CONFIDENTIAL - OFFICIAL EVALUATION COPY) Tj ET
+BT /F2 8 Tf 0.45 0.52 0.60 rg 507 35 Td (Page 4 of 4) Tj ET
+endstream
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000135 00000 n 
+0000000210 00000 n 
+0000000280 00000 n 
+0000000358 00000 n 
+0000000504 00000 n 
+0000006418 00000 n 
+0000006564 00000 n 
+0000012748 00000 n 
+0000012896 00000 n 
+0000020957 00000 n 
+0000021105 00000 n 
+trailer
+<< /Size 14 /Root 1 0 R >>
+startxref
+26085
+%%EOF
