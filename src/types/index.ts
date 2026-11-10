@@ -92,3 +92,4 @@ export interface DocumentItem {
 }
 
 export type UserRole = 'creator' | 'reviewer' | 'legal';
+

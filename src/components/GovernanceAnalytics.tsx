@@ -214,3 +214,4 @@ export const GovernanceAnalytics: React.FC = () => {
     </div>
   );
 };
+

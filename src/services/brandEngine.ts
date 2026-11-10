@@ -331,3 +331,4 @@ export function scrubConfidentialData(rawText: string): { scrubbedText: string; 
 
   return { scrubbedText: text, redactedCount: count };
 }
+

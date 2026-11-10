@@ -482,3 +482,4 @@ const pdfBytes = doc.generatePDFBytes();
 const outputPath = './Inkloom_BrandGuard_Round2_The_Build.pdf';
 fs.writeFileSync(outputPath, pdfBytes);
 console.log(`Successfully generated Round 2 PDF: ${outputPath} (${pdfBytes.length} bytes, ${doc.pages.length} pages)`);
+

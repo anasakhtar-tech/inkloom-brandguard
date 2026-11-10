@@ -134,3 +134,4 @@ export const ViolationCard: React.FC<ViolationCardProps> = ({
     </div>
   );
 };
+
