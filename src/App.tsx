@@ -6,6 +6,7 @@ import { ReviewHub } from './components/ReviewHub';
 import { GovernanceAnalytics } from './components/GovernanceAnalytics';
 import { ResponsibleAICenter } from './components/ResponsibleAICenter';
 import { AuditCertificateModal } from './components/AuditCertificateModal';
+import { WelcomeModal } from './components/WelcomeModal';
 import { UserRole, DocumentItem } from './types';
 import { samplePresetDocuments } from './data/brandVaultData';
 
@@ -14,6 +15,7 @@ export function App() {
   const [activeTab, setActiveTab] = useState<string>('studio');
   const [documents, setDocuments] = useState<DocumentItem[]>(samplePresetDocuments);
   const [certificateDoc, setCertificateDoc] = useState<DocumentItem | null>(null);
+  const [showWelcome, setShowWelcome] = useState<boolean>(true);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
@@ -23,6 +25,7 @@ export function App() {
         onRoleChange={setCurrentRole}
         activeTab={activeTab}
         onTabChange={setActiveTab}
+        onOpenWelcome={() => setShowWelcome(true)}
         overallScore={94}
       />
 
@@ -57,6 +60,12 @@ export function App() {
           onClose={() => setCertificateDoc(null)}
         />
       )}
+
+      {/* Platform Introduction Modal (Opens on first visit or via About button) */}
+      <WelcomeModal
+        isOpen={showWelcome}
+        onClose={() => setShowWelcome(false)}
+      />
 
       {/* Application Footer */}
       <footer className="border-t border-slate-900 bg-slate-950/80 py-6 text-xs text-slate-500">

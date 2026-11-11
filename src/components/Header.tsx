@@ -7,6 +7,7 @@ interface HeaderProps {
   onRoleChange: (role: UserRole) => void;
   activeTab: string;
   onTabChange: (tab: string) => void;
+  onOpenWelcome?: () => void;
   overallScore?: number;
 }
 
@@ -14,7 +15,8 @@ export const Header: React.FC<HeaderProps> = ({
   currentRole,
   onRoleChange,
   activeTab,
-  onTabChange
+  onTabChange,
+  onOpenWelcome
 }) => {
   return (
     <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-xl">
@@ -134,6 +136,17 @@ export const Header: React.FC<HeaderProps> = ({
                 <span>⚖️ Legal</span>
               </button>
             </div>
+
+            {onOpenWelcome && (
+              <button
+                onClick={onOpenWelcome}
+                className="flex items-center space-x-1 px-2.5 py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-400 hover:text-white transition-all text-xs font-medium"
+                title="About Inkloom BrandGuard"
+              >
+                <HelpCircle className="w-3.5 h-3.5 text-blue-400" />
+                <span className="hidden sm:inline">About</span>
+              </button>
+            )}
           </div>
 
         </div>
