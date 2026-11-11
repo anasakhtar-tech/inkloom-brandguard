@@ -97,7 +97,7 @@ export function auditContent(text: string, activeColors: string[] = []): AuditRe
   // 3. FACTUAL CLAIMS & ACCURACY CHECKS
   // -------------------------------------------------------------
   // Check for five-nines uptime exaggeration
-  const fiveNinesRegex = /\b99\.999%\b/g;
+  const fiveNinesRegex = /\b99\.999%/g;
   let match;
   while ((match = fiveNinesRegex.exec(text)) !== null) {
     violations.push({
