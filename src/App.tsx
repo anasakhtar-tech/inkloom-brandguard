@@ -64,15 +64,12 @@ export function App() {
           <div className="flex items-center space-x-2">
             <span className="font-bold text-slate-300">Inkloom BrandGuard</span>
             <span>•</span>
-            <span>Team ALTAIR</span>
-            <span>•</span>
-            <span>CodeTitans India 2026 Round 2 Submission</span>
+            <span>Intelligent Pre-Publication Brand Governance Platform</span>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <span className="text-slate-400">Lead AI/ML: MD ANAS AKHTAR</span>
-            <span>•</span>
-            <span className="text-emerald-400 font-medium">Core Workflow Verified</span>
+          <div className="flex items-center space-x-2 text-emerald-400 font-medium">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Core Governance Pipeline Active</span>
           </div>
         </div>
       </footer>

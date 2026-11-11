@@ -35,12 +35,6 @@ export const Header: React.FC<HeaderProps> = ({
                 <span className="text-base sm:text-lg font-extrabold tracking-tight text-white font-sans whitespace-nowrap">
                   Inkloom BrandGuard
                 </span>
-                <span className="px-2 py-0.5 text-[11px] font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30 rounded-full whitespace-nowrap">
-                  Team ALTAIR
-                </span>
-                <span className="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-full whitespace-nowrap hidden sm:inline">
-                  Round 2 Live
-                </span>
               </div>
               <p className="text-[11px] text-slate-400 whitespace-nowrap hidden md:block">
                 Intelligent Pre-Publication Brand Governance & Compliance Platform
