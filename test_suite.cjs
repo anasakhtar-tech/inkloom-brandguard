@@ -1,27 +1,37 @@
 // Self-contained test suite for Inkloom BrandGuard
 const initialGlossary = [
+  { id: 'GLOSS-1-PLURAL', deprecatedTerm: 'AI bots', approvedTerm: 'Autonomous Copilots', caseSensitive: false, reason: 'Updated to reflect autonomous agentic capabilities.' },
   { id: 'GLOSS-1', deprecatedTerm: 'AI bot', approvedTerm: 'Autonomous Copilot', caseSensitive: false, reason: 'Updated to reflect autonomous agentic capabilities.' },
   { id: 'GLOSS-2', deprecatedTerm: 'crypto coins', approvedTerm: 'Digital Assets', caseSensitive: false, reason: 'Institutional compliance.' },
   { id: 'GLOSS-3', deprecatedTerm: 'crypto coin', approvedTerm: 'Digital Asset', caseSensitive: false, reason: 'Institutional compliance.' },
   { id: 'GLOSS-4', deprecatedTerm: 'master-slave', approvedTerm: 'primary-replica', caseSensitive: false, reason: 'Inclusive language.' },
   { id: 'GLOSS-5', deprecatedTerm: 'patients', approvedTerm: 'members', caseSensitive: false, reason: 'Member-centric vocabulary.' },
+  { id: 'GLOSS-5-SINGULAR', deprecatedTerm: 'patient', approvedTerm: 'member', caseSensitive: false, reason: 'Member-centric vocabulary.' },
+  { id: 'GLOSS-6-PLURAL', deprecatedTerm: 'web apps', approvedTerm: 'Web Portals', caseSensitive: true, reason: 'Official trademark.' },
   { id: 'GLOSS-6', deprecatedTerm: 'web app', approvedTerm: 'Web Portal', caseSensitive: true, reason: 'Official trademark.' },
+  { id: 'GLOSS-7-PLURAL', deprecatedTerm: 'whitelists', approvedTerm: 'allowlists', caseSensitive: false, reason: 'Modern cybersecurity standards.' },
   { id: 'GLOSS-7', deprecatedTerm: 'whitelist', approvedTerm: 'allowlist', caseSensitive: false, reason: 'Modern cybersecurity standards.' },
+  { id: 'GLOSS-8-PLURAL', deprecatedTerm: 'blacklists', approvedTerm: 'denylists', caseSensitive: false, reason: 'Cybersecurity best practice.' },
   { id: 'GLOSS-8', deprecatedTerm: 'blacklist', approvedTerm: 'denylist', caseSensitive: false, reason: 'Cybersecurity best practice.' },
+  { id: 'GLOSS-9-PLURAL', deprecatedTerm: 'sanity checks', approvedTerm: 'confidence verifications', caseSensitive: false, reason: 'Inclusive terminology.' },
   { id: 'GLOSS-9', deprecatedTerm: 'sanity check', approvedTerm: 'confidence verification', caseSensitive: false, reason: 'Inclusive terminology.' },
   { id: 'GLOSS-10', deprecatedTerm: 'dummy data', approvedTerm: 'sample data', caseSensitive: false, reason: 'Technical documentation standard.' },
   { id: 'GLOSS-11', deprecatedTerm: 'cheap pricing', approvedTerm: 'competitive pricing', caseSensitive: false, reason: 'Brand positioning.' },
   { id: 'GLOSS-12', deprecatedTerm: 'guys', approvedTerm: 'team', caseSensitive: false, reason: 'Inclusive communication.' },
+  { id: 'GLOSS-13-PLURAL', deprecatedTerm: 'end users', approvedTerm: 'customers', caseSensitive: false, reason: 'Human-centric terminology.' },
   { id: 'GLOSS-13', deprecatedTerm: 'end user', approvedTerm: 'customer', caseSensitive: false, reason: 'Human-centric terminology.' },
+  { id: 'GLOSS-14-PLURAL', deprecatedTerm: 'black boxes', approvedTerm: 'opaque models', caseSensitive: false, reason: 'Responsible AI transparency.' },
   { id: 'GLOSS-14', deprecatedTerm: 'black box', approvedTerm: 'opaque model', caseSensitive: false, reason: 'Responsible AI transparency.' }
 ];
+
+const sortedGlossary = [...initialGlossary].sort((a, b) => b.deprecatedTerm.length - a.deprecatedTerm.length);
 
 function auditContent(text, activeColors = []) {
   const violations = [];
   const lowerText = text.toLowerCase();
 
   // Terminology
-  for (const term of initialGlossary) {
+  for (const term of sortedGlossary) {
     const regex = term.caseSensitive
       ? new RegExp(`\\b${term.deprecatedTerm}\\b`, 'g')
       : new RegExp(`\\b${term.deprecatedTerm}\\b`, 'gi');
@@ -143,6 +153,23 @@ function auditContent(text, activeColors = []) {
 }
 
 function applyCorrection(originalText, flaggedText, suggestedCorrection) {
+  const escaped = flaggedText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const articleRegex = new RegExp(`\\b(an|a)\\s+${escaped}\\b`, 'i');
+  const match = originalText.match(articleRegex);
+
+  if (match) {
+    const article = match[1];
+    const isPlural = suggestedCorrection.trim().endsWith('s') && !suggestedCorrection.trim().endsWith('ss');
+    if (isPlural) {
+      return originalText.replace(match[0], suggestedCorrection);
+    }
+    const startsWithVowel = /^[aeiou]/i.test(suggestedCorrection.trim());
+    const correctArticle = startsWithVowel
+      ? (article[0] === article[0].toUpperCase() ? 'An' : 'an')
+      : (article[0] === article[0].toUpperCase() ? 'A' : 'a');
+    return originalText.replace(match[0], `${correctArticle} ${suggestedCorrection}`);
+  }
+
   return originalText.replace(flaggedText, suggestedCorrection);
 }
 
@@ -401,6 +428,25 @@ check(termAudit.violations.some(v => v.suggestedCorrection === 'sample data'), '
 check(termAudit.violations.some(v => v.suggestedCorrection === 'team'), 'Flags "guys" -> suggests "team"');
 check(termAudit.violations.some(v => v.suggestedCorrection === 'customer'), 'Flags "end user" -> suggests "customer"');
 check(termAudit.violations.some(v => v.suggestedCorrection === 'competitive pricing'), 'Flags "cheap pricing" -> suggests "competitive pricing"');
+
+// SUITE 11: Pluralization & Grammatical Indefinite Article Agreement
+console.log("\n--- SUITE 11: Pluralization & Grammatical Article Agreement ---");
+const pluralSnippet = "Downloaded by an end user and also downloaded by end users across our web apps.";
+const pluralAudit = auditContent(pluralSnippet);
+
+check(pluralAudit.violations.some(v => v.flaggedText === 'end user' && v.suggestedCorrection === 'customer'), 'Differentiates singular "end user" -> "customer"');
+check(pluralAudit.violations.some(v => v.flaggedText === 'end users' && v.suggestedCorrection === 'customers'), 'Differentiates plural "end users" -> "customers"');
+check(pluralAudit.violations.some(v => v.flaggedText === 'web apps' && v.suggestedCorrection === 'Web Portals'), 'Differentiates plural "web apps" -> "Web Portals"');
+
+// Article agreement
+const fixedArticleSingular = applyCorrection("Downloaded by an end user.", "end user", "customer");
+check(fixedArticleSingular === "Downloaded by a customer.", 'Grammar: "an end user" becomes "a customer" (consonant agreement)');
+
+const fixedArticleVowel = applyCorrection("Powered by a AI bot.", "AI bot", "Autonomous Copilot");
+check(fixedArticleVowel === "Powered by an Autonomous Copilot.", 'Grammar: "a AI bot" becomes "an Autonomous Copilot" (vowel agreement)');
+
+const fixedArticlePlural = applyCorrection("Loved by an end users.", "end users", "customers");
+check(fixedArticlePlural === "Loved by customers.", 'Grammar: "an end users" strips invalid article to "customers"');
 
 console.log("\n==================================================================");
 console.log(`TEST SUMMARY: ${passed} / ${total} TESTS PASSED (${((passed/total)*100).toFixed(1)}%)`);

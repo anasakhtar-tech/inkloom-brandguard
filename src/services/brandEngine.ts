@@ -10,6 +10,9 @@ export interface AuditResult {
   readabilityLevel: string;
 }
 
+// Sort glossary terms with longer phrases first to prioritize specific compound matches
+const sortedGlossary = [...initialGlossary].sort((a, b) => b.deprecatedTerm.length - a.deprecatedTerm.length);
+
 export function auditContent(text: string, activeColors: string[] = []): AuditResult {
   const violations: Violation[] = [];
   const lowerText = text.toLowerCase();
@@ -17,7 +20,7 @@ export function auditContent(text: string, activeColors: string[] = []): AuditRe
   // -------------------------------------------------------------
   // 1. TERMINOLOGY & GLOSSARY CHECKS
   // -------------------------------------------------------------
-  for (const term of initialGlossary) {
+  for (const term of sortedGlossary) {
     const regex = term.caseSensitive
       ? new RegExp(`\\b${term.deprecatedTerm}\\b`, 'g')
       : new RegExp(`\\b${term.deprecatedTerm}\\b`, 'gi');
@@ -291,10 +294,32 @@ export function auditContent(text: string, activeColors: string[] = []): AuditRe
 }
 
 /**
- * Cleanly applies a suggestion to the text without destroying other text
+ * Cleanly applies a suggestion to the text without destroying other text,
+ * with grammatical indefinite article agreement (e.g. "an end user" -> "a customer",
+ * "a AI bot" -> "an Autonomous Copilot", "an end users" -> "customers").
  */
 export function applyCorrection(originalText: string, flaggedText: string, suggestedCorrection: string): string {
-  // Replace the first occurrence of flaggedText
+  // Check if flaggedText is immediately preceded by an indefinite article "a" or "an"
+  const escaped = flaggedText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const articleRegex = new RegExp(`\\b(an|a)\\s+${escaped}\\b`, 'i');
+  const match = originalText.match(articleRegex);
+
+  if (match) {
+    const article = match[1];
+    const isPlural = suggestedCorrection.trim().endsWith('s') && !suggestedCorrection.trim().endsWith('ss');
+    if (isPlural) {
+      // Plural nouns do not take indefinite articles (e.g. "an end users" -> "customers")
+      return originalText.replace(match[0], suggestedCorrection);
+    }
+    // Check if suggested correction starts with vowel sound
+    const startsWithVowel = /^[aeiou]/i.test(suggestedCorrection.trim());
+    const correctArticle = startsWithVowel
+      ? (article[0] === article[0].toUpperCase() ? 'An' : 'an')
+      : (article[0] === article[0].toUpperCase() ? 'A' : 'a');
+    return originalText.replace(match[0], `${correctArticle} ${suggestedCorrection}`);
+  }
+
+  // Exact replacement
   return originalText.replace(flaggedText, suggestedCorrection);
 }
 

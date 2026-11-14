@@ -126,6 +126,14 @@ export const initialGuidelines: BrandGuideline[] = [
 
 export const initialGlossary: GlossaryTerm[] = [
   {
+    id: 'GLOSS-1-PLURAL',
+    deprecatedTerm: 'AI bots',
+    approvedTerm: 'Autonomous Copilots',
+    caseSensitive: false,
+    category: 'Product Suite',
+    reason: 'Updated in Q1 2026 to reflect autonomous agentic capabilities rather than scripted bots.'
+  },
+  {
     id: 'GLOSS-1',
     deprecatedTerm: 'AI bot',
     approvedTerm: 'Autonomous Copilot',
@@ -166,12 +174,36 @@ export const initialGlossary: GlossaryTerm[] = [
     reason: 'Brand guideline mandates empowering, member-centric vocabulary.'
   },
   {
+    id: 'GLOSS-5-SINGULAR',
+    deprecatedTerm: 'patient',
+    approvedTerm: 'member',
+    caseSensitive: false,
+    category: 'HealthTech Voice',
+    reason: 'Brand guideline mandates empowering, member-centric vocabulary.'
+  },
+  {
+    id: 'GLOSS-6-PLURAL',
+    deprecatedTerm: 'web apps',
+    approvedTerm: 'Web Portals',
+    caseSensitive: true,
+    category: 'Product Trademark',
+    reason: 'Official trademark capitalization standard.'
+  },
+  {
     id: 'GLOSS-6',
     deprecatedTerm: 'web app',
     approvedTerm: 'Web Portal',
     caseSensitive: true,
     category: 'Product Trademark',
     reason: 'Official trademark capitalization standard.'
+  },
+  {
+    id: 'GLOSS-7-PLURAL',
+    deprecatedTerm: 'whitelists',
+    approvedTerm: 'allowlists',
+    caseSensitive: false,
+    category: 'Cybersecurity',
+    reason: 'Modern IETF and NIST cybersecurity standards mandate allowlists over whitelists.'
   },
   {
     id: 'GLOSS-7',
@@ -182,12 +214,28 @@ export const initialGlossary: GlossaryTerm[] = [
     reason: 'Modern IETF and NIST cybersecurity standards mandate allowlist over whitelist.'
   },
   {
+    id: 'GLOSS-8-PLURAL',
+    deprecatedTerm: 'blacklists',
+    approvedTerm: 'denylists',
+    caseSensitive: false,
+    category: 'Cybersecurity',
+    reason: 'Industry cybersecurity best practice replaces blacklists with denylists/blocklists.'
+  },
+  {
     id: 'GLOSS-8',
     deprecatedTerm: 'blacklist',
     approvedTerm: 'denylist',
     caseSensitive: false,
     category: 'Cybersecurity',
     reason: 'Industry cybersecurity best practice replaces blacklist with denylist/blocklist.'
+  },
+  {
+    id: 'GLOSS-9-PLURAL',
+    deprecatedTerm: 'sanity checks',
+    approvedTerm: 'confidence verifications',
+    caseSensitive: false,
+    category: 'Inclusivity',
+    reason: 'Replaces ableist idioms with precise technical verification terminology.'
   },
   {
     id: 'GLOSS-9',
@@ -222,12 +270,28 @@ export const initialGlossary: GlossaryTerm[] = [
     reason: 'Encourages gender-neutral, inclusive corporate team communication.'
   },
   {
+    id: 'GLOSS-13-PLURAL',
+    deprecatedTerm: 'end users',
+    approvedTerm: 'customers',
+    caseSensitive: false,
+    category: 'Customer-Centricity',
+    reason: 'Human-centric vocabulary: prefer customers, clients, or practitioners over end users.'
+  },
+  {
     id: 'GLOSS-13',
     deprecatedTerm: 'end user',
     approvedTerm: 'customer',
     caseSensitive: false,
     category: 'Customer-Centricity',
     reason: 'Human-centric vocabulary: prefer customer, client, or practitioner over end user.'
+  },
+  {
+    id: 'GLOSS-14-PLURAL',
+    deprecatedTerm: 'black boxes',
+    approvedTerm: 'opaque models',
+    caseSensitive: false,
+    category: 'Responsible AI',
+    reason: 'Responsible AI transparency guidelines mandate clear, descriptive technical terms.'
   },
   {
     id: 'GLOSS-14',
