@@ -55,10 +55,11 @@ export function App() {
             currentRole={currentRole}
             onOpenCertificate={(doc) => setCertificateDoc(doc)}
             onNavigateToStudio={() => setActiveTab('studio')}
+            onRoleChange={setCurrentRole}
           />
         )}
 
-        {activeTab === 'analytics' && <GovernanceAnalytics />}
+        {activeTab === 'analytics' && <GovernanceAnalytics onNavigateToTab={setActiveTab} />}
 
         {activeTab === 'responsible' && <ResponsibleAICenter />}
       </main>
