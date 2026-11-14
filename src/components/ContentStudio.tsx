@@ -11,7 +11,9 @@ import {
   Wand2,
   SlidersHorizontal,
   Split,
-  RefreshCw
+  RefreshCw,
+  Plus,
+  Edit3
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { DocumentItem, Violation, UserRole } from '../types';
@@ -30,6 +32,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
   onOpenCertificate
 }) => {
   const [activeDoc, setActiveDoc] = useState<DocumentItem>(samplePresetDocuments[0]);
+  const [docTitle, setDocTitle] = useState<string>(samplePresetDocuments[0].title);
   const [editorText, setEditorText] = useState<string>(samplePresetDocuments[0].content);
   const [originalDraft, setOriginalDraft] = useState<string>(samplePresetDocuments[0].content);
   const [auditData, setAuditData] = useState<AuditResult>(() => auditContent(samplePresetDocuments[0].content));
@@ -58,12 +61,46 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
     if (selected) {
       setSelectedPresetId(docId);
       setActiveDoc(selected);
+      setDocTitle(selected.title);
       setEditorText(selected.content);
       setOriginalDraft(selected.content);
       setViewMode('editor');
       const res = auditContent(selected.content);
       setAuditData(res);
     }
+  };
+
+  const handleCreateNewDoc = () => {
+    const defaultTitle = 'My New Document';
+    const newDoc: DocumentItem = {
+      id: `custom-${Date.now()}`,
+      title: defaultTitle,
+      format: 'blog_post',
+      content: '',
+      status: 'draft',
+      score: 100,
+      violations: [],
+      comments: [],
+      author: 'Creator',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+    setSelectedPresetId('custom');
+    setActiveDoc(newDoc);
+    setDocTitle(defaultTitle);
+    setEditorText('');
+    setOriginalDraft('');
+    setViewMode('editor');
+    const res = auditContent('');
+    setAuditData(res);
+  };
+
+  const handleTitleChange = (newTitle: string) => {
+    setDocTitle(newTitle);
+    setActiveDoc(prev => ({
+      ...prev,
+      title: newTitle || 'Untitled Document'
+    }));
   };
 
   const handleApplyViolation = (violation: Violation) => {
@@ -147,20 +184,43 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
       {/* Top Action Toolbar (Clean, minimal, single row) */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 bg-slate-900/60 p-3 rounded-2xl border border-slate-800">
-        {/* Left: Preset Selector */}
-        <div className="flex items-center space-x-2">
+        {/* Left: Preset Selector & New Doc Button */}
+        <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs text-slate-400 font-medium">Scenario:</span>
           <select
             value={selectedPresetId}
-            onChange={(e) => handleSelectPreset(e.target.value)}
+            onChange={(e) => {
+              if (e.target.value === '__new__') {
+                handleCreateNewDoc();
+              } else {
+                handleSelectPreset(e.target.value);
+              }
+            }}
             className="bg-slate-950 border border-slate-700 text-xs text-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
-            {samplePresetDocuments.map(doc => (
-              <option key={doc.id} value={doc.id}>
-                {doc.title} ({doc.format.replace('_', ' ')})
-              </option>
-            ))}
+            <optgroup label="Sample Presets">
+              {samplePresetDocuments.map(doc => (
+                <option key={doc.id} value={doc.id}>
+                  {doc.title} ({doc.format.replace('_', ' ')})
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Custom Document">
+              <option value="__new__">+ Blank Custom Document</option>
+              {selectedPresetId === 'custom' && (
+                <option value="custom">Current: {docTitle || 'Untitled Document'}</option>
+              )}
+            </optgroup>
           </select>
+
+          <button
+            onClick={handleCreateNewDoc}
+            className="flex items-center space-x-1 px-2.5 py-1.5 text-xs text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 border border-emerald-800/60 rounded-lg transition-colors font-medium shadow-sm hover:bg-emerald-900/40"
+            title="Create a new blank document to enter and audit your own custom text"
+          >
+            <Plus className="w-3.5 h-3.5" />
+            <span>New Doc</span>
+          </button>
 
           <button
             onClick={handleResetToOriginal}
@@ -249,12 +309,22 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-col flex-1">
             {/* Editor Sub-Header */}
             <div className="flex items-center justify-between pb-3 mb-2.5 border-b border-slate-800 text-xs">
-              <div className="flex items-center space-x-2">
-                <FileText className="w-4 h-4 text-blue-400" />
-                <span className="font-semibold text-white truncate max-w-sm">{activeDoc.title}</span>
+              <div className="flex items-center space-x-2 flex-1 mr-2">
+                <FileText className="w-4 h-4 text-blue-400 shrink-0" />
+                <div className="relative flex items-center group max-w-sm sm:max-w-md w-full">
+                  <input
+                    type="text"
+                    value={docTitle}
+                    onChange={(e) => handleTitleChange(e.target.value)}
+                    placeholder="Enter document title..."
+                    className="w-full bg-slate-950/40 hover:bg-slate-950/80 focus:bg-slate-950 text-white font-semibold text-xs sm:text-sm px-2.5 py-1 rounded-md border border-slate-800/60 hover:border-slate-700 focus:border-blue-500 focus:outline-none transition-all truncate pr-7"
+                    title="Click to rename document"
+                  />
+                  <Edit3 className="w-3.5 h-3.5 text-slate-500 absolute right-2 pointer-events-none group-hover:text-blue-400 transition-colors" />
+                </div>
               </div>
 
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 shrink-0">
                 <button
                   onClick={handleTogglePii}
                   className={`flex items-center space-x-1 px-2 py-1 rounded-md border transition-all text-[11px] ${
@@ -315,7 +385,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                   }}
                   rows={14}
                   className="w-full bg-slate-950/70 border border-slate-800/80 rounded-xl p-4 text-slate-200 text-sm font-sans leading-relaxed focus:outline-none focus:ring-1 focus:ring-blue-500/60 resize-y"
-                  placeholder="Paste or write your content here..."
+                  placeholder="Type or paste your text here (e.g. blog post, press release, marketing copy) to audit compliance and brand voice..."
                 />
               </div>
             )}
