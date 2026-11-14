@@ -54,6 +54,7 @@ export function App() {
           <ReviewHub
             currentRole={currentRole}
             onOpenCertificate={(doc) => setCertificateDoc(doc)}
+            onNavigateToStudio={() => setActiveTab('studio')}
           />
         )}
 
