@@ -121,6 +121,39 @@ export const initialGuidelines: BrandGuideline[] = [
     examples: [
       { bad: 'Background set to #FF007F neon magenta.', good: 'Background set to #0F172A corporate dark slate.' }
     ]
+  },
+  {
+    id: 'TERM-05',
+    category: 'terminology',
+    title: 'Inclusive Workplace & Talent Vocabulary',
+    rule: 'Avoid tech-bro idioms like "rockstar", "ninja", and "guru". Use inclusive professional titles like "specialist", "engineer", or "subject-matter expert".',
+    rationale: 'Promotes modern inclusive employer branding and removes biased recruitment jargon.',
+    severity: 'warning',
+    examples: [
+      { bad: 'Hiring a full-stack coding ninja and growth rockstar.', good: 'Hiring a full-stack software engineer and growth specialist.' }
+    ]
+  },
+  {
+    id: 'CLAIM-02',
+    category: 'promotional',
+    title: 'Absolute Cybersecurity & Reliability Claims',
+    rule: 'Never claim systems are "unhackable", "unbreakable", or "100% bug-free". Use qualified enterprise risk assurance language.',
+    rationale: 'Absolute claims violate FTC advertising substantiation and create severe legal liability under cybersecurity disclosure laws.',
+    severity: 'critical',
+    examples: [
+      { bad: 'Our unhackable cloud infrastructure is 100% bug-free.', good: 'Our enterprise-secured cloud infrastructure is rigorously verified.' }
+    ]
+  },
+  {
+    id: 'TERM-06',
+    category: 'terminology',
+    title: 'Historical & Inclusive Policy Language',
+    rule: 'Replace historical idioms like "grandfathered" with "legacy-exempted" or "legacy provision".',
+    rationale: 'Modern enterprise governance guidelines retire racially fraught idioms in favor of neutral technical terms.',
+    severity: 'warning',
+    examples: [
+      { bad: 'Existing pricing tiers are grandfathered indefinitely.', good: 'Existing pricing tiers are legacy-exempted indefinitely.' }
+    ]
   }
 ];
 
@@ -300,6 +333,174 @@ export const initialGlossary: GlossaryTerm[] = [
     caseSensitive: false,
     category: 'Responsible AI',
     reason: 'Responsible AI transparency guidelines mandate clear, descriptive technical terms.'
+  },
+  {
+    id: 'GLOSS-15-VERB-ING',
+    deprecatedTerm: 'whitelisting',
+    approvedTerm: 'allowlisting',
+    caseSensitive: false,
+    category: 'Cybersecurity',
+    reason: 'Active verb inflection of allowlist standard.'
+  },
+  {
+    id: 'GLOSS-15-VERB-ED',
+    deprecatedTerm: 'whitelisted',
+    approvedTerm: 'allowlisted',
+    caseSensitive: false,
+    category: 'Cybersecurity',
+    reason: 'Past-participle inflection of allowlist standard.'
+  },
+  {
+    id: 'GLOSS-16-VERB-ING',
+    deprecatedTerm: 'blacklisting',
+    approvedTerm: 'denylisting',
+    caseSensitive: false,
+    category: 'Cybersecurity',
+    reason: 'Active verb inflection of denylist standard.'
+  },
+  {
+    id: 'GLOSS-16-VERB-ED',
+    deprecatedTerm: 'blacklisted',
+    approvedTerm: 'denylisted',
+    caseSensitive: false,
+    category: 'Cybersecurity',
+    reason: 'Past-participle inflection of denylist standard.'
+  },
+  {
+    id: 'GLOSS-17',
+    deprecatedTerm: 'sanity checking',
+    approvedTerm: 'confidence verification',
+    caseSensitive: false,
+    category: 'Inclusivity',
+    reason: 'Replaces ableist gerund idioms with technical verification.'
+  },
+  {
+    id: 'GLOSS-18',
+    deprecatedTerm: 'grandfathered',
+    approvedTerm: 'legacy-exempted',
+    caseSensitive: false,
+    category: 'Inclusivity',
+    reason: 'Replaces racially fraught historical idiom with standard policy exemption.'
+  },
+  {
+    id: 'GLOSS-19',
+    deprecatedTerm: 'grandfather clause',
+    approvedTerm: 'legacy provision',
+    caseSensitive: false,
+    category: 'Inclusivity',
+    reason: 'Standard modern contract and terms language.'
+  },
+  {
+    id: 'GLOSS-20-PLURAL',
+    deprecatedTerm: 'ninjas',
+    approvedTerm: 'specialists',
+    caseSensitive: false,
+    category: 'Workplace Voice',
+    reason: 'Removes exclusive tech-bro hiring idioms.'
+  },
+  {
+    id: 'GLOSS-20',
+    deprecatedTerm: 'ninja',
+    approvedTerm: 'specialist',
+    caseSensitive: false,
+    category: 'Workplace Voice',
+    reason: 'Removes exclusive tech-bro hiring idioms.'
+  },
+  {
+    id: 'GLOSS-21-PLURAL',
+    deprecatedTerm: 'rockstars',
+    approvedTerm: 'senior specialists',
+    caseSensitive: false,
+    category: 'Workplace Voice',
+    reason: 'Modern workplace communication avoids hyper-inflated rockstar jargon.'
+  },
+  {
+    id: 'GLOSS-21',
+    deprecatedTerm: 'rockstar',
+    approvedTerm: 'senior specialist',
+    caseSensitive: false,
+    category: 'Workplace Voice',
+    reason: 'Modern workplace communication avoids hyper-inflated rockstar jargon.'
+  },
+  {
+    id: 'GLOSS-22-PLURAL',
+    deprecatedTerm: 'gurus',
+    approvedTerm: 'domain experts',
+    caseSensitive: false,
+    category: 'Workplace Voice',
+    reason: 'Cultural inclusivity: avoids appropriating spiritual titles for commercial roles.'
+  },
+  {
+    id: 'GLOSS-22',
+    deprecatedTerm: 'guru',
+    approvedTerm: 'domain expert',
+    caseSensitive: false,
+    category: 'Workplace Voice',
+    reason: 'Cultural inclusivity: avoids appropriating spiritual titles for commercial roles.'
+  },
+  {
+    id: 'GLOSS-23',
+    deprecatedTerm: 'unhackable',
+    approvedTerm: 'enterprise-secured',
+    caseSensitive: false,
+    category: 'Regulatory Risk',
+    reason: 'FTC cybersecurity rule: never claim 100% invulnerability.'
+  },
+  {
+    id: 'GLOSS-24',
+    deprecatedTerm: 'unbreakable',
+    approvedTerm: 'fault-tolerant',
+    caseSensitive: false,
+    category: 'Regulatory Risk',
+    reason: 'Substantiation requirement for architectural claims.'
+  },
+  {
+    id: 'GLOSS-25',
+    deprecatedTerm: '100% bug-free',
+    approvedTerm: 'rigorously tested',
+    caseSensitive: false,
+    category: 'Software Quality',
+    reason: 'Legal compliance: absolute perfection cannot be guaranteed.'
+  },
+  {
+    id: 'GLOSS-26',
+    deprecatedTerm: 'zero bugs',
+    approvedTerm: 'rigorous test coverage',
+    caseSensitive: false,
+    category: 'Software Quality',
+    reason: 'Commercial software guarantees must reflect continuous testing realities.'
+  },
+  {
+    id: 'GLOSS-27',
+    deprecatedTerm: 'game changer',
+    approvedTerm: 'strategic advancement',
+    caseSensitive: false,
+    category: 'Brand Positioning',
+    reason: 'Replaces marketing clichés with authoritative executive language.'
+  },
+  {
+    id: 'GLOSS-28',
+    deprecatedTerm: 'silver bullet',
+    approvedTerm: 'comprehensive solution',
+    caseSensitive: false,
+    category: 'Brand Positioning',
+    reason: 'Avoids oversimplifying complex enterprise challenges.'
+  },
+  {
+    id: 'GLOSS-29',
+    deprecatedTerm: 'magic bullet',
+    approvedTerm: 'systematic methodology',
+    caseSensitive: false,
+    category: 'Brand Positioning',
+    reason: 'Reinforces engineering rigor over magical claims.'
+  },
+  {
+    id: 'GLOSS-30',
+    deprecatedTerm: 'bleeding edge',
+    approvedTerm: 'state-of-the-art',
+    caseSensitive: false,
+    category: 'Brand Positioning',
+    reason: 'Professional enterprise copy avoids colloquial tech slang.'
   }
 ];
 

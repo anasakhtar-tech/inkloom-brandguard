@@ -13,6 +13,20 @@ export interface AuditResult {
 // Sort glossary terms with longer phrases first to prioritize specific compound matches
 const sortedGlossary = [...initialGlossary].sort((a, b) => b.deprecatedTerm.length - a.deprecatedTerm.length);
 
+function buildTermPattern(termStr: string): string {
+  // Flexibly allow hyphens, slashes, or spaces for compound words
+  const escaped = termStr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return escaped.replace(/(\\\/|\\\-|\\s|[-/ ])+/g, '[-/\\s]+');
+}
+
+function buildTermRegex(termStr: string, caseSensitive: boolean): RegExp {
+  const flags = caseSensitive ? 'g' : 'gi';
+  const pattern = buildTermPattern(termStr);
+  const leftBoundary = /^\w/.test(termStr) ? '\\b' : '';
+  const rightBoundary = /\w$/.test(termStr) ? '\\b' : '';
+  return new RegExp(`${leftBoundary}${pattern}${rightBoundary}`, flags);
+}
+
 export function auditContent(text: string, activeColors: string[] = []): AuditResult {
   const violations: Violation[] = [];
   const lowerText = text.toLowerCase();
@@ -21,9 +35,7 @@ export function auditContent(text: string, activeColors: string[] = []): AuditRe
   // 1. TERMINOLOGY & GLOSSARY CHECKS
   // -------------------------------------------------------------
   for (const term of sortedGlossary) {
-    const regex = term.caseSensitive
-      ? new RegExp(`\\b${term.deprecatedTerm}\\b`, 'g')
-      : new RegExp(`\\b${term.deprecatedTerm}\\b`, 'gi');
+    const regex = buildTermRegex(term.deprecatedTerm, term.caseSensitive);
 
     let match;
     while ((match = regex.exec(text)) !== null) {
@@ -294,11 +306,39 @@ export function auditContent(text: string, activeColors: string[] = []): AuditRe
 }
 
 /**
+ * Automatically adjusts target casing to harmonize with the casing of the source match
+ */
+function matchCasing(source: string, target: string): string {
+  // 1. ALL UPPERCASE: e.g. "END USER" -> "CUSTOMER"
+  if (source.length > 1 && source === source.toUpperCase() && /[A-Z]/.test(source)) {
+    return target.toUpperCase();
+  }
+  // 2. TitleCase or Capitalized: e.g. "End User" or "End user" -> "Customer"
+  if (source[0] && source[0] === source[0].toUpperCase()) {
+    return target
+      .split(/(\s+|-|\/)/)
+      .map(part => {
+        if (/^[\s\-\/]+$/.test(part)) return part;
+        return part.charAt(0).toUpperCase() + part.slice(1);
+      })
+      .join('');
+  }
+  // 3. If target has specific trademarked casing (e.g. "Web Portal", "Autonomous Copilot"), keep it
+  if (/[A-Z]/.test(target)) {
+    return target;
+  }
+  return target.toLowerCase();
+}
+
+/**
  * Cleanly applies a suggestion to the text without destroying other text,
  * with grammatical indefinite article agreement (e.g. "an end user" -> "a customer",
- * "a AI bot" -> "an Autonomous Copilot", "an end users" -> "customers").
+ * "a AI bot" -> "an Autonomous Copilot", "an end users" -> "customers")
+ * and contextual casing preservation (TitleCase / UPPERCASE).
  */
 export function applyCorrection(originalText: string, flaggedText: string, suggestedCorrection: string): string {
+  const casedCorrection = matchCasing(flaggedText, suggestedCorrection);
+
   // Check if flaggedText is immediately preceded by an indefinite article "a" or "an"
   const escaped = flaggedText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const articleRegex = new RegExp(`\\b(an|a)\\s+${escaped}\\b`, 'i');
@@ -306,21 +346,21 @@ export function applyCorrection(originalText: string, flaggedText: string, sugge
 
   if (match) {
     const article = match[1];
-    const isPlural = suggestedCorrection.trim().endsWith('s') && !suggestedCorrection.trim().endsWith('ss');
+    const isPlural = casedCorrection.trim().endsWith('s') && !casedCorrection.trim().endsWith('ss');
     if (isPlural) {
       // Plural nouns do not take indefinite articles (e.g. "an end users" -> "customers")
-      return originalText.replace(match[0], suggestedCorrection);
+      return originalText.replace(match[0], casedCorrection);
     }
     // Check if suggested correction starts with vowel sound
-    const startsWithVowel = /^[aeiou]/i.test(suggestedCorrection.trim());
+    const startsWithVowel = /^[aeiou]/i.test(casedCorrection.trim());
     const correctArticle = startsWithVowel
       ? (article[0] === article[0].toUpperCase() ? 'An' : 'an')
       : (article[0] === article[0].toUpperCase() ? 'A' : 'a');
-    return originalText.replace(match[0], `${correctArticle} ${suggestedCorrection}`);
+    return originalText.replace(match[0], `${correctArticle} ${casedCorrection}`);
   }
 
-  // Exact replacement
-  return originalText.replace(flaggedText, suggestedCorrection);
+  // Exact replacement with preserved casing
+  return originalText.replace(flaggedText, casedCorrection);
 }
 
 /**

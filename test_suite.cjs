@@ -21,10 +21,44 @@ const initialGlossary = [
   { id: 'GLOSS-13-PLURAL', deprecatedTerm: 'end users', approvedTerm: 'customers', caseSensitive: false, reason: 'Human-centric terminology.' },
   { id: 'GLOSS-13', deprecatedTerm: 'end user', approvedTerm: 'customer', caseSensitive: false, reason: 'Human-centric terminology.' },
   { id: 'GLOSS-14-PLURAL', deprecatedTerm: 'black boxes', approvedTerm: 'opaque models', caseSensitive: false, reason: 'Responsible AI transparency.' },
-  { id: 'GLOSS-14', deprecatedTerm: 'black box', approvedTerm: 'opaque model', caseSensitive: false, reason: 'Responsible AI transparency.' }
+  { id: 'GLOSS-14', deprecatedTerm: 'black box', approvedTerm: 'opaque model', caseSensitive: false, reason: 'Responsible AI transparency.' },
+  { id: 'GLOSS-15-VERB-ING', deprecatedTerm: 'whitelisting', approvedTerm: 'allowlisting', caseSensitive: false, reason: 'Active verb inflection.' },
+  { id: 'GLOSS-15-VERB-ED', deprecatedTerm: 'whitelisted', approvedTerm: 'allowlisted', caseSensitive: false, reason: 'Past-participle inflection.' },
+  { id: 'GLOSS-16-VERB-ING', deprecatedTerm: 'blacklisting', approvedTerm: 'denylisting', caseSensitive: false, reason: 'Active verb inflection.' },
+  { id: 'GLOSS-16-VERB-ED', deprecatedTerm: 'blacklisted', approvedTerm: 'denylisted', caseSensitive: false, reason: 'Past-participle inflection.' },
+  { id: 'GLOSS-17', deprecatedTerm: 'sanity checking', approvedTerm: 'confidence verification', caseSensitive: false, reason: 'Gerund idiom.' },
+  { id: 'GLOSS-18', deprecatedTerm: 'grandfathered', approvedTerm: 'legacy-exempted', caseSensitive: false, reason: 'Inclusive terminology.' },
+  { id: 'GLOSS-19', deprecatedTerm: 'grandfather clause', approvedTerm: 'legacy provision', caseSensitive: false, reason: 'Inclusive contract terminology.' },
+  { id: 'GLOSS-20-PLURAL', deprecatedTerm: 'ninjas', approvedTerm: 'specialists', caseSensitive: false, reason: 'Inclusive hiring.' },
+  { id: 'GLOSS-20', deprecatedTerm: 'ninja', approvedTerm: 'specialist', caseSensitive: false, reason: 'Inclusive hiring.' },
+  { id: 'GLOSS-21-PLURAL', deprecatedTerm: 'rockstars', approvedTerm: 'senior specialists', caseSensitive: false, reason: 'Workplace tone.' },
+  { id: 'GLOSS-21', deprecatedTerm: 'rockstar', approvedTerm: 'senior specialist', caseSensitive: false, reason: 'Workplace tone.' },
+  { id: 'GLOSS-22-PLURAL', deprecatedTerm: 'gurus', approvedTerm: 'domain experts', caseSensitive: false, reason: 'Workplace inclusivity.' },
+  { id: 'GLOSS-22', deprecatedTerm: 'guru', approvedTerm: 'domain expert', caseSensitive: false, reason: 'Workplace inclusivity.' },
+  { id: 'GLOSS-23', deprecatedTerm: 'unhackable', approvedTerm: 'enterprise-secured', caseSensitive: false, reason: 'Regulatory risk.' },
+  { id: 'GLOSS-24', deprecatedTerm: 'unbreakable', approvedTerm: 'fault-tolerant', caseSensitive: false, reason: 'Regulatory risk.' },
+  { id: 'GLOSS-25', deprecatedTerm: '100% bug-free', approvedTerm: 'rigorously tested', caseSensitive: false, reason: 'Quality assurance.' },
+  { id: 'GLOSS-26', deprecatedTerm: 'zero bugs', approvedTerm: 'rigorous test coverage', caseSensitive: false, reason: 'Software quality.' },
+  { id: 'GLOSS-27', deprecatedTerm: 'game changer', approvedTerm: 'strategic advancement', caseSensitive: false, reason: 'Brand positioning.' },
+  { id: 'GLOSS-28', deprecatedTerm: 'silver bullet', approvedTerm: 'comprehensive solution', caseSensitive: false, reason: 'Brand positioning.' },
+  { id: 'GLOSS-29', deprecatedTerm: 'magic bullet', approvedTerm: 'systematic methodology', caseSensitive: false, reason: 'Brand positioning.' },
+  { id: 'GLOSS-30', deprecatedTerm: 'bleeding edge', approvedTerm: 'state-of-the-art', caseSensitive: false, reason: 'Brand positioning.' }
 ];
 
 const sortedGlossary = [...initialGlossary].sort((a, b) => b.deprecatedTerm.length - a.deprecatedTerm.length);
+
+function buildTermPattern(termStr) {
+  const escaped = termStr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return escaped.replace(/(\\\/|\\\-|\\s|[-/ ])+/g, '[-/\\s]+');
+}
+
+function buildTermRegex(termStr, caseSensitive) {
+  const flags = caseSensitive ? 'g' : 'gi';
+  const pattern = buildTermPattern(termStr);
+  const leftBoundary = /^\w/.test(termStr) ? '\\b' : '';
+  const rightBoundary = /\w$/.test(termStr) ? '\\b' : '';
+  return new RegExp(`${leftBoundary}${pattern}${rightBoundary}`, flags);
+}
 
 function auditContent(text, activeColors = []) {
   const violations = [];
@@ -32,9 +66,7 @@ function auditContent(text, activeColors = []) {
 
   // Terminology
   for (const term of sortedGlossary) {
-    const regex = term.caseSensitive
-      ? new RegExp(`\\b${term.deprecatedTerm}\\b`, 'g')
-      : new RegExp(`\\b${term.deprecatedTerm}\\b`, 'gi');
+    const regex = buildTermRegex(term.deprecatedTerm, term.caseSensitive);
 
     let match;
     while ((match = regex.exec(text)) !== null) {
@@ -152,25 +184,45 @@ function auditContent(text, activeColors = []) {
   return { score, violations, wordCount: words, charCount: text.length };
 }
 
+function matchCasing(source, target) {
+  if (source.length > 1 && source === source.toUpperCase() && /[A-Z]/.test(source)) {
+    return target.toUpperCase();
+  }
+  if (source[0] && source[0] === source[0].toUpperCase()) {
+    return target
+      .split(/(\s+|-|\/)/)
+      .map(part => {
+        if (/^[\s\-\/]+$/.test(part)) return part;
+        return part.charAt(0).toUpperCase() + part.slice(1);
+      })
+      .join('');
+  }
+  if (/[A-Z]/.test(target)) {
+    return target;
+  }
+  return target.toLowerCase();
+}
+
 function applyCorrection(originalText, flaggedText, suggestedCorrection) {
+  const casedCorrection = matchCasing(flaggedText, suggestedCorrection);
   const escaped = flaggedText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const articleRegex = new RegExp(`\\b(an|a)\\s+${escaped}\\b`, 'i');
   const match = originalText.match(articleRegex);
 
   if (match) {
     const article = match[1];
-    const isPlural = suggestedCorrection.trim().endsWith('s') && !suggestedCorrection.trim().endsWith('ss');
+    const isPlural = casedCorrection.trim().endsWith('s') && !casedCorrection.trim().endsWith('ss');
     if (isPlural) {
-      return originalText.replace(match[0], suggestedCorrection);
+      return originalText.replace(match[0], casedCorrection);
     }
-    const startsWithVowel = /^[aeiou]/i.test(suggestedCorrection.trim());
+    const startsWithVowel = /^[aeiou]/i.test(casedCorrection.trim());
     const correctArticle = startsWithVowel
       ? (article[0] === article[0].toUpperCase() ? 'An' : 'an')
       : (article[0] === article[0].toUpperCase() ? 'A' : 'a');
-    return originalText.replace(match[0], `${correctArticle} ${suggestedCorrection}`);
+    return originalText.replace(match[0], `${correctArticle} ${casedCorrection}`);
   }
 
-  return originalText.replace(flaggedText, suggestedCorrection);
+  return originalText.replace(flaggedText, casedCorrection);
 }
 
 function scrubConfidentialData(rawText) {
@@ -447,6 +499,40 @@ check(fixedArticleVowel === "Powered by an Autonomous Copilot.", 'Grammar: "a AI
 
 const fixedArticlePlural = applyCorrection("Loved by an end users.", "end users", "customers");
 check(fixedArticlePlural === "Loved by customers.", 'Grammar: "an end users" strips invalid article to "customers"');
+
+// SUITE 12: Advanced Morphology, Casing & Compound Word Resilience
+console.log("\n--- SUITE 12: Morphology, Casing & Compound Resilience ---");
+
+// Hyphen and slash resilience
+const compoundSnippet = "Our master/slave architecture was configured by an end-user trading crypto-coins.";
+const compoundAudit = auditContent(compoundSnippet);
+check(compoundAudit.violations.some(v => v.flaggedText.toLowerCase() === 'master/slave'), 'Matches slash-separated "master/slave"');
+check(compoundAudit.violations.some(v => v.flaggedText.toLowerCase() === 'end-user'), 'Matches hyphenated "end-user"');
+check(compoundAudit.violations.some(v => v.flaggedText.toLowerCase() === 'crypto-coins'), 'Matches hyphenated "crypto-coins"');
+
+// Inflection & Participles
+const inflectionSnippet = "We are whitelisting verified IPs, blacklisted malicious nodes, and sanity checking pipelines.";
+const inflectionAudit = auditContent(inflectionSnippet);
+check(inflectionAudit.violations.some(v => v.suggestedCorrection === 'allowlisting'), 'Flags participle "whitelisting" -> "allowlisting"');
+check(inflectionAudit.violations.some(v => v.suggestedCorrection === 'denylisted'), 'Flags past tense "blacklisted" -> "denylisted"');
+check(inflectionAudit.violations.some(v => v.suggestedCorrection === 'confidence verification'), 'Flags gerund "sanity checking"');
+
+// Overstatements & Workplace Jargon
+const overstatementSnippet = "Our unhackable cloud is 100% bug-free, built by a ninja and two rockstars under a grandfathered contract for a game-changer platform.";
+const overstatementAudit = auditContent(overstatementSnippet);
+check(overstatementAudit.violations.some(v => v.suggestedCorrection === 'enterprise-secured'), 'Flags "unhackable" -> "enterprise-secured"');
+check(overstatementAudit.violations.some(v => v.suggestedCorrection === 'rigorously tested'), 'Flags "100% bug-free" -> "rigorously tested"');
+check(overstatementAudit.violations.some(v => v.suggestedCorrection === 'specialist'), 'Flags "ninja" -> "specialist"');
+check(overstatementAudit.violations.some(v => v.suggestedCorrection === 'senior specialists'), 'Flags "rockstars" -> "senior specialists"');
+check(overstatementAudit.violations.some(v => v.suggestedCorrection === 'legacy-exempted'), 'Flags "grandfathered" -> "legacy-exempted"');
+check(overstatementAudit.violations.some(v => v.suggestedCorrection === 'strategic advancement'), 'Flags "game-changer" -> "strategic advancement"');
+
+// Contextual Casing Preservation
+const titleCaseFix = applyCorrection("An End User called support.", "End User", "customer");
+check(titleCaseFix === "A Customer called support.", 'Casing: TitleCase "End User" becomes TitleCase "Customer" with article "A"');
+
+const upperCaseFix = applyCorrection("AUDITED FOR END USERS.", "END USERS", "customers");
+check(upperCaseFix === "AUDITED FOR CUSTOMERS.", 'Casing: UPPERCASE "END USERS" becomes UPPERCASE "CUSTOMERS"');
 
 console.log("\n==================================================================");
 console.log(`TEST SUMMARY: ${passed} / ${total} TESTS PASSED (${((passed/total)*100).toFixed(1)}%)`);
