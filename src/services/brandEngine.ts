@@ -371,25 +371,47 @@ export function applyCorrection(originalText: string, flaggedText: string, sugge
 }
 
 /**
- * Client-Side PII & Confidential Data Scrubber
+ * Client-Side PII, Secrets & Confidential Data Scrubber
+ * Zero-retention local sanitization executing entirely in-browser.
  */
 export function scrubConfidentialData(rawText: string): { scrubbedText: string; redactedCount: number } {
   let count = 0;
   let text = rawText;
 
-  // Email regex
-  text = text.replace(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi, () => {
+  // 1. API Keys & Cloud Secrets
+  const apiKeyPatterns = [
+    /\bAKIA[0-9A-Z]{16}\b/g, // AWS Access Key ID
+    /\bsk-[a-zA-Z0-9_\-]{20,}\b/g, // OpenAI / SaaS Secret Keys
+    /\bghp_[a-zA-Z0-9]{30,}\b/g, // GitHub Personal Access Tokens
+    /\bAIzaSy[a-zA-Z0-9_\-]{33}\b/g, // Google Cloud API Keys
+    /\bBearer\s+[a-zA-Z0-9_\-\.]{30,}\b/gi // JWT Bearer Tokens
+  ];
+  for (const p of apiKeyPatterns) {
+    text = text.replace(p, () => {
+      count++;
+      return '[REDACTED_API_KEY]';
+    });
+  }
+
+  // 2. Comprehensive Email Regex (handles plus-aliasing, hyphens, multi-level subdomains)
+  const emailRegex = /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/gi;
+  text = text.replace(emailRegex, () => {
     count++;
     return '[REDACTED_EMAIL]';
   });
 
-  // Phone number regex
-  text = text.replace(/(\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/g, () => {
-    count++;
-    return '[REDACTED_PHONE]';
+  // 3. International Phone Number Regex (supports US, India +91, UK +44, EU formats)
+  const intlPhoneRegex = /(?:\+?\d{1,4}[-.\s]?)?(?:\(?\d{2,5}\)?[-.\s]?)?\d{3,5}[-.\s]?\d{4,5}\b/g;
+  text = text.replace(intlPhoneRegex, (m) => {
+    // Avoid redacting isolated 4-digit years (e.g. 2026) or percentages
+    if (m.trim().length >= 8 && !/^\d{4}$/.test(m.trim())) {
+      count++;
+      return '[REDACTED_PHONE]';
+    }
+    return m;
   });
 
-  // Internal confidential codenames
+  // 4. Internal confidential codenames
   const codenames = ['Project Titan', 'Project Valkyrie', 'Stealth Core', 'Apollo 26'];
   for (const code of codenames) {
     const r = new RegExp(code, 'gi');

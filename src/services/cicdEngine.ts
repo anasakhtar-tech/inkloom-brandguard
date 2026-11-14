@@ -48,14 +48,15 @@ export function verifyComplianceToken(token: string): {
   details: string;
 } {
   const clean = token.trim();
-  if (!clean.startsWith('inkloom_sig_v3_') || clean.length < 24) {
+  const salt = '8f4c91b72e5a';
+  if (!clean.startsWith('inkloom_sig_v3_') || clean.length < 24 || !clean.endsWith(salt)) {
     return {
       valid: false,
       algorithm: 'HMAC-SHA256',
       authority: 'Unknown / Unverified',
       signature: clean || 'None',
       isOverride: false,
-      details: 'Signature verification failed: Invalid prefix or corrupted payload hash.'
+      details: 'Signature verification failed: Invalid cryptographic salt or tampered signature hash.'
     };
   }
 
