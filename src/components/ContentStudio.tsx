@@ -60,6 +60,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
       setActiveDoc(selected);
       setEditorText(selected.content);
       setOriginalDraft(selected.content);
+      setViewMode('editor');
       const res = auditContent(selected.content);
       setAuditData(res);
     }
@@ -90,6 +91,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
 
   const handleResetToOriginal = () => {
     setEditorText(originalDraft);
+    setViewMode('editor');
     runAudit(originalDraft);
   };
 
@@ -139,6 +141,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
 
   const scoreTheme = getScoreColor(auditData.score);
   const unresolvedViolations = auditData.violations.filter(v => !v.applied && !v.ignored);
+  const hasChanges = editorText.trim() !== originalDraft.trim();
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
@@ -171,7 +174,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
 
         {/* Right: View Toggle & Role-Based Actions */}
         <div className="flex items-center space-x-2">
-          {/* Editor vs Diff toggle */}
+          {/* Editor vs Diff toggle (Diff is only enabled when text changes exist) */}
           <div className="flex items-center bg-slate-950 p-0.5 rounded-lg border border-slate-800 text-xs">
             <button
               onClick={() => setViewMode('editor')}
@@ -183,13 +186,26 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
               <span>Editor</span>
             </button>
             <button
-              onClick={() => setViewMode('diff')}
+              onClick={() => {
+                if (hasChanges) setViewMode('diff');
+              }}
+              disabled={!hasChanges}
               className={`flex items-center space-x-1 px-2.5 py-1 rounded-md transition-all ${
-                viewMode === 'diff' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'
+                !hasChanges
+                  ? 'text-slate-600 opacity-40 cursor-not-allowed'
+                  : viewMode === 'diff'
+                  ? 'bg-blue-600 text-white'
+                  : 'text-slate-400 hover:text-white'
               }`}
+              title={
+                hasChanges
+                  ? "Compare original draft with revised compliant copy"
+                  : "Apply suggestions or edit text first to enable diff comparison"
+              }
             >
               <Split className="w-3.5 h-3.5" />
               <span>Diff</span>
+              {hasChanges && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse ml-0.5"></span>}
             </button>
           </div>
 
@@ -279,26 +295,61 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
               </div>
             )}
 
-            {/* Mode 2: Side-by-Side Diff Comparison */}
-            {viewMode === 'diff' && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1 text-xs">
-                <div className="p-3.5 rounded-xl bg-red-950/20 border border-red-800/40 overflow-y-auto max-h-80">
-                  <div className="text-[10px] uppercase font-bold text-red-400 mb-2">
-                    Original Draft (Off-Brand):
-                  </div>
-                  <p className="text-red-200/80 leading-relaxed font-mono text-[11px] whitespace-pre-line">
-                    {originalDraft}
-                  </p>
+            {/* Mode 2: Side-by-Side Diff Comparison (Only shown when changes exist) */}
+            {viewMode === 'diff' && hasChanges && (
+              <div className="space-y-2 flex-1 flex flex-col">
+                <div className="flex items-center justify-between px-1 text-[11px] text-slate-400">
+                  <span className="flex items-center space-x-1.5 font-medium text-slate-300">
+                    <Split className="w-3.5 h-3.5 text-blue-400" />
+                    <span>Side-by-Side Revisions Comparison</span>
+                  </span>
+                  <span className="text-[10px] bg-blue-500/10 text-blue-300 px-2 py-0.5 rounded border border-blue-500/20">
+                    Modifications detected
+                  </span>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-800/40 overflow-y-auto max-h-80">
-                  <div className="text-[10px] uppercase font-bold text-emerald-400 mb-2">
-                    Revised Draft (Compliant):
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1 text-xs">
+                  <div className="p-3.5 rounded-xl bg-red-950/20 border border-red-800/40 overflow-y-auto max-h-80">
+                    <div className="text-[10px] uppercase font-bold text-red-400 mb-2 flex items-center justify-between">
+                      <span>Original Draft (Off-Brand):</span>
+                      <span className="text-[9px] bg-red-950/80 px-1.5 py-0.5 rounded text-red-300 border border-red-800/50">Before</span>
+                    </div>
+                    <p className="text-red-200/80 leading-relaxed font-mono text-[11px] whitespace-pre-line">
+                      {originalDraft}
+                    </p>
                   </div>
-                  <p className="text-emerald-200 leading-relaxed font-mono text-[11px] whitespace-pre-line">
-                    {editorText}
+
+                  <div className="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-800/40 overflow-y-auto max-h-80">
+                    <div className="text-[10px] uppercase font-bold text-emerald-400 mb-2 flex items-center justify-between">
+                      <span>Revised Draft (Compliant):</span>
+                      <span className="text-[9px] bg-emerald-950/80 px-1.5 py-0.5 rounded text-emerald-300 border border-emerald-800/50">After Fixes</span>
+                    </div>
+                    <p className="text-emerald-200 leading-relaxed font-mono text-[11px] whitespace-pre-line">
+                      {editorText}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Mode 2 Fallback: When no changes exist yet */}
+            {viewMode === 'diff' && !hasChanges && (
+              <div className="flex flex-col items-center justify-center p-8 text-center bg-slate-950/60 rounded-xl border border-slate-800 space-y-3 flex-1">
+                <div className="w-10 h-10 rounded-full bg-slate-800/80 flex items-center justify-center text-slate-400">
+                  <Split className="w-5 h-5 text-blue-400" />
+                </div>
+                <div className="max-w-xs">
+                  <h4 className="text-xs font-bold text-slate-200">Drafts are currently identical</h4>
+                  <p className="text-[11px] text-slate-400 mt-1">
+                    No edits have been made yet. Apply suggestions from the right panel or edit text to view changes side-by-side.
                   </p>
                 </div>
+                <button
+                  onClick={() => setViewMode('editor')}
+                  className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-sm"
+                >
+                  Return to Editor
+                </button>
               </div>
             )}
 
