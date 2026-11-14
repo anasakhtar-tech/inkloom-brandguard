@@ -248,7 +248,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
         <div className="lg:col-span-7 flex flex-col space-y-3">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-col flex-1">
             {/* Editor Sub-Header */}
-            <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-xs">
+            <div className="flex items-center justify-between pb-3 mb-2.5 border-b border-slate-800 text-xs">
               <div className="flex items-center space-x-2">
                 <FileText className="w-4 h-4 text-blue-400" />
                 <span className="font-semibold text-white truncate max-w-sm">{activeDoc.title}</span>
@@ -277,6 +277,31 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                   <span>{isAuditing ? 'Scanning...' : 'Re-Scan'}</span>
                 </button>
               </div>
+            </div>
+
+            {/* Prominent Quick Stats & Top Primary Action Bar (Right above the text editor) */}
+            <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 mb-3 rounded-xl bg-slate-950/80 border border-slate-800/90 text-xs text-slate-400">
+              <div className="flex items-center space-x-3 text-[11px]">
+                <span>Words: <strong className="text-slate-200">{auditData.wordCount}</strong></span>
+                <span>Characters: <strong className="text-slate-200">{auditData.charCount}</strong></span>
+                <span className="hidden sm:inline">Readability: <strong className="text-slate-300">{auditData.readabilityLevel}</strong></span>
+              </div>
+
+              {unresolvedViolations.length > 0 ? (
+                <button
+                  onClick={handleApplyAll}
+                  className="flex items-center space-x-1.5 px-3 py-1 font-semibold text-xs bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-all shadow-md shadow-emerald-950/60"
+                  title="Apply context-preserving rewrites for all detected issues"
+                >
+                  <Wand2 className="w-3.5 h-3.5" />
+                  <span>Apply All Fixes ({unresolvedViolations.length})</span>
+                </button>
+              ) : (
+                <div className="flex items-center space-x-1 text-emerald-400 text-[11px] font-medium">
+                  <CheckCircle className="w-3.5 h-3.5" />
+                  <span>All Suggestions Applied</span>
+                </div>
+              )}
             </div>
 
             {/* Mode 1: Live Text Editor */}
@@ -353,23 +378,13 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
               </div>
             )}
 
-            {/* Editor Footer Stats */}
-            <div className="flex flex-wrap items-center justify-between pt-3 mt-3 border-t border-slate-800/80 text-xs text-slate-400">
-              <div className="flex items-center space-x-4">
-                <span>Words: <strong className="text-slate-200">{auditData.wordCount}</strong></span>
-                <span>Characters: <strong className="text-slate-200">{auditData.charCount}</strong></span>
-                <span className="hidden sm:inline">Readability: <strong className="text-slate-300">{auditData.readabilityLevel}</strong></span>
-              </div>
-
-              {unresolvedViolations.length > 0 && (
-                <button
-                  onClick={handleApplyAll}
-                  className="flex items-center space-x-1.5 px-3 py-1 font-semibold text-xs bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg transition-all shadow-sm"
-                >
-                  <Wand2 className="w-3.5 h-3.5" />
-                  <span>Apply All Fixes ({unresolvedViolations.length})</span>
-                </button>
-              )}
+            {/* Editor Footer Status Line */}
+            <div className="flex items-center justify-between pt-2.5 mt-2 border-t border-slate-800/60 text-[11px] text-slate-500">
+              <span>Markdown and plaintext supported</span>
+              <span className="flex items-center space-x-1 text-slate-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                <span>In-Memory Sub-15ms Governance Engine</span>
+              </span>
             </div>
           </div>
         </div>
