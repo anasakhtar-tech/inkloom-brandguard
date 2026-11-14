@@ -17,7 +17,8 @@ import {
   Layers,
   Sparkles,
   RotateCcw,
-  Scale
+  Scale,
+  Users
 } from 'lucide-react';
 import { 
   SAMPLE_WEBHOOK_PAYLOADS, 
@@ -26,8 +27,13 @@ import {
   verifyComplianceToken,
   GatekeeperResult 
 } from '../services/cicdEngine';
+import { NextStageNavigator } from './NextStageNavigator';
 
-export const EnterpriseCICDHub: React.FC = () => {
+interface EnterpriseCICDHubProps {
+  onNavigateToTab?: (tab: string) => void;
+}
+
+export const EnterpriseCICDHub: React.FC<EnterpriseCICDHubProps> = ({ onNavigateToTab }) => {
   const [selectedPresetIdx, setSelectedPresetIdx] = useState<number>(0);
   const [activePayload, setActivePayload] = useState<WebhookPayload>(SAMPLE_WEBHOOK_PAYLOADS[0].payload);
   const [result, setResult] = useState<GatekeeperResult>(evaluateReleaseCandidate(SAMPLE_WEBHOOK_PAYLOADS[0].payload));
@@ -495,6 +501,23 @@ jobs:
         </div>
 
       </div>
+
+      {/* Next Stage in Governance Lifecycle */}
+      {onNavigateToTab && (
+        <NextStageNavigator
+          currentStageNumber={4}
+          totalStages={6}
+          currentStageName="Enterprise CI/CD Gatekeeper"
+          prevTab="extension"
+          prevTabName="In-Situ Extension"
+          nextTab="review"
+          nextTabName="Review Hub (Multi-Role Sign-Off)"
+          nextTabDescription="Manage human-in-the-loop approvals across Creators, Reviewers, and Legal with cryptographically signed audit certificates."
+          nextTabIcon={Users}
+          onNavigate={onNavigateToTab}
+          recommendedAction="Switch role to Marcus (Legal), approve draft, and click Certificate to view verifiable credentials."
+        />
+      )}
     </div>
   );
 };

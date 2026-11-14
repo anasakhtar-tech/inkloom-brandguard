@@ -19,11 +19,13 @@ import {
   Scale,
   HelpCircle,
   Check,
-  Info
+  Info,
+  BarChart3
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { DocumentItem, UserRole, AuditComment } from '../types';
 import { samplePresetDocuments } from '../data/brandVaultData';
+import { NextStageNavigator } from './NextStageNavigator';
 import { auditContent } from '../services/brandEngine';
 
 interface ReviewHubProps {
@@ -31,13 +33,15 @@ interface ReviewHubProps {
   onOpenCertificate: (doc: DocumentItem) => void;
   onNavigateToStudio?: () => void;
   onRoleChange?: (role: UserRole) => void;
+  onNavigateToTab?: (tab: string) => void;
 }
 
 export const ReviewHub: React.FC<ReviewHubProps> = ({
   currentRole,
   onOpenCertificate,
   onNavigateToStudio,
-  onRoleChange
+  onRoleChange,
+  onNavigateToTab
 }) => {
   const [docs, setDocs] = useState<DocumentItem[]>(samplePresetDocuments);
   const [selectedDocId, setSelectedDocId] = useState<string>(samplePresetDocuments[0].id);
@@ -602,6 +606,23 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
         </div>
 
       </div>
+
+      {/* Next Stage in Governance Lifecycle */}
+      {onNavigateToTab && (
+        <NextStageNavigator
+          currentStageNumber={5}
+          totalStages={6}
+          currentStageName="Review Hub (Multi-Role Sign-Off)"
+          prevTab="cicd"
+          prevTabName="CI/CD Gatekeeper"
+          nextTab="analytics"
+          nextTabName="Governance Analytics & ROI"
+          nextTabDescription="Longitudinal intelligence measuring turnaround acceleration (-78%), $426k+ avoided liability, and policy dispute heatmaps."
+          nextTabIcon={BarChart3}
+          onNavigate={onNavigateToTab}
+          recommendedAction="Examine the Guideline Ambiguity Heatmap and click Publish Clarification to resolve writer confusion."
+        />
+      )}
     </div>
   );
 };

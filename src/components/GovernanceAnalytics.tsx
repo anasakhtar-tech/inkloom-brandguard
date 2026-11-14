@@ -22,8 +22,10 @@ import {
   Calendar,
   X,
   ShieldCheck,
-  ArrowRight
+  ArrowRight,
+  Database
 } from 'lucide-react';
+import { NextStageNavigator } from './NextStageNavigator';
 
 interface GovernanceAnalyticsProps {
   onNavigateToTab?: (tab: string) => void;
@@ -729,6 +731,23 @@ Audited by Inkloom BrandGuard Pre-Publication Governance Engine.`;
           </div>
         </div>
       </div>
+
+      {/* Next Stage in Governance Lifecycle */}
+      {onNavigateToTab && (
+        <NextStageNavigator
+          currentStageNumber={6}
+          totalStages={6}
+          currentStageName="Governance Analytics & ROI Intelligence"
+          prevTab="review"
+          prevTabName="Review Hub"
+          nextTab="vault"
+          nextTabName="Brand Vault (Rules & Policy Ledger)"
+          nextTabDescription="Explore the single source of truth: verified factual SLA ledger, deprecated terminology glossary, and brand voice guidelines."
+          nextTabIcon={Database}
+          onNavigate={onNavigateToTab}
+          recommendedAction="Customize verified SLA claims and deprecated terms directly in the Brand Vault."
+        />
+      )}
 
       {/* Executive Report Export Modal */}
       {showExportModal && (

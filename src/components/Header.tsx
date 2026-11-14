@@ -2,6 +2,7 @@ import React from 'react';
 import { 
   ShieldCheck, 
   HelpCircle,
+  Compass,
   FileText,
   Globe,
   Palette,
@@ -20,6 +21,8 @@ interface HeaderProps {
   onTabChange: (tab: string) => void;
   onOpenWelcome?: () => void;
   overallScore?: number;
+  onToggleTour?: () => void;
+  isTourActive?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -27,7 +30,9 @@ export const Header: React.FC<HeaderProps> = ({
   onRoleChange,
   activeTab,
   onTabChange,
-  onOpenWelcome
+  onOpenWelcome,
+  onToggleTour,
+  isTourActive
 }) => {
   const navTabs = [
     { id: 'studio', label: 'Studio', icon: FileText, desc: 'Real-Time Content Studio & Diff' },
@@ -133,6 +138,21 @@ export const Header: React.FC<HeaderProps> = ({
                 <span className="hidden sm:inline">Legal</span>
               </button>
             </div>
+
+            {onToggleTour && (
+              <button
+                onClick={onToggleTour}
+                className={`flex items-center space-x-1.5 px-2.5 py-1.5 rounded-xl border transition-all text-xs font-semibold shadow-inner ${
+                  isTourActive
+                    ? 'bg-blue-600/20 text-blue-300 border-blue-500/40 ring-1 ring-blue-500/30'
+                    : 'bg-slate-950/80 border-slate-800 text-amber-400 hover:text-white hover:bg-slate-900'
+                }`}
+                title="Toggle Guided Demo Tour"
+              >
+                <Compass className="w-3.5 h-3.5 text-amber-400" />
+                <span className="hidden sm:inline">Tour</span>
+              </button>
+            )}
 
             {onOpenWelcome && (
               <button

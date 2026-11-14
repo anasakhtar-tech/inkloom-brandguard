@@ -13,7 +13,8 @@ import {
   Ratio, 
   ShieldCheck,
   UploadCloud,
-  RefreshCw
+  RefreshCw,
+  Globe
 } from 'lucide-react';
 import { 
   PRESET_VISUAL_ASSETS, 
@@ -21,8 +22,13 @@ import {
   APPROVED_BRAND_PALETTE, 
   getContrastRatio 
 } from '../services/visualEngine';
+import { NextStageNavigator } from './NextStageNavigator';
 
-export const VisualBrandInspector: React.FC = () => {
+interface VisualBrandInspectorProps {
+  onNavigateToTab?: (tab: string) => void;
+}
+
+export const VisualBrandInspector: React.FC<VisualBrandInspectorProps> = ({ onNavigateToTab }) => {
   const [selectedAsset, setSelectedAsset] = useState<VisualAssetReport>(PRESET_VISUAL_ASSETS[0]);
   const [showBoundingBoxes, setShowBoundingBoxes] = useState<boolean>(true);
   const [showClearspaceGrid, setShowClearspaceGrid] = useState<boolean>(true);
@@ -431,6 +437,23 @@ export const VisualBrandInspector: React.FC = () => {
         </div>
 
       </div>
+
+      {/* Next Stage in Governance Lifecycle */}
+      {onNavigateToTab && (
+        <NextStageNavigator
+          currentStageNumber={2}
+          totalStages={6}
+          currentStageName="Visual Brand Inspector (Graphics & Assets)"
+          prevTab="studio"
+          prevTabName="Content Studio"
+          nextTab="extension"
+          nextTabName="In-Situ Extension Simulator"
+          nextTabDescription="Test real-time ambient governance directly inside Google Docs and Notion authoring environments."
+          nextTabIcon={Globe}
+          onNavigate={onNavigateToTab}
+          recommendedAction="Observe the floating health badge update as you edit in the live sandbox."
+        />
+      )}
     </div>
   );
 };

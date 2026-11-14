@@ -13,23 +13,27 @@ import {
   Split,
   RefreshCw,
   Plus,
-  Edit3
+  Edit3,
+  Palette
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { DocumentItem, Violation, UserRole } from '../types';
 import { auditContent, applyCorrection, scrubConfidentialData, AuditResult } from '../services/brandEngine';
 import { ViolationCard } from './ViolationCard';
 import { samplePresetDocuments } from '../data/brandVaultData';
+import { NextStageNavigator } from './NextStageNavigator';
 
 interface ContentStudioProps {
   currentRole: UserRole;
   onOpenCertificate: (doc: DocumentItem) => void;
   onUpdateDocumentList: (docs: DocumentItem[]) => void;
+  onNavigateToTab?: (tab: string) => void;
 }
 
 export const ContentStudio: React.FC<ContentStudioProps> = ({
   currentRole,
-  onOpenCertificate
+  onOpenCertificate,
+  onNavigateToTab
 }) => {
   const [activeDoc, setActiveDoc] = useState<DocumentItem>(samplePresetDocuments[0]);
   const [docTitle, setDocTitle] = useState<string>(samplePresetDocuments[0].title);
@@ -606,6 +610,21 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
           </div>
         </div>
       </div>
+
+      {/* Next Stage in Governance Lifecycle */}
+      {onNavigateToTab && (
+        <NextStageNavigator
+          currentStageNumber={1}
+          totalStages={6}
+          currentStageName="Content Studio (Text Governance)"
+          nextTab="visual"
+          nextTabName="Visual Brand Inspector"
+          nextTabDescription="Verify promotional banners, logo clearspace buffer, and text-over-image WCAG luminance contrast."
+          nextTabIcon={Palette}
+          onNavigate={onNavigateToTab}
+          recommendedAction="Click Auto-Conform in Visual Inspector to fix logo clearspace and aspect ratio."
+        />
+      )}
     </div>
   );
 };

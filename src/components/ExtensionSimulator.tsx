@@ -10,11 +10,17 @@ import {
   Layers, 
   RefreshCw,
   Copy,
-  Check
+  Check,
+  GitBranch
 } from 'lucide-react';
 import { auditContent } from '../services/brandEngine';
+import { NextStageNavigator } from './NextStageNavigator';
 
-export const ExtensionSimulator: React.FC = () => {
+interface ExtensionSimulatorProps {
+  onNavigateToTab?: (tab: string) => void;
+}
+
+export const ExtensionSimulator: React.FC<ExtensionSimulatorProps> = ({ onNavigateToTab }) => {
   const [editorText, setEditorText] = useState<string>(
     `Welcome to the new release of inkloom brandguard!\n\nOur system delivers guaranteed 100% flawless uptime with an unbeatable 99.999% SLA.\nCustomers can now replace their cheap legacy tools with our miraculous AI solution.`
   );
@@ -270,6 +276,23 @@ export const ExtensionSimulator: React.FC = () => {
         </div>
 
       </div>
+
+      {/* Next Stage in Governance Lifecycle */}
+      {onNavigateToTab && (
+        <NextStageNavigator
+          currentStageNumber={3}
+          totalStages={6}
+          currentStageName="In-Situ Extension (Browser Overlay)"
+          prevTab="visual"
+          prevTabName="Visual Inspector"
+          nextTab="cicd"
+          nextTabName="Enterprise CI/CD Gatekeeper"
+          nextTabDescription="Evaluate pull requests & CMS webhooks against governance policies before build deployments."
+          nextTabIcon={GitBranch}
+          onNavigate={onNavigateToTab}
+          recommendedAction="Run CI/CD audit on PR #412 to test automated release blocking."
+        />
+      )}
     </div>
   );
 };

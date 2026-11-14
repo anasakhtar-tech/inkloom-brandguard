@@ -10,6 +10,7 @@ import { GovernanceAnalytics } from './components/GovernanceAnalytics';
 import { ResponsibleAICenter } from './components/ResponsibleAICenter';
 import { AuditCertificateModal } from './components/AuditCertificateModal';
 import { WelcomeModal } from './components/WelcomeModal';
+import { GuidedTourBar } from './components/GuidedTourBar';
 import { UserRole, DocumentItem } from './types';
 import { samplePresetDocuments } from './data/brandVaultData';
 
@@ -19,6 +20,14 @@ export function App() {
   const [documents, setDocuments] = useState<DocumentItem[]>(samplePresetDocuments);
   const [certificateDoc, setCertificateDoc] = useState<DocumentItem | null>(null);
   const [showWelcome, setShowWelcome] = useState<boolean>(true);
+  const [isTourOpen, setIsTourOpen] = useState<boolean>(false);
+
+  const handleStartTour = () => {
+    setShowWelcome(false);
+    setIsTourOpen(true);
+    setActiveTab('studio');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-blue-600 selection:text-white w-full max-w-full overflow-x-hidden">
@@ -30,25 +39,36 @@ export function App() {
         onTabChange={setActiveTab}
         onOpenWelcome={() => setShowWelcome(true)}
         overallScore={94}
+        onToggleTour={() => setIsTourOpen(!isTourOpen)}
+        isTourActive={isTourOpen}
       />
 
       {/* Main Tab Routing */}
-      <main className="flex-1">
+      <main className="flex-1 pb-16">
         {activeTab === 'studio' && (
           <ContentStudio
             currentRole={currentRole}
             onOpenCertificate={(doc) => setCertificateDoc(doc)}
             onUpdateDocumentList={setDocuments}
+            onNavigateToTab={setActiveTab}
           />
         )}
 
-        {activeTab === 'extension' && <ExtensionSimulator />}
+        {activeTab === 'extension' && (
+          <ExtensionSimulator onNavigateToTab={setActiveTab} />
+        )}
 
-        {activeTab === 'visual' && <VisualBrandInspector />}
+        {activeTab === 'visual' && (
+          <VisualBrandInspector onNavigateToTab={setActiveTab} />
+        )}
 
-        {activeTab === 'cicd' && <EnterpriseCICDHub />}
+        {activeTab === 'cicd' && (
+          <EnterpriseCICDHub onNavigateToTab={setActiveTab} />
+        )}
 
-        {activeTab === 'vault' && <BrandVault />}
+        {activeTab === 'vault' && (
+          <BrandVault />
+        )}
 
         {activeTab === 'review' && (
           <ReviewHub
@@ -56,13 +76,26 @@ export function App() {
             onOpenCertificate={(doc) => setCertificateDoc(doc)}
             onNavigateToStudio={() => setActiveTab('studio')}
             onRoleChange={setCurrentRole}
+            onNavigateToTab={setActiveTab}
           />
         )}
 
-        {activeTab === 'analytics' && <GovernanceAnalytics onNavigateToTab={setActiveTab} />}
+        {activeTab === 'analytics' && (
+          <GovernanceAnalytics onNavigateToTab={setActiveTab} />
+        )}
 
-        {activeTab === 'responsible' && <ResponsibleAICenter />}
+        {activeTab === 'responsible' && (
+          <ResponsibleAICenter />
+        )}
       </main>
+
+      {/* Interactive Floating Guided Tour Bar */}
+      <GuidedTourBar
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+        isOpen={isTourOpen}
+        onClose={() => setIsTourOpen(false)}
+      />
 
       {/* Compliance Audit Certificate Modal */}
       {certificateDoc && (
@@ -76,6 +109,8 @@ export function App() {
       <WelcomeModal
         isOpen={showWelcome}
         onClose={() => setShowWelcome(false)}
+        onStartTour={handleStartTour}
+        onNavigateToTab={setActiveTab}
       />
 
       {/* Application Footer */}
@@ -98,4 +133,3 @@ export function App() {
 }
 
 export default App;
-
