@@ -40,6 +40,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
   const [piiScrubberActive, setPiiScrubberActive] = useState<boolean>(false);
   const [selectedPresetId, setSelectedPresetId] = useState<string>(samplePresetDocuments[0].id);
   const [viewMode, setViewMode] = useState<'editor' | 'diff'>('editor');
+  const [hasAppliedFixes, setHasAppliedFixes] = useState<boolean>(false);
 
   const runAudit = (text: string) => {
     setIsAuditing(true);
@@ -64,6 +65,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
       setDocTitle(selected.title);
       setEditorText(selected.content);
       setOriginalDraft(selected.content);
+      setHasAppliedFixes(false);
       setViewMode('editor');
       const res = auditContent(selected.content);
       setAuditData(res);
@@ -71,7 +73,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
   };
 
   const handleCreateNewDoc = () => {
-    const defaultTitle = 'My New Document';
+    const defaultTitle = 'My Custom Document';
     const newDoc: DocumentItem = {
       id: `custom-${Date.now()}`,
       title: defaultTitle,
@@ -90,6 +92,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
     setDocTitle(defaultTitle);
     setEditorText('');
     setOriginalDraft('');
+    setHasAppliedFixes(false);
     setViewMode('editor');
     const res = auditContent('');
     setAuditData(res);
@@ -104,12 +107,22 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
   };
 
   const handleApplyViolation = (violation: Violation) => {
+    // Lock in the original unedited text before applying the first fix
+    if (!hasAppliedFixes || !originalDraft.trim()) {
+      setOriginalDraft(editorText);
+      setHasAppliedFixes(true);
+    }
     const updated = applyCorrection(editorText, violation.flaggedText, violation.suggestedCorrection);
     setEditorText(updated);
     runAudit(updated);
   };
 
   const handleApplyAll = () => {
+    // Lock in the original unedited text before applying the fixes
+    if (!hasAppliedFixes || !originalDraft.trim()) {
+      setOriginalDraft(editorText);
+      setHasAppliedFixes(true);
+    }
     let current = editorText;
     for (const v of auditData.violations) {
       if (!v.applied && !v.ignored) {
@@ -127,9 +140,12 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
   };
 
   const handleResetToOriginal = () => {
-    setEditorText(originalDraft);
-    setViewMode('editor');
-    runAudit(originalDraft);
+    if (originalDraft && originalDraft.trim()) {
+      setEditorText(originalDraft);
+      setHasAppliedFixes(false);
+      setViewMode('editor');
+      runAudit(originalDraft);
+    }
   };
 
   const handleIgnore = (violationId: string) => {
@@ -178,7 +194,11 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
 
   const scoreTheme = getScoreColor(auditData.score);
   const unresolvedViolations = auditData.violations.filter(v => !v.applied && !v.ignored);
-  const hasChanges = editorText.trim() !== originalDraft.trim();
+  const hasChanges = Boolean(
+    originalDraft.trim() && 
+    editorText.trim() && 
+    editorText.trim() !== originalDraft.trim()
+  );
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
@@ -380,8 +400,13 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                 <textarea
                   value={editorText}
                   onChange={(e) => {
-                    setEditorText(e.target.value);
-                    runAudit(e.target.value);
+                    const val = e.target.value;
+                    setEditorText(val);
+                    // Keep original draft in sync while authoring custom text before any fixes are applied
+                    if (!hasAppliedFixes && selectedPresetId === 'custom') {
+                      setOriginalDraft(val);
+                    }
+                    runAudit(val);
                   }}
                   rows={14}
                   className="w-full bg-slate-950/70 border border-slate-800/80 rounded-xl p-4 text-slate-200 text-sm font-sans leading-relaxed focus:outline-none focus:ring-1 focus:ring-blue-500/60 resize-y"
@@ -398,9 +423,18 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                     <Split className="w-3.5 h-3.5 text-blue-400" />
                     <span>Side-by-Side Revisions Comparison</span>
                   </span>
-                  <span className="text-[10px] bg-blue-500/10 text-blue-300 px-2 py-0.5 rounded border border-blue-500/20">
-                    Modifications detected
-                  </span>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-[10px] bg-blue-500/10 text-blue-300 px-2 py-0.5 rounded border border-blue-500/20">
+                      Modifications detected
+                    </span>
+                    <button
+                      onClick={handleResetToOriginal}
+                      className="text-[10px] text-slate-400 hover:text-slate-200 underline"
+                      title="Revert back to original off-brand text"
+                    >
+                      Revert to original
+                    </button>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1 text-xs">
@@ -410,7 +444,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                       <span className="text-[9px] bg-red-950/80 px-1.5 py-0.5 rounded text-red-300 border border-red-800/50">Before</span>
                     </div>
                     <p className="text-red-200/80 leading-relaxed font-mono text-[11px] whitespace-pre-line">
-                      {originalDraft}
+                      {originalDraft.trim() || editorText}
                     </p>
                   </div>
 
