@@ -1,5 +1,16 @@
 import React from 'react';
-import { ShieldCheck, UserCheck, Scale, Sparkles, Lock, FileCheck, HelpCircle } from 'lucide-react';
+import { 
+  ShieldCheck, 
+  HelpCircle,
+  FileText,
+  Globe,
+  Palette,
+  GitBranch,
+  Database,
+  Users,
+  BarChart3,
+  Lock
+} from 'lucide-react';
 import { UserRole } from '../types';
 
 interface HeaderProps {
@@ -18,155 +29,105 @@ export const Header: React.FC<HeaderProps> = ({
   onTabChange,
   onOpenWelcome
 }) => {
+  const navTabs = [
+    { id: 'studio', label: 'Studio', icon: FileText, desc: 'Real-Time Content Studio & Diff' },
+    { id: 'extension', label: 'Extension', icon: Globe, desc: 'In-Situ Browser Extension Simulator' },
+    { id: 'visual', label: 'Visual', icon: Palette, desc: 'Multimodal Brand & Visual Inspector' },
+    { id: 'cicd', label: 'CI/CD', icon: GitBranch, desc: 'Enterprise Release & Webhook Gate' },
+    { id: 'vault', label: 'Vault', icon: Database, desc: 'Brand Vault & Governing Policies' },
+    { id: 'review', label: 'Review', icon: Users, desc: 'Multi-Stakeholder Sign-Off Queue' },
+    { id: 'analytics', label: 'Analytics', icon: BarChart3, desc: 'Compliance & Governance Intelligence' },
+    { id: 'responsible', label: 'Privacy', icon: Lock, desc: 'Confidentiality & PII Scrubber' }
+  ];
+
   return (
-    <header className="bg-slate-900 border-b border-slate-800 sticky top-0 z-50 shadow-xl w-full">
+    <header className="bg-slate-900/95 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 shadow-xl w-full">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between min-h-[3.75rem] sm:min-h-[4.25rem] py-1 gap-1.5 sm:gap-4">
+        <div className="flex items-center justify-between min-h-[3.75rem] sm:min-h-[4.25rem] py-1.5 gap-2 sm:gap-4">
           
           {/* Brand Logo & Title */}
           <div 
-            className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 cursor-pointer select-none" 
+            className="flex items-center space-x-2 sm:space-x-3 flex-shrink-0 cursor-pointer select-none group" 
             onClick={() => onTabChange('studio')}
+            title="Go to Content Studio"
           >
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-md shadow-blue-500/20 flex-shrink-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 flex items-center justify-center shadow-md shadow-blue-500/20 flex-shrink-0 group-hover:scale-105 transition-transform">
               <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
 
             <div className="flex flex-col justify-center">
               <div className="flex items-center space-x-2">
-                <span className="text-sm sm:text-base md:text-lg font-extrabold tracking-tight text-white font-sans whitespace-nowrap">
+                <span className="text-sm sm:text-base md:text-lg font-black tracking-tight text-white font-sans whitespace-nowrap">
                   Inkloom BrandGuard
                 </span>
               </div>
               <p className="text-[11px] text-slate-400 whitespace-nowrap hidden md:block">
-                Intelligent Pre-Publication Brand Governance & Compliance Platform
+                Intelligent Pre-Publication Brand Governance Platform
               </p>
             </div>
           </div>
 
-          {/* Navigation Tabs */}
-          <nav className="hidden xl:flex items-center space-x-1 bg-slate-950/80 p-1 rounded-xl border border-slate-800 flex-shrink-0">
-            <button
-              onClick={() => onTabChange('studio')}
-              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
-                activeTab === 'studio'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-              }`}
-            >
-              1. Studio
-            </button>
-            <button
-              onClick={() => onTabChange('extension')}
-              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap flex items-center space-x-1 ${
-                activeTab === 'extension'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-              }`}
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
-              <span>2. Extension (In-Situ)</span>
-            </button>
-            <button
-              onClick={() => onTabChange('visual')}
-              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap flex items-center space-x-1 ${
-                activeTab === 'visual'
-                  ? 'bg-indigo-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-              }`}
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-              <span>3. Visual Studio</span>
-            </button>
-            <button
-              onClick={() => onTabChange('cicd')}
-              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap flex items-center space-x-1 ${
-                activeTab === 'cicd'
-                  ? 'bg-emerald-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-              }`}
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-              <span>4. CI/CD Gate</span>
-            </button>
-            <button
-              onClick={() => onTabChange('vault')}
-              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
-                activeTab === 'vault'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-              }`}
-            >
-              5. Vault
-            </button>
-            <button
-              onClick={() => onTabChange('review')}
-              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
-                activeTab === 'review'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-              }`}
-            >
-              6. Review Hub
-            </button>
-            <button
-              onClick={() => onTabChange('analytics')}
-              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
-                activeTab === 'analytics'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-              }`}
-            >
-              7. Analytics
-            </button>
-            <button
-              onClick={() => onTabChange('responsible')}
-              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
-                activeTab === 'responsible'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
-              }`}
-            >
-              8. Privacy
-            </button>
+          {/* Modern Desktop Navigation Tabs (Clean, Icon-Driven, No Numbers) */}
+          <nav className="hidden xl:flex items-center space-x-1 bg-slate-950/80 p-1 rounded-2xl border border-slate-800/80 shadow-inner flex-shrink-0">
+            {navTabs.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => onTabChange(tab.id)}
+                  title={tab.desc}
+                  className={`group relative flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-xl transition-all duration-150 select-none whitespace-nowrap ${
+                    isActive
+                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/30 font-bold'
+                      : 'text-slate-400 hover:text-slate-100 hover:bg-slate-900/90'
+                  }`}
+                >
+                  <Icon className={`w-3.5 h-3.5 transition-colors ${
+                    isActive ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'
+                  }`} />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
           </nav>
 
-          {/* Right Section: Role Switcher */}
+          {/* Right Section: Role Switcher & About Modal */}
           <div className="flex items-center space-x-1.5 sm:space-x-2 flex-shrink-0">
-            <div className="flex items-center bg-slate-950 p-0.5 sm:p-1 rounded-xl border border-slate-800 text-xs">
-              <span className="text-slate-400 text-[11px] px-1.5 font-semibold hidden xl:inline">Role:</span>
+            <div className="flex items-center bg-slate-950/80 p-1 rounded-2xl border border-slate-800 text-xs shadow-inner">
+              <span className="text-slate-500 text-[11px] px-1.5 font-semibold hidden xl:inline">Role:</span>
               <button
                 onClick={() => onRoleChange('creator')}
-                className={`flex items-center space-x-1 px-1.5 sm:px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap ${
+                className={`flex items-center space-x-1 px-2 sm:px-2.5 py-1 rounded-xl font-medium transition-all whitespace-nowrap ${
                   currentRole === 'creator'
-                    ? 'bg-blue-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-blue-600 text-white font-bold shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
                 }`}
-                title="Switch to Creator role"
+                title="Switch to Creator role (Drafting & Applying Suggestions)"
               >
                 <span>✍️</span>
                 <span className="hidden sm:inline">Creator</span>
               </button>
               <button
                 onClick={() => onRoleChange('reviewer')}
-                className={`flex items-center space-x-1 px-1.5 sm:px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap ${
+                className={`flex items-center space-x-1 px-2 sm:px-2.5 py-1 rounded-xl font-medium transition-all whitespace-nowrap ${
                   currentRole === 'reviewer'
-                    ? 'bg-indigo-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-indigo-600 text-white font-bold shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
                 }`}
-                title="Switch to Reviewer role"
+                title="Switch to Reviewer role (Brand Consistency Sign-Off)"
               >
                 <span>🔍</span>
                 <span className="hidden sm:inline">Reviewer</span>
               </button>
               <button
                 onClick={() => onRoleChange('legal')}
-                className={`flex items-center space-x-1 px-1.5 sm:px-2.5 py-1 rounded-lg font-medium transition-all whitespace-nowrap ${
+                className={`flex items-center space-x-1 px-2 sm:px-2.5 py-1 rounded-xl font-medium transition-all whitespace-nowrap ${
                   currentRole === 'legal'
-                    ? 'bg-amber-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-amber-600 text-white font-bold shadow-sm'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
                 }`}
-                title="Switch to Legal role"
+                title="Switch to Legal role (Regulatory & Overrides)"
               >
                 <span>⚖️</span>
                 <span className="hidden sm:inline">Legal</span>
@@ -176,7 +137,7 @@ export const Header: React.FC<HeaderProps> = ({
             {onOpenWelcome && (
               <button
                 onClick={onOpenWelcome}
-                className="flex items-center space-x-1 p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-400 hover:text-white transition-all text-xs font-medium"
+                className="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-xl bg-slate-950/80 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-900 transition-all text-xs font-semibold shadow-inner"
                 title="About Inkloom BrandGuard"
               >
                 <HelpCircle className="w-3.5 h-3.5 text-blue-400" />
@@ -187,72 +148,26 @@ export const Header: React.FC<HeaderProps> = ({
 
         </div>
 
-        {/* Mobile & Tablet Navigation Sub-Bar (Smooth horizontal scroll across all screen sizes) */}
-        <div className="xl:hidden flex items-center pb-2 pt-1.5 border-t border-slate-800/60 overflow-x-auto space-x-1.5 text-xs no-scrollbar">
-          <button
-            onClick={() => onTabChange('studio')}
-            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'studio' ? 'bg-blue-600 text-white' : 'text-slate-400 bg-slate-950/60'
-            }`}
-          >
-            1. Studio
-          </button>
-          <button
-            onClick={() => onTabChange('extension')}
-            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'extension' ? 'bg-indigo-600 text-white' : 'text-slate-400 bg-slate-950/60'
-            }`}
-          >
-            2. Extension
-          </button>
-          <button
-            onClick={() => onTabChange('visual')}
-            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'visual' ? 'bg-cyan-600 text-white' : 'text-slate-400 bg-slate-950/60'
-            }`}
-          >
-            3. Visual
-          </button>
-          <button
-            onClick={() => onTabChange('cicd')}
-            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'cicd' ? 'bg-emerald-600 text-white' : 'text-slate-400 bg-slate-950/60'
-            }`}
-          >
-            4. CI/CD
-          </button>
-          <button
-            onClick={() => onTabChange('vault')}
-            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'vault' ? 'bg-blue-600 text-white' : 'text-slate-400 bg-slate-950/60'
-            }`}
-          >
-            5. Vault
-          </button>
-          <button
-            onClick={() => onTabChange('review')}
-            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'review' ? 'bg-blue-600 text-white' : 'text-slate-400 bg-slate-950/60'
-            }`}
-          >
-            6. Review
-          </button>
-          <button
-            onClick={() => onTabChange('analytics')}
-            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'analytics' ? 'bg-blue-600 text-white' : 'text-slate-400 bg-slate-950/60'
-            }`}
-          >
-            7. Analytics
-          </button>
-          <button
-            onClick={() => onTabChange('responsible')}
-            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'responsible' ? 'bg-blue-600 text-white' : 'text-slate-400 bg-slate-950/60'
-            }`}
-          >
-            8. Privacy
-          </button>
+        {/* Mobile & Tablet Navigation Sub-Bar (Smooth horizontal scroll, Icons, No Numbers) */}
+        <div className="xl:hidden flex items-center pb-2.5 pt-1.5 border-t border-slate-800/60 overflow-x-auto space-x-1.5 text-xs no-scrollbar">
+          {navTabs.map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => onTabChange(tab.id)}
+                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-xl font-semibold whitespace-nowrap transition-all select-none ${
+                  isActive
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/25 font-bold'
+                    : 'text-slate-400 bg-slate-950/70 border border-slate-800/80 hover:text-slate-200 hover:bg-slate-900'
+                }`}
+              >
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : 'text-slate-500'}`} />
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
         </div>
 
       </div>
