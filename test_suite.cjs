@@ -5,7 +5,15 @@ const initialGlossary = [
   { id: 'GLOSS-3', deprecatedTerm: 'crypto coin', approvedTerm: 'Digital Asset', caseSensitive: false, reason: 'Institutional compliance.' },
   { id: 'GLOSS-4', deprecatedTerm: 'master-slave', approvedTerm: 'primary-replica', caseSensitive: false, reason: 'Inclusive language.' },
   { id: 'GLOSS-5', deprecatedTerm: 'patients', approvedTerm: 'members', caseSensitive: false, reason: 'Member-centric vocabulary.' },
-  { id: 'GLOSS-6', deprecatedTerm: 'web app', approvedTerm: 'Web Portal', caseSensitive: true, reason: 'Official trademark.' }
+  { id: 'GLOSS-6', deprecatedTerm: 'web app', approvedTerm: 'Web Portal', caseSensitive: true, reason: 'Official trademark.' },
+  { id: 'GLOSS-7', deprecatedTerm: 'whitelist', approvedTerm: 'allowlist', caseSensitive: false, reason: 'Modern cybersecurity standards.' },
+  { id: 'GLOSS-8', deprecatedTerm: 'blacklist', approvedTerm: 'denylist', caseSensitive: false, reason: 'Cybersecurity best practice.' },
+  { id: 'GLOSS-9', deprecatedTerm: 'sanity check', approvedTerm: 'confidence verification', caseSensitive: false, reason: 'Inclusive terminology.' },
+  { id: 'GLOSS-10', deprecatedTerm: 'dummy data', approvedTerm: 'sample data', caseSensitive: false, reason: 'Technical documentation standard.' },
+  { id: 'GLOSS-11', deprecatedTerm: 'cheap pricing', approvedTerm: 'competitive pricing', caseSensitive: false, reason: 'Brand positioning.' },
+  { id: 'GLOSS-12', deprecatedTerm: 'guys', approvedTerm: 'team', caseSensitive: false, reason: 'Inclusive communication.' },
+  { id: 'GLOSS-13', deprecatedTerm: 'end user', approvedTerm: 'customer', caseSensitive: false, reason: 'Human-centric terminology.' },
+  { id: 'GLOSS-14', deprecatedTerm: 'black box', approvedTerm: 'opaque model', caseSensitive: false, reason: 'Responsible AI transparency.' }
 ];
 
 function auditContent(text, activeColors = []) {
@@ -380,6 +388,19 @@ const cleanPR = evaluatePR(cleanText);
 check(cleanPR.status === 'PASSED', 'Clean PR passes CI/CD policy gate');
 check(cleanPR.exitCode === 0, 'Passing PR returns Exit Code 0');
 check(cleanPR.token.startsWith('inkloom_sig_v3_'), 'Passing PR receives signed HMAC compliance token', cleanPR.token);
+
+// SUITE 10: Expanded Enterprise Terminology & Inclusive Language
+console.log("\n--- SUITE 10: Expanded Enterprise Terminology & Inclusivity ---");
+const termsSnippet = "Please whitelist this IP, blacklist the old server, run a quick sanity check with dummy data, and notify the guys and end user about cheap pricing.";
+const termAudit = auditContent(termsSnippet);
+
+check(termAudit.violations.some(v => v.suggestedCorrection === 'allowlist'), 'Flags "whitelist" -> suggests "allowlist"');
+check(termAudit.violations.some(v => v.suggestedCorrection === 'denylist'), 'Flags "blacklist" -> suggests "denylist"');
+check(termAudit.violations.some(v => v.suggestedCorrection === 'confidence verification'), 'Flags "sanity check" -> suggests "confidence verification"');
+check(termAudit.violations.some(v => v.suggestedCorrection === 'sample data'), 'Flags "dummy data" -> suggests "sample data"');
+check(termAudit.violations.some(v => v.suggestedCorrection === 'team'), 'Flags "guys" -> suggests "team"');
+check(termAudit.violations.some(v => v.suggestedCorrection === 'customer'), 'Flags "end user" -> suggests "customer"');
+check(termAudit.violations.some(v => v.suggestedCorrection === 'competitive pricing'), 'Flags "cheap pricing" -> suggests "competitive pricing"');
 
 console.log("\n==================================================================");
 console.log(`TEST SUMMARY: ${passed} / ${total} TESTS PASSED (${((passed/total)*100).toFixed(1)}%)`);

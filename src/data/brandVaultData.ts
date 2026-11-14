@@ -46,6 +46,28 @@ export const initialGuidelines: BrandGuideline[] = [
     ]
   },
   {
+    id: 'TERM-03',
+    category: 'terminology',
+    title: 'Cybersecurity & Infrastructure Allowlisting',
+    rule: 'Replace outdated security idioms like "whitelist" with "allowlist" and "blacklist" with "denylist".',
+    rationale: 'Aligns with modern IETF, NIST, and enterprise cybersecurity taxonomy.',
+    severity: 'critical',
+    examples: [
+      { bad: 'Add IP addresses to the firewall whitelist.', good: 'Add IP addresses to the firewall allowlist.' }
+    ]
+  },
+  {
+    id: 'TERM-04',
+    category: 'terminology',
+    title: 'Professional Positioning & Developer Vocabulary',
+    rule: 'Avoid colloquialisms like "dummy data" (use "sample data") and "cheap pricing" (use "competitive pricing").',
+    rationale: 'Preserves executive brand authority and high-ROI market perception.',
+    severity: 'warning',
+    examples: [
+      { bad: 'Populate the test environment with dummy data.', good: 'Populate the test environment with sample data.' }
+    ]
+  },
+  {
     id: 'FACT-01',
     category: 'facts',
     title: 'Verified Uptime & Performance SLAs',
@@ -150,6 +172,70 @@ export const initialGlossary: GlossaryTerm[] = [
     caseSensitive: true,
     category: 'Product Trademark',
     reason: 'Official trademark capitalization standard.'
+  },
+  {
+    id: 'GLOSS-7',
+    deprecatedTerm: 'whitelist',
+    approvedTerm: 'allowlist',
+    caseSensitive: false,
+    category: 'Cybersecurity',
+    reason: 'Modern IETF and NIST cybersecurity standards mandate allowlist over whitelist.'
+  },
+  {
+    id: 'GLOSS-8',
+    deprecatedTerm: 'blacklist',
+    approvedTerm: 'denylist',
+    caseSensitive: false,
+    category: 'Cybersecurity',
+    reason: 'Industry cybersecurity best practice replaces blacklist with denylist/blocklist.'
+  },
+  {
+    id: 'GLOSS-9',
+    deprecatedTerm: 'sanity check',
+    approvedTerm: 'confidence verification',
+    caseSensitive: false,
+    category: 'Inclusivity',
+    reason: 'Replaces ableist idioms with precise technical verification terminology.'
+  },
+  {
+    id: 'GLOSS-10',
+    deprecatedTerm: 'dummy data',
+    approvedTerm: 'sample data',
+    caseSensitive: false,
+    category: 'Developer Voice',
+    reason: 'Enterprise technical documentation requires sample data or synthetic data.'
+  },
+  {
+    id: 'GLOSS-11',
+    deprecatedTerm: 'cheap pricing',
+    approvedTerm: 'competitive pricing',
+    caseSensitive: false,
+    category: 'Brand Positioning',
+    reason: 'Avoids discount commodity perception; reinforces enterprise value and high ROI.'
+  },
+  {
+    id: 'GLOSS-12',
+    deprecatedTerm: 'guys',
+    approvedTerm: 'team',
+    caseSensitive: false,
+    category: 'Workplace Voice',
+    reason: 'Encourages gender-neutral, inclusive corporate team communication.'
+  },
+  {
+    id: 'GLOSS-13',
+    deprecatedTerm: 'end user',
+    approvedTerm: 'customer',
+    caseSensitive: false,
+    category: 'Customer-Centricity',
+    reason: 'Human-centric vocabulary: prefer customer, client, or practitioner over end user.'
+  },
+  {
+    id: 'GLOSS-14',
+    deprecatedTerm: 'black box',
+    approvedTerm: 'opaque model',
+    caseSensitive: false,
+    category: 'Responsible AI',
+    reason: 'Responsible AI transparency guidelines mandate clear, descriptive technical terms.'
   }
 ];
 
