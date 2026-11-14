@@ -21,7 +21,7 @@ export function App() {
   const [showWelcome, setShowWelcome] = useState<boolean>(true);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-blue-600 selection:text-white w-full max-w-full overflow-x-hidden">
       {/* Global Navigation Header */}
       <Header
         currentRole={currentRole}
