@@ -39,13 +39,20 @@ export function auditContent(text: string, activeColors: string[] = []): AuditRe
 
     let match;
     while ((match = regex.exec(text)) !== null) {
+      const isWarning = [
+        'Workplace Voice', 
+        'Developer Voice', 
+        'Brand Positioning', 
+        'Product Trademark'
+      ].includes(term.category);
+
       violations.push({
         id: `term-${term.id}-${match.index}`,
         dimension: 'terminology',
-        severity: 'critical',
+        severity: isWarning ? 'warning' : 'critical',
         flaggedText: match[0],
         explanation: `Deprecated terminology: "${match[0]}". ${term.reason}`,
-        guidelineCitation: 'Brand Guideline Rule TERM-01 (Product Suite Glossary)',
+        guidelineCitation: `Brand Guideline Rule TERM-01 (${term.category} Glossary)`,
         guidelineId: 'TERM-01',
         suggestedCorrection: term.approvedTerm,
         applied: false,

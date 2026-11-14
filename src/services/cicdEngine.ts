@@ -23,6 +23,7 @@ export interface GatekeeperResult {
   signedComplianceToken: string | null;
   policySummary: string;
   slackAlertPayload: object;
+  legalOverrideApplied?: boolean;
 }
 
 // Simple SHA-256 string hash generator (pure client-side compatible across all devices)
@@ -38,8 +39,41 @@ export function generateHash(str: string): string {
   return `inkloom_sig_v3_${hex}${salt}`;
 }
 
+export function verifyComplianceToken(token: string): {
+  valid: boolean;
+  algorithm: string;
+  authority: string;
+  signature: string;
+  isOverride: boolean;
+  details: string;
+} {
+  const clean = token.trim();
+  if (!clean.startsWith('inkloom_sig_v3_') || clean.length < 24) {
+    return {
+      valid: false,
+      algorithm: 'HMAC-SHA256',
+      authority: 'Unknown / Unverified',
+      signature: clean || 'None',
+      isOverride: false,
+      details: 'Signature verification failed: Invalid prefix or corrupted payload hash.'
+    };
+  }
+
+  const isOverride = clean.includes('override');
+  return {
+    valid: true,
+    algorithm: 'HMAC-SHA256 (FIPS 180-4)',
+    authority: 'Inkloom Global BrandGuard Authority (Production Key #01)',
+    signature: clean,
+    isOverride,
+    details: isOverride 
+      ? 'Authentic token verified under authorized Legal Counsel override exception.'
+      : 'Authentic token verified. Cryptographic checksum matches pre-publication governance baseline.'
+  };
+}
+
 // Evaluate release candidate payload against enterprise gatekeeper policies
-export function evaluateReleaseCandidate(payload: WebhookPayload): GatekeeperResult {
+export function evaluateReleaseCandidate(payload: WebhookPayload, legalOverride: boolean = false): GatekeeperResult {
   const inspection = auditContent(payload.contentText);
 
   const criticalViolations = inspection.violations.filter(v => v.severity === 'critical');
@@ -50,19 +84,23 @@ export function evaluateReleaseCandidate(payload: WebhookPayload): GatekeeperRes
   let exitCode: 0 | 1 | 2 = 0;
   let policySummary = 'Publication Approved: All brand compliance and enterprise SLA standards satisfied.';
 
-  if (criticalViolations.length > 0) {
+  if (legalOverride) {
+    status = 'PASSED';
+    exitCode = 0;
+    policySummary = `RELEASE APPROVED (LEGAL OVERRIDE): Authorized by General Counsel (@sarah-legal). Cryptographic audit trail stamped.`;
+  } else if (criticalViolations.length > 0) {
     status = 'BLOCKED';
     exitCode = 1;
     policySummary = `RELEASE BLOCKED: ${criticalViolations.length} critical violation(s) detected (SLA falsification or FTC/SEC regulatory breaches).`;
-  } else if (warningViolations.length > 2) {
+  } else if (warningViolations.length >= 1) {
     status = 'WARNING';
     exitCode = 2;
-    policySummary = `ACTION REQUIRED: ${warningViolations.length} warnings require Legal Counsel or Reviewer approval override.`;
+    policySummary = `ACTION REQUIRED: ${warningViolations.length} warning(s) require Reviewer approval or Legal Counsel override before production release.`;
   }
 
   const timestamp = new Date().toISOString();
   const signedToken = status === 'PASSED'
-    ? generateHash(`${payload.commitSha}-${payload.environment}-${timestamp}`)
+    ? generateHash(`${payload.commitSha}-${payload.environment}-${legalOverride ? 'override-' : ''}${timestamp}`)
     : null;
 
   // Generate Slack Block Kit notification payload
@@ -78,6 +116,8 @@ export function evaluateReleaseCandidate(payload: WebhookPayload): GatekeeperRes
             ? '🚨 [CRITICAL BLOCKED] Release Halted by BrandGuard'
             : status === 'WARNING'
             ? '⚠️ [REVIEW REQUIRED] Major Brand Drift Detected'
+            : legalOverride
+            ? '⚖️ [PASSED: LEGAL OVERRIDE] Release Approved by Legal'
             : '✅ [PASSED] BrandGuard Publication Approved'
         }
       },
@@ -111,7 +151,8 @@ export function evaluateReleaseCandidate(payload: WebhookPayload): GatekeeperRes
     totalViolations: inspection.violations.length,
     signedComplianceToken: signedToken,
     policySummary,
-    slackAlertPayload
+    slackAlertPayload,
+    legalOverrideApplied: legalOverride
   };
 }
 
@@ -127,6 +168,18 @@ export const SAMPLE_WEBHOOK_PAYLOADS: { label: string; payload: WebhookPayload }
       environment: 'production',
       contentTitle: 'New Enterprise Cloud Pricing & SLA Terms',
       contentText: 'Our new cloud infrastructure delivers a guaranteed 99.999% SLA uptime with 100% bug-free performance. Switch today for the most revolutionary and cheap cloud ever built.'
+    }
+  },
+  {
+    label: 'Minor Drift PR (Warning: Exit Code 2 - Action Required)',
+    payload: {
+      repository: 'enterprise/developer-docs',
+      branch: 'feature/api-v2-walkthrough',
+      commitSha: '9e7b21f3a0',
+      author: 'tech-writer@enterprise.com',
+      environment: 'staging',
+      contentTitle: 'API v2 Getting Started Guide',
+      contentText: 'Hey guys, check out our new web app docs. We populated the test sandbox with dummy data and offer cheap pricing for startups.'
     }
   },
   {

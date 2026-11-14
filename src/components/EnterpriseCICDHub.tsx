@@ -15,12 +15,15 @@ import {
   MessageSquare,
   Lock,
   Layers,
-  Sparkles
+  Sparkles,
+  RotateCcw,
+  Scale
 } from 'lucide-react';
 import { 
   SAMPLE_WEBHOOK_PAYLOADS, 
   WebhookPayload, 
   evaluateReleaseCandidate, 
+  verifyComplianceToken,
   GatekeeperResult 
 } from '../services/cicdEngine';
 
@@ -30,22 +33,36 @@ export const EnterpriseCICDHub: React.FC = () => {
   const [result, setResult] = useState<GatekeeperResult>(evaluateReleaseCandidate(SAMPLE_WEBHOOK_PAYLOADS[0].payload));
   const [isEvaluating, setIsEvaluating] = useState<boolean>(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [legalOverrideActive, setLegalOverrideActive] = useState<boolean>(false);
   const [verifyTokenInput, setVerifyTokenInput] = useState<string>('');
-  const [tokenVerifyResult, setTokenVerifyResult] = useState<'valid' | 'invalid' | null>(null);
+  const [tokenDetails, setTokenDetails] = useState<ReturnType<typeof verifyComplianceToken> | null>(null);
 
   const handleSelectPreset = (idx: number) => {
     setSelectedPresetIdx(idx);
+    setLegalOverrideActive(false);
     setActivePayload(SAMPLE_WEBHOOK_PAYLOADS[idx].payload);
-    setResult(evaluateReleaseCandidate(SAMPLE_WEBHOOK_PAYLOADS[idx].payload));
+    setResult(evaluateReleaseCandidate(SAMPLE_WEBHOOK_PAYLOADS[idx].payload, false));
   };
 
   const handleRunEvaluation = () => {
     setIsEvaluating(true);
     setTimeout(() => {
-      const res = evaluateReleaseCandidate(activePayload);
+      const res = evaluateReleaseCandidate(activePayload, legalOverrideActive);
       setResult(res);
       setIsEvaluating(false);
-    }, 400);
+    }, 300);
+  };
+
+  const handleRequestLegalOverride = () => {
+    setLegalOverrideActive(true);
+    const res = evaluateReleaseCandidate(activePayload, true);
+    setResult(res);
+  };
+
+  const handleRevokeOverride = () => {
+    setLegalOverrideActive(false);
+    const res = evaluateReleaseCandidate(activePayload, false);
+    setResult(res);
   };
 
   const handleCopy = (text: string, fieldId: string) => {
@@ -56,13 +73,18 @@ export const EnterpriseCICDHub: React.FC = () => {
 
   const handleVerifyToken = () => {
     if (!verifyTokenInput.trim()) {
-      setTokenVerifyResult(null);
+      setTokenDetails(null);
       return;
     }
-    if (verifyTokenInput.startsWith('inkloom_sig_v3_') && verifyTokenInput.length > 20) {
-      setTokenVerifyResult('valid');
-    } else {
-      setTokenVerifyResult('invalid');
+    const details = verifyComplianceToken(verifyTokenInput);
+    setTokenDetails(details);
+  };
+
+  const handleUseCurrentToken = () => {
+    if (result.signedComplianceToken) {
+      setVerifyTokenInput(result.signedComplianceToken);
+      const details = verifyComplianceToken(result.signedComplianceToken);
+      setTokenDetails(details);
     }
   };
 
@@ -142,18 +164,22 @@ jobs:
                 <span>Simulated PR / Webhook Payload</span>
               </span>
 
-              <div className="flex items-center space-x-2">
+              <div className="flex flex-wrap items-center gap-2">
                 {SAMPLE_WEBHOOK_PAYLOADS.map((sample, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSelectPreset(idx)}
                     className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                       selectedPresetIdx === idx
-                        ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/20'
+                        ? idx === 0 
+                          ? 'bg-red-600 text-white shadow-md shadow-red-500/20'
+                          : idx === 1
+                          ? 'bg-amber-600 text-white shadow-md shadow-amber-500/20'
+                          : 'bg-emerald-600 text-white shadow-md shadow-emerald-500/20'
                         : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-800'
                     }`}
                   >
-                    {idx === 0 ? '🚨 Risky PR (Blocked)' : '✅ Compliant PR (Passed)'}
+                    {idx === 0 ? '🚨 Risky PR (Exit Code 1)' : idx === 1 ? '⚠️ Warning PR (Exit Code 2)' : '✅ Compliant PR (Exit Code 0)'}
                   </button>
                 ))}
               </div>
@@ -214,16 +240,31 @@ jobs:
               result.status === 'WARNING' ? 'bg-amber-950/40 border-amber-800/60' :
               'bg-red-950/40 border-red-800/60'
             }`}>
-              <div className="flex items-center justify-between mb-2">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                 <div className="flex items-center space-x-2">
                   {result.status === 'PASSED' ? <ShieldCheck className="w-5 h-5 text-emerald-400" /> : <ShieldAlert className="w-5 h-5 text-red-400" />}
                   <span className="font-bold text-sm text-white">
                     Policy Gate Verdict: {result.status} (Exit Code: {result.exitCode})
                   </span>
+                  {legalOverrideActive && (
+                    <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-purple-900/60 text-purple-300 border border-purple-700/60">
+                      LEGAL OVERRIDE
+                    </span>
+                  )}
                 </div>
-                <span className="text-xs font-mono font-bold text-slate-300">
-                  Governance Score: {result.governanceScore}/100
-                </span>
+                <div className="flex items-center space-x-3 text-xs font-mono">
+                  <span className="font-bold text-slate-300">
+                    Governance Score: {result.governanceScore}/100
+                  </span>
+                  <button
+                    onClick={() => handleCopy(JSON.stringify(result, null, 2), 'audit-json')}
+                    className="px-2 py-0.5 rounded bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-300 text-[10px] transition-all flex items-center space-x-1"
+                    title="Copy full CI/CD Audit JSON report"
+                  >
+                    {copiedField === 'audit-json' ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3 text-blue-400" />}
+                    <span>Export Audit JSON</span>
+                  </button>
+                </div>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">{result.policySummary}</p>
 
@@ -272,34 +313,84 @@ jobs:
               </div>
 
               <div className={`p-3 rounded-lg border-l-4 ${
-                result.status === 'BLOCKED' ? 'border-red-500 bg-red-950/20' : 'border-emerald-500 bg-emerald-950/20'
+                result.status === 'BLOCKED' ? 'border-red-500 bg-red-950/20' : 
+                result.status === 'WARNING' ? 'border-amber-500 bg-amber-950/20' : 
+                'border-emerald-500 bg-emerald-950/20'
               } space-y-2`}>
-                <div className="text-xs font-bold text-slate-100">
-                  {result.status === 'BLOCKED' ? '🚨 [CRITICAL BLOCKED] Release Halted by BrandGuard Gate' : '✅ [PASSED] Release Approved for Production'}
+                <div className="text-xs font-bold text-slate-100 flex items-center justify-between">
+                  <span>
+                    {result.status === 'BLOCKED' 
+                      ? '🚨 [CRITICAL BLOCKED] Release Halted by BrandGuard Gate' 
+                      : result.status === 'WARNING'
+                      ? '⚠️ [ACTION REQUIRED] Reviewer Sign-Off Needed'
+                      : legalOverrideActive
+                      ? '⚖️ [PASSED: LEGAL OVERRIDE] Authorized by General Counsel'
+                      : '✅ [PASSED] Release Approved for Production'}
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-400">Score: {result.governanceScore}/100</span>
                 </div>
 
                 <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-300">
                   <div><strong className="text-slate-400">Repo:</strong> {activePayload.repository}</div>
                   <div><strong className="text-slate-400">Branch:</strong> {activePayload.branch}</div>
                   <div><strong className="text-slate-400">Author:</strong> {activePayload.author}</div>
-                  <div><strong className="text-slate-400">Score:</strong> {result.governanceScore}/100</div>
+                  <div><strong className="text-slate-400">Environment:</strong> {activePayload.environment.toUpperCase()}</div>
                 </div>
 
                 <div className="text-[11px] text-slate-300 pt-1">
                   {result.policySummary}
                 </div>
 
-                {result.status === 'BLOCKED' && (
-                  <div className="pt-2 flex items-center space-x-2">
-                    <button className="px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-slate-300 text-[11px] font-medium hover:bg-slate-700">
-                      View Diff in Studio
+                {result.status === 'BLOCKED' && !legalOverrideActive && (
+                  <div className="pt-2 flex flex-wrap items-center gap-2">
+                    <button 
+                      onClick={handleRequestLegalOverride}
+                      className="px-2.5 py-1 rounded bg-amber-600/20 border border-amber-600/40 text-amber-300 text-[11px] font-medium hover:bg-amber-600/30 transition-all flex items-center space-x-1"
+                    >
+                      <Scale className="w-3.5 h-3.5" />
+                      <span>Request Legal Override (@sarah-legal)</span>
                     </button>
-                    <button className="px-2.5 py-1 rounded bg-amber-600/20 border border-amber-600/40 text-amber-300 text-[11px] font-medium hover:bg-amber-600/30">
-                      Request Legal Override
+                  </div>
+                )}
+
+                {legalOverrideActive && (
+                  <div className="pt-2 flex flex-wrap items-center gap-2">
+                    <button 
+                      onClick={handleRevokeOverride}
+                      className="px-2.5 py-1 rounded bg-slate-800 border border-slate-700 text-slate-300 text-[11px] font-medium hover:bg-slate-700 transition-all flex items-center space-x-1"
+                    >
+                      <RotateCcw className="w-3 h-3" />
+                      <span>Revoke Legal Override</span>
                     </button>
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+
+          {/* Live Runner Execution Trace */}
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl space-y-2">
+            <div className="flex items-center justify-between text-xs text-slate-300 border-b border-slate-800 pb-2">
+              <span className="font-bold flex items-center space-x-1.5 font-mono text-slate-200">
+                <Terminal className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Runner Execution Trace (GitHub Actions Ubuntu-22.04)</span>
+              </span>
+              <span className="text-[10px] text-slate-500 font-mono">Job #BG-9481</span>
+            </div>
+            <div className="bg-slate-950 rounded-xl p-3 font-mono text-[11px] text-slate-300 space-y-1 h-36 overflow-y-auto border border-slate-800/80">
+              <div className="text-slate-500">[0.00s] Ingesting webhook payload from github-actions[bot]...</div>
+              <div className="text-slate-400">[0.02s] Parsing AST for branch: <span className="text-blue-400">{activePayload.branch}</span> (SHA: <span className="text-amber-400">{activePayload.commitSha}</span>)</div>
+              <div className="text-slate-400">[0.05s] Scanning 6 BrandGuard Policy Dimensions: {result.totalViolations} violation(s) found</div>
+              <div className="text-slate-400">[0.07s] Critical: {result.criticalViolationsCount} | Warnings: {result.warningViolationsCount} | Suggestions: {result.suggestionViolationsCount}</div>
+              <div className={result.exitCode === 0 ? "text-emerald-400 font-bold" : result.exitCode === 1 ? "text-red-400 font-bold" : "text-amber-400 font-bold"}>
+                [0.09s] Policy Gate Result: EXIT CODE {result.exitCode} ({result.status})
+              </div>
+              {result.signedComplianceToken ? (
+                <div className="text-emerald-300">[0.11s] Signed HMAC Token: {result.signedComplianceToken}</div>
+              ) : (
+                <div className="text-red-400">[0.11s] Blocked: No release token issued. Halting build step.</div>
+              )}
+              <div className="text-slate-500">[0.14s] Dispatched Slack incident webhook to #brand-governance-alerts (HTTP 200 OK)</div>
             </div>
           </div>
 
@@ -331,42 +422,71 @@ jobs:
 
           {/* Token Verifier */}
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl space-y-3">
-            <div className="flex items-center space-x-2 border-b border-slate-800 pb-3">
-              <Lock className="w-4 h-4 text-indigo-400" />
-              <h3 className="text-sm font-bold text-white">Cryptographic Token Verifier</h3>
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div className="flex items-center space-x-2">
+                <Lock className="w-4 h-4 text-indigo-400" />
+                <h3 className="text-sm font-bold text-white">Cryptographic Token Verifier</h3>
+              </div>
+              {result.signedComplianceToken && (
+                <button
+                  onClick={handleUseCurrentToken}
+                  className="text-[10px] text-indigo-400 hover:text-indigo-300 underline font-mono"
+                  title="Auto-fill with current release token"
+                >
+                  Use Current Token
+                </button>
+              )}
             </div>
 
             <p className="text-xs text-slate-400">
               Verify if an automated release artifact carries an authentic HMAC-SHA256 signature issued by Inkloom.
             </p>
 
-            <div className="space-y-2">
+            <div className="space-y-2.5">
               <input
                 type="text"
                 placeholder="Paste token (inkloom_sig_v3_...)"
                 value={verifyTokenInput}
-                onChange={(e) => setVerifyTokenInput(e.target.value)}
+                onChange={(e) => {
+                  setVerifyTokenInput(e.target.value);
+                  if (tokenDetails) setTokenDetails(null);
+                }}
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-100 font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500"
               />
 
               <button
                 onClick={handleVerifyToken}
-                className="w-full py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition-all"
+                className="w-full py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition-all shadow-md shadow-indigo-900/30"
               >
                 Verify Signature Authenticity
               </button>
 
-              {tokenVerifyResult === 'valid' && (
-                <div className="p-2.5 rounded-lg bg-emerald-950/40 border border-emerald-800/50 text-emerald-400 text-xs flex items-center space-x-1.5">
-                  <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
-                  <span>Signature VALID: Verified authentic release token.</span>
+              {tokenDetails && tokenDetails.valid && (
+                <div className="p-3 rounded-xl bg-emerald-950/40 border border-emerald-800/60 text-emerald-300 text-xs space-y-2">
+                  <div className="flex items-center space-x-1.5 font-bold text-emerald-400">
+                    <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+                    <span>AUTHENTIC INKLOOM RELEASE TOKEN</span>
+                  </div>
+                  <div className="space-y-1 text-[11px] font-mono text-slate-300">
+                    <div><span className="text-slate-500">Algorithm:</span> {tokenDetails.algorithm}</div>
+                    <div><span className="text-slate-500">Authority:</span> {tokenDetails.authority}</div>
+                    <div><span className="text-slate-500">Classification:</span> {tokenDetails.isOverride ? 'LEGAL OVERRIDE' : 'STANDARD COMPLIANT'}</div>
+                  </div>
+                  <p className="text-[10px] text-slate-400 italic pt-1 border-t border-emerald-900/50">
+                    {tokenDetails.details}
+                  </p>
                 </div>
               )}
 
-              {tokenVerifyResult === 'invalid' && (
-                <div className="p-2.5 rounded-lg bg-red-950/40 border border-red-800/50 text-red-400 text-xs flex items-center space-x-1.5">
-                  <XCircle className="w-4 h-4 flex-shrink-0" />
-                  <span>Signature INVALID: Token unrecognized or modified.</span>
+              {tokenDetails && !tokenDetails.valid && (
+                <div className="p-3 rounded-xl bg-red-950/40 border border-red-800/60 text-red-300 text-xs space-y-1.5">
+                  <div className="flex items-center space-x-1.5 font-bold text-red-400">
+                    <XCircle className="w-4 h-4 flex-shrink-0" />
+                    <span>SIGNATURE INVALID / UNVERIFIED</span>
+                  </div>
+                  <p className="text-[11px] text-slate-400">
+                    {tokenDetails.details}
+                  </p>
                 </div>
               )}
             </div>
