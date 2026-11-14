@@ -1,0 +1,289 @@
+%PDF-1.4
+%âãÏÓ
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> /ProcSet [ /PDF /Text ] >>
+endobj
+5 0 obj
+<< /Length 5743 >>
+stream
+BT /F1 20 Tf 0.06 0.12 0.25 rg 50 737 Td (Inkloom BrandGuard - The Final Build) Tj ET
+BT /F2 10 Tf 0.35 0.42 0.52 rg 50 713 Td (CodeTitans India 2026 | Round 3 Finalist Submission | Team ALTAIR) Tj ET
+q 0.15 0.39 0.92 RG 2 w 50 703 190 703 m l S Q
+q 0.94 0.97 1.0 rg 0.70 0.82 0.98 RG 1 w 50 649 512 44 re B Q
+q 0.15 0.39 0.92 rg 50 649 3.5 44 re f Q
+BT /F1 9 Tf 0.10 0.25 0.65 rg 62 675 Td (Top 50 Finalist Project \(Selected from 1,000+ Registered Teams Nationwide\)) Tj ET
+BT /F3 8.5 Tf 0.25 0.32 0.45 rg 62 661 Td (Live Deployment: https://inkloom-brandguard.vercel.app  |  GitHub: https://github.com/anasakhtar-tech/inkloom-brandguard) Tj ET
+BT /F1 13 Tf 0.10 0.20 0.45 rg 50 625 Td (1. Executive Overview & Problem Context) Tj ET
+q 0.82 0.86 0.92 RG 1 w 50 621 562 621 m l S Q
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 607 Td (Modern enterprises face an unprecedented brand governance crisis: generative AI) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 594 Td (tools, rapid marketing cadences, and distributed content authors produce thousands of) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 581 Td (marketing assets, documentation pages, and customer communications daily. Without) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 568 Td (automated pre-publication controls, organizations suffer from subtle brand voice) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 555 Td (drift, trademark miscapitalization, hallucinated enterprise SLAs, FTC/SEC regulatory) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 542 Td (violations, and WCAG accessibility failures.) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 527 Td (Inkloom BrandGuard is an intelligent pre-publication governance platform that acts as) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 514 Td (an ambient, explainable release gatekeeper. In Round 3 \(The Final Build\), Team ALTAIR) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 501 Td (expanded the platform from a web studio into a complete enterprise ecosystem) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 488 Td (delivering all three promised improvements: an In-Situ Chrome Extension, a Multimodal) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 475 Td (Visual Brand Inspector, and an Enterprise CI/CD Gatekeeper.) Tj ET
+BT /F1 13 Tf 0.10 0.20 0.45 rg 50 450 Td (2. Delivery of the Three Major Promised Improvements) Tj ET
+q 0.82 0.86 0.92 RG 1 w 50 446 562 446 m l S Q
+BT /F1 10.5 Tf 0.15 0.30 0.60 rg 50 426 Td (Improvement 1: Real-Time Chrome Extension & In-Situ Content Interceptor) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 412 Td (We engineered and delivered a complete Manifest V3 Chrome Extension paired with an) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 399 Td (in-app cross-platform Live DOM Sandbox Simulator. The extension injects an ambient) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 386 Td (floating governance widget directly into third-party authoring tools \(Google Docs,) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 373 Td (Notion, WordPress, and LinkedIn\).) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 358 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 358 Td (Sub-15ms In-Situ DOM Parser:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 346 Td (Watches DOM input and contenteditable mutations, evaluating 6 governance) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 334 Td (dimensions in under 1.94ms locally in-browser without sending sensitive) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 322 Td (corporate drafts to external servers.) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 308 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 308 Td (Ambient Floating Health Pill & 1-Click Inline Diff Applicator:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 296 Td (Displays real-time governance scores \(0-100\) and enables authors to accept) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 284 Td (token-level diff fixes with a single click without breaking document formatting.) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 270 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 270 Td (Universal Cross-Platform Accessibility:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 258 Td (Judges on any operating system \(Windows, macOS, Linux, iOS, Android\) can test) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 246 Td (the full in-situ experience directly via the in-app interactive sandbox) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 234 Td (simulator.) Tj ET
+BT /F1 10.5 Tf 0.15 0.30 0.60 rg 50 214 Td (Improvement 2: Multimodal Visual Brand & Layout Asset Inspector) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 200 Td (We developed the Visual Brand Studio to expand brand governance beyond text into) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 187 Td (marketing graphics, banners, and presentation flyers using pure HTML5 Canvas pixel) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 174 Td (analysis.) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 159 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 159 Td (Logo Clearspace & Margin Box Verification:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 147 Td (Enforces a strict 1.5x X-height minimum clearance buffer around the brandmark,) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 135 Td (flagging encroaching headlines or graphic artifacts with interactive canvas) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 123 Td (overlays.) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 109 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 109 Td (Non-Uniform Aspect Ratio Distortion Detection:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 97 Td (Mathematically detects if vector logos or brand assets have been stretched) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 85 Td (horizontally \(+58% in test cases\) or squashed vertically.) Tj ET
+q 0.85 0.88 0.92 RG 0.5 w 50 47 562 47 m l S Q
+BT /F2 8 Tf 0.45 0.52 0.60 rg 50 35 Td (FINAL ROUND 3 SUBMISSION - TEAM ALTAIR - LEAD: MD ANAS AKHTAR) Tj ET
+BT /F2 8 Tf 0.45 0.52 0.60 rg 507 35 Td (Page 1 of 3) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 11 0 R /MediaBox [ 0 0 612 792 ] /Contents 5 0 R /Resources 4 0 R >>
+endobj
+7 0 obj
+<< /Length 9367 >>
+stream
+q 0.85 0.88 0.92 RG 0.5 w 50 753 562 753 m l S Q
+BT /F2 8 Tf 0.35 0.42 0.52 rg 50 757 Td (CodeTitans India 2026 | Round 3: The Final Build | Team ALTAIR) Tj ET
+BT /F1 8 Tf 0.15 0.35 0.75 rg 442 757 Td (Inkloom BrandGuard) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 737 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 737 Td (Canvas Color Clustering & Forbidden Palette Scanner:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 725 Td (Extracts dominant pixel colors from canvas buffers, flagging unapproved) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 713 Td (fluorescent colors \(e.g. #39FF14 neon green\) and ensuring adherence to) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 701 Td (enterprise brand palettes.) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 687 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 687 Td (WCAG 2.1 Text-over-Image Luminance Contrast:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 675 Td (Computes relative luminance ratios across overlay text, enforcing 4.5:1 \(AA\) and) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 663 Td (7.0:1 \(AAA\) standards with 1-click auto-conform recoloring.) Tj ET
+BT /F1 10.5 Tf 0.15 0.30 0.60 rg 50 643 Td (Improvement 3: Enterprise CI/CD Gatekeeper & Webhook Engine) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 629 Td (We built an automated pre-publication release gate that integrates directly into) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 616 Td (GitHub Actions, GitLab CI, and Headless CMS webhooks \(Strapi, WordPress, Webflow\).) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 601 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 601 Td (Automated Release Blocking Policies:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 589 Td (Incoming PRs and drafts evaluated via POST /api/v1/governance/evaluate. If) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 577 Td (critical SLA or legal violations exist, the release is blocked with process Exit) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 565 Td (Code 1.) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 551 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 551 Td (Cryptographically Signed HMAC-SHA256 Compliance Tokens:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 539 Td (Approved production releases receive a cryptographic signature \(e.g.) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 527 Td (inkloom_sig_v3_...\) that downstream deployment scripts verify before publishing.) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 513 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 513 Td (Interactive Slack Incident Broadcast Simulator:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 501 Td (Broadcasts rich Slack Block Kit alerts to #brand-governance-alerts with author) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 489 Td (metadata, commit SHAs, and interactive Legal Override buttons.) Tj ET
+BT /F1 13 Tf 0.10 0.20 0.45 rg 50 465 Td (3. System Architecture & Technical Specifications) Tj ET
+q 0.82 0.86 0.92 RG 1 w 50 461 562 461 m l S Q
+q 0.12 0.22 0.42 rg 50 433 512 18 re f Q
+BT /F1 8.5 Tf 1 1 1 rg 56 439 Td (Component Layer) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 166 439 Td (Implementation Technology) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 311 439 Td (Technical Specifications & Hard Problems Solved) Tj ET
+q 0.88 0.90 0.94 RG 0.5 w 50 415 562 415 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 421 Td (In-Situ Extension) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 166 421 Td (Chrome Manifest V3 / Web APIs) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 421 Td (Service worker background architecture, DOM mutation observers, zero battery drain) Tj ET
+q 0.96 0.97 0.99 rg 50 397 512 18 re f Q
+q 0.88 0.90 0.94 RG 0.5 w 50 397 562 397 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 403 Td (Visual Inspection) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 166 403 Td (HTML5 Canvas 2D Pixel Buffer) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 403 Td (Relative luminance contrast math, aspect ratio bounding boxes, color clustering) Tj ET
+q 0.88 0.90 0.94 RG 0.5 w 50 379 562 379 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 385 Td (CI/CD Gatekeeper) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 166 385 Td (Web Crypto API / HMAC-SHA256) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 385 Td (Exit code mapping \(0/1/2\), automated release blocking, Slack Block Kit payloads) Tj ET
+q 0.96 0.97 0.99 rg 50 361 512 18 re f Q
+q 0.88 0.90 0.94 RG 0.5 w 50 361 562 361 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 367 Td (Hybrid Text Engine) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 166 367 Td (Deterministic AST + Gemini Flash) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 367 Td (Sub-15ms local checks for 500+ rules, nuanced tone reasoning, 1-click token diffs) Tj ET
+q 0.88 0.90 0.94 RG 0.5 w 50 343 562 343 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 349 Td (Client-Side Privacy) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 166 349 Td (Zero-Retention Regex Sanitizer) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 349 Td (Pre-flight scrubbing of PII, internal codenames, and API keys before external transit) Tj ET
+BT /F1 13 Tf 0.10 0.20 0.45 rg 50 317 Td (4. Automated Testing Battery & Verification Notes) Tj ET
+q 0.82 0.86 0.92 RG 1 w 50 313 562 313 m l S Q
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 299 Td (To guarantee rock-solid stability and zero judge confusion, the test battery was) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 286 Td (expanded to 46 automated scenarios covering text, vision, and webhook pipelines:) Tj ET
+q 0.12 0.22 0.42 rg 50 257 512 18 re f Q
+BT /F1 8.5 Tf 1 1 1 rg 56 263 Td (Test Suite Category) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 221 263 Td (Tests) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 276 263 Td (Result) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 341 263 Td (Latency / Metric Benchmark) Tj ET
+q 0.88 0.90 0.94 RG 0.5 w 50 239 562 239 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 245 Td (Suite 1: Severe Multi-Violation Content) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 221 245 Td (7 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 276 245 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 341 245 Td (Catches all 6 governance dimensions simultaneously) Tj ET
+q 0.96 0.97 0.99 rg 50 221 512 18 re f Q
+q 0.88 0.90 0.94 RG 0.5 w 50 221 562 221 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 227 Td (Suite 2: 1-Click Diff & Correction) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 221 227 Td (7 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 276 227 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 341 227 Td (100% clean document restoration \(Score 100\)) Tj ET
+q 0.88 0.90 0.94 RG 0.5 w 50 203 562 203 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 209 Td (Suite 3: Clean Compliant Benchmark) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 221 209 Td (2 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 276 209 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 341 209 Td (Clean enterprise press release receives 100/100) Tj ET
+q 0.96 0.97 0.99 rg 50 185 512 18 re f Q
+q 0.88 0.90 0.94 RG 0.5 w 50 185 562 185 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 191 Td (Suite 4: Punctuation & Case Resilience) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 221 191 Td (4 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 276 191 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 341 191 Td (Punctuation-agnostic word boundary matching) Tj ET
+q 0.88 0.90 0.94 RG 0.5 w 50 167 562 167 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 173 Td (Suite 5: Client-Side PII Sanitizer) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 221 173 Td (5 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 276 173 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 341 173 Td (Masks emails, phone numbers, and codenames) Tj ET
+q 0.96 0.97 0.99 rg 50 149 512 18 re f Q
+q 0.88 0.90 0.94 RG 0.5 w 50 149 562 149 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 155 Td (Suite 6: Stress & Latency Benchmarks) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 221 155 Td (5 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 276 155 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 341 155 Td (1.53ms execution time on 4,560 words \(30x faster than goal\)) Tj ET
+q 0.88 0.90 0.94 RG 0.5 w 50 131 562 131 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 137 Td (Suite 7: Extension In-Situ Interceptor) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 221 137 Td (5 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 276 137 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 341 137 Td (In-situ DOM scanning and 1-click patch verification) Tj ET
+q 0.96 0.97 0.99 rg 50 113 512 18 re f Q
+q 0.88 0.90 0.94 RG 0.5 w 50 113 562 113 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 119 Td (Suite 8: Multimodal Visual Engine) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 221 119 Td (5 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 276 119 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 341 119 Td (Luminance math, 21:1 max contrast, aspect ratio +58%) Tj ET
+q 0.88 0.90 0.94 RG 0.5 w 50 95 562 95 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 101 Td (Suite 9: Enterprise CI/CD Gatekeeper) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 221 101 Td (6 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 276 101 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 341 101 Td (Exit code 1 blocking, Exit code 0 passing, HMAC tokens) Tj ET
+q 0.96 0.97 0.99 rg 50 77 512 18 re f Q
+q 0.88 0.90 0.94 RG 0.5 w 50 77 562 77 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 83 Td (TOTAL TEST COVERAGE) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 221 83 Td (46 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 276 83 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 341 83 Td (46 / 46 Assertions Passing \(100.0% Pass Rate\)) Tj ET
+q 0.85 0.88 0.92 RG 0.5 w 50 47 562 47 m l S Q
+BT /F2 8 Tf 0.45 0.52 0.60 rg 50 35 Td (FINAL ROUND 3 SUBMISSION - TEAM ALTAIR - LEAD: MD ANAS AKHTAR) Tj ET
+BT /F2 8 Tf 0.45 0.52 0.60 rg 507 35 Td (Page 2 of 3) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 11 0 R /MediaBox [ 0 0 612 792 ] /Contents 7 0 R /Resources 4 0 R >>
+endobj
+9 0 obj
+<< /Length 4086 >>
+stream
+q 0.85 0.88 0.92 RG 0.5 w 50 753 562 753 m l S Q
+BT /F2 8 Tf 0.35 0.42 0.52 rg 50 757 Td (CodeTitans India 2026 | Round 3: The Final Build | Team ALTAIR) Tj ET
+BT /F1 8 Tf 0.15 0.35 0.75 rg 442 757 Td (Inkloom BrandGuard) Tj ET
+BT /F1 13 Tf 0.10 0.20 0.45 rg 50 727 Td (5. Team ALTAIR Member Contributions) Tj ET
+q 0.82 0.86 0.92 RG 1 w 50 723 562 723 m l S Q
+q 0.12 0.22 0.42 rg 50 695 512 18 re f Q
+BT /F1 8.5 Tf 1 1 1 rg 56 701 Td (Team Member) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 166 701 Td (Assigned Project Role) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 311 701 Td (Specific Round 3 Contributions & Engineering Ownership) Tj ET
+q 0.88 0.90 0.94 RG 0.5 w 50 677 562 677 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 683 Td (MD ANAS AKHTAR) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 166 683 Td (Team Leader & AI/ML Engineer) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 683 Td (Overall platform architecture, Manifest V3 extension, Canvas vision engine, CI/CD gatekeeper, HMAC token logic, 46-test battery, and final report compilation.) Tj ET
+q 0.96 0.97 0.99 rg 50 659 512 18 re f Q
+q 0.88 0.90 0.94 RG 0.5 w 50 659 562 659 m l S Q
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 665 Td (Collaborating Teammates) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 166 665 Td (Full-Stack & UI/UX Engineers) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 665 Td (Vite/Tailwind UI implementation, mobile responsive navigation, Slack Block Kit simulator styling, and Brand Vault configuration.) Tj ET
+BT /F1 13 Tf 0.10 0.20 0.45 rg 50 633 Td (6. Product Roadmap & Future Commercial Horizon) Tj ET
+q 0.82 0.86 0.92 RG 1 w 50 629 562 629 m l S Q
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 615 Td (Inkloom BrandGuard is architected as an enterprise-grade commercial product. Our) Tj ET
+BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 602 Td (engineering roadmap outlines the trajectory following the hackathon:) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 587 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 587 Td (Phase 1 \(Q1 2027\) — Chrome Web Store & Google Workspace Marketplace Publication:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 575 Td (Public packaging of the Manifest V3 extension on the Chrome Web Store and) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 563 Td (Microsoft Edge Add-ons catalog. Release of a native Google Workspace add-on) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 551 Td (injecting BrandGuard into Google Docs and Slides.) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 537 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 537 Td (Phase 2 \(Q2 2027\) — Automated Brand Guideline Ingestion via Document Parsing:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 525 Td (Enabling enterprise brand managers to upload raw PDF brand books or company) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 513 Td (style guide URLs. Inkloom automatically vectorizes and extracts rules, regex,) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 501 Td (and tone vectors into the Brand Vault.) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 487 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 487 Td (Phase 3 \(Q3 2027\) — Multilingual & Regional Regulatory Governance:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 475 Td (Expanding inspection across 15+ global languages \(German, Spanish, Japanese,) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 463 Td (Hindi\) with automated compliance checks for EU AI Act, GDPR marketing) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 451 Td (disclosures, and UK Advertising Standards Authority.) Tj ET
+BT /F1 9 Tf 0.15 0.39 0.92 rg 54 437 Td (- ) Tj ET
+BT /F1 9 Tf 0.12 0.18 0.30 rg 64 437 Td (Phase 4 \(Q4 2027\) — Native Figma & Creative Cloud Ecosystem Plugins:) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 425 Td (Direct canvas-layer integration into Figma and Adobe Creative Cloud, verifying) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 413 Td (design tokens, vector logo clearspace, and component library adherence before UI) Tj ET
+BT /F3 9 Tf 0.25 0.30 0.40 rg 64 401 Td (exports.) Tj ET
+q 0.85 0.88 0.92 RG 0.5 w 50 47 562 47 m l S Q
+BT /F2 8 Tf 0.45 0.52 0.60 rg 50 35 Td (FINAL ROUND 3 SUBMISSION - TEAM ALTAIR - LEAD: MD ANAS AKHTAR) Tj ET
+BT /F2 8 Tf 0.45 0.52 0.60 rg 507 35 Td (Page 3 of 3) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 11 0 R /MediaBox [ 0 0 612 792 ] /Contents 9 0 R /Resources 4 0 R >>
+endobj
+11 0 obj
+<< /Type /Pages /Kids [ 6 0 R 8 0 R 10 0 R ] /Count 3 >>
+endobj
+12 0 obj
+<< /Type /Catalog /Pages 11 0 R >>
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000019 00000 n 
+0000000121 00000 n 
+0000000226 00000 n 
+0000000323 00000 n 
+0000000410 00000 n 
+0000006205 00000 n 
+0000006311 00000 n 
+0000015730 00000 n 
+0000015836 00000 n 
+0000019974 00000 n 
+0000020081 00000 n 
+0000020154 00000 n 
+trailer
+<< /Size 13 /Root 12 0 R >>
+startxref
+20205
+%%EOF

@@ -45,10 +45,10 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Navigation Tabs */}
-          <nav className="hidden lg:flex items-center space-x-1 bg-slate-950/80 p-1 rounded-xl border border-slate-800 flex-shrink-0">
+          <nav className="hidden xl:flex items-center space-x-1 bg-slate-950/80 p-1 rounded-xl border border-slate-800 flex-shrink-0">
             <button
               onClick={() => onTabChange('studio')}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
+              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
                 activeTab === 'studio'
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
@@ -57,44 +57,77 @@ export const Header: React.FC<HeaderProps> = ({
               1. Studio
             </button>
             <button
+              onClick={() => onTabChange('extension')}
+              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap flex items-center space-x-1 ${
+                activeTab === 'extension'
+                  ? 'bg-indigo-600 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              }`}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+              <span>2. Extension (In-Situ)</span>
+            </button>
+            <button
+              onClick={() => onTabChange('visual')}
+              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap flex items-center space-x-1 ${
+                activeTab === 'visual'
+                  ? 'bg-indigo-600 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              }`}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span>3. Visual Studio</span>
+            </button>
+            <button
+              onClick={() => onTabChange('cicd')}
+              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap flex items-center space-x-1 ${
+                activeTab === 'cicd'
+                  ? 'bg-emerald-600 text-white shadow-sm'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+              }`}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              <span>4. CI/CD Gate</span>
+            </button>
+            <button
               onClick={() => onTabChange('vault')}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
+              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
                 activeTab === 'vault'
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
               }`}
             >
-              2. Brand Vault
+              5. Vault
             </button>
             <button
               onClick={() => onTabChange('review')}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
+              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
                 activeTab === 'review'
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
               }`}
             >
-              3. Review Hub
+              6. Review Hub
             </button>
             <button
               onClick={() => onTabChange('analytics')}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
+              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
                 activeTab === 'analytics'
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
               }`}
             >
-              4. Analytics
+              7. Analytics
             </button>
             <button
               onClick={() => onTabChange('responsible')}
-              className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
+              className={`px-2.5 py-1.5 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
                 activeTab === 'responsible'
                   ? 'bg-blue-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
               }`}
             >
-              5. Privacy
+              8. Privacy
             </button>
           </nav>
 
@@ -151,47 +184,71 @@ export const Header: React.FC<HeaderProps> = ({
 
         </div>
 
-        {/* Mobile Navigation Sub-Bar (Visible on small & medium screens so tabs are always accessible) */}
-        <div className="lg:hidden flex items-center justify-between pb-2 pt-1 border-t border-slate-800/60 overflow-x-auto space-x-1 text-xs">
+        {/* Mobile & Tablet Navigation Sub-Bar (Smooth horizontal scroll across all screen sizes) */}
+        <div className="xl:hidden flex items-center pb-2 pt-1.5 border-t border-slate-800/60 overflow-x-auto space-x-1.5 text-xs no-scrollbar">
           <button
             onClick={() => onTabChange('studio')}
             className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'studio' ? 'bg-blue-600 text-white' : 'text-slate-400'
+              activeTab === 'studio' ? 'bg-blue-600 text-white' : 'text-slate-400 bg-slate-950/60'
             }`}
           >
             1. Studio
           </button>
           <button
-            onClick={() => onTabChange('vault')}
+            onClick={() => onTabChange('extension')}
             className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'vault' ? 'bg-blue-600 text-white' : 'text-slate-400'
+              activeTab === 'extension' ? 'bg-indigo-600 text-white' : 'text-slate-400 bg-slate-950/60'
             }`}
           >
-            2. Vault
+            2. Extension
+          </button>
+          <button
+            onClick={() => onTabChange('visual')}
+            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
+              activeTab === 'visual' ? 'bg-cyan-600 text-white' : 'text-slate-400 bg-slate-950/60'
+            }`}
+          >
+            3. Visual
+          </button>
+          <button
+            onClick={() => onTabChange('cicd')}
+            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
+              activeTab === 'cicd' ? 'bg-emerald-600 text-white' : 'text-slate-400 bg-slate-950/60'
+            }`}
+          >
+            4. CI/CD
+          </button>
+          <button
+            onClick={() => onTabChange('vault')}
+            className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
+              activeTab === 'vault' ? 'bg-blue-600 text-white' : 'text-slate-400 bg-slate-950/60'
+            }`}
+          >
+            5. Vault
           </button>
           <button
             onClick={() => onTabChange('review')}
             className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'review' ? 'bg-blue-600 text-white' : 'text-slate-400'
+              activeTab === 'review' ? 'bg-blue-600 text-white' : 'text-slate-400 bg-slate-950/60'
             }`}
           >
-            3. Review Hub
+            6. Review
           </button>
           <button
             onClick={() => onTabChange('analytics')}
             className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'analytics' ? 'bg-blue-600 text-white' : 'text-slate-400'
+              activeTab === 'analytics' ? 'bg-blue-600 text-white' : 'text-slate-400 bg-slate-950/60'
             }`}
           >
-            4. Analytics
+            7. Analytics
           </button>
           <button
             onClick={() => onTabChange('responsible')}
             className={`px-2.5 py-1 rounded-lg font-medium whitespace-nowrap ${
-              activeTab === 'responsible' ? 'bg-blue-600 text-white' : 'text-slate-400'
+              activeTab === 'responsible' ? 'bg-blue-600 text-white' : 'text-slate-400 bg-slate-950/60'
             }`}
           >
-            5. Privacy
+            8. Privacy
           </button>
         </div>
 

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { ContentStudio } from './components/ContentStudio';
+import { ExtensionSimulator } from './components/ExtensionSimulator';
+import { VisualBrandInspector } from './components/VisualBrandInspector';
+import { EnterpriseCICDHub } from './components/EnterpriseCICDHub';
 import { BrandVault } from './components/BrandVault';
 import { ReviewHub } from './components/ReviewHub';
 import { GovernanceAnalytics } from './components/GovernanceAnalytics';
@@ -38,6 +41,12 @@ export function App() {
             onUpdateDocumentList={setDocuments}
           />
         )}
+
+        {activeTab === 'extension' && <ExtensionSimulator />}
+
+        {activeTab === 'visual' && <VisualBrandInspector />}
+
+        {activeTab === 'cicd' && <EnterpriseCICDHub />}
 
         {activeTab === 'vault' && <BrandVault />}
 

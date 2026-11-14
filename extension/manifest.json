@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Inkloom BrandGuard - In-Situ Brand Governance",
+  "version": "3.0.0",
+  "description": "Real-time, in-situ brand governance and compliance overlay for Google Docs, Notion, and web authoring platforms.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Inkloom BrandGuard Governance"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
+

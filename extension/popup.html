@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inkloom BrandGuard</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 340px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #090d16;
+      color: #e2e8f0;
+      padding: 16px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #1e293b;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #2563eb, #6366f1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 16px;
+    }
+    .brand-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .brand-sub {
+      font-size: 10px;
+      color: #94a3b8;
+    }
+    .status-badge {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-weight: 600;
+    }
+    .score-card {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .score-number {
+      font-size: 28px;
+      font-weight: 800;
+      color: #38bdf8;
+    }
+    .score-label {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .btn {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .btn-secondary {
+      background: #1e293b;
+      color: #cbd5e1;
+      border: 1px solid #334155;
+    }
+    .btn-secondary:hover {
+      background: #334155;
+    }
+    .feature-list {
+      font-size: 11px;
+      color: #94a3b8;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-top: 1px solid #1e293b;
+      padding-top: 12px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #3b82f6;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">
+      <div class="logo-badge">I</div>
+      <div>
+        <div class="brand-title">Inkloom BrandGuard</div>
+        <div class="brand-sub">In-Situ DOM Interceptor v3.0</div>
+      </div>
+    </div>
+    <div class="status-badge" id="statusBadge">Active</div>
+  </div>
+
+  <div class="score-card">
+    <div>
+      <div class="score-label">Active Page Compliance</div>
+      <div style="font-size: 12px; color: #cbd5e1; font-weight: 500;" id="pageName">Google Docs / Web Editor</div>
+    </div>
+    <div style="text-align: right;">
+      <div class="score-number" id="complianceScore">94</div>
+      <div class="score-label">Governance Score</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-primary" id="scanNowBtn">
+      <span>⚡ Run Deep Compliance Audit</span>
+    </button>
+    <button class="btn btn-secondary" id="openStudioBtn">
+      <span>🌐 Open Full Inkloom Studio</span>
+    </button>
+  </div>
+
+  <div class="feature-list">
+    <div class="feature-item"><div class="dot"></div><span>Sub-15ms In-Situ Regex & AST Parsing</span></div>
+    <div class="feature-item"><div class="dot"></div><span>1-Click Diff Fixes on Web Authors</span></div>
+    <div class="feature-item"><div class="dot"></div><span>Zero-Retention Client-Side PII Scrubbing</span></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+

@@ -37,55 +37,54 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({ isOpen, onClose }) =
                 Inkloom BrandGuard
               </h2>
               <span className="px-2 py-0.5 text-[10px] font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-full">
-                Platform Overview
+                Round 3 Finalist Build
               </span>
             </div>
             <p className="text-xs text-slate-400 mt-0.5">
-              Intelligent Pre-Publication Brand Governance & Compliance
+              CodeTitans India 2026 • Top 50 Finalist
             </p>
           </div>
         </div>
 
         {/* Problem & Purpose Statement */}
-        <p className="text-xs text-slate-300 leading-relaxed mb-6 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
-          Growing organizations publish content across distributed teams, agencies, and generative AI tools. 
-          <strong> Inkloom BrandGuard</strong> intercepts brand drift, factual hallucinations, and high-risk claims before content goes public.
+        <p className="text-xs text-slate-300 leading-relaxed mb-5 bg-slate-950/60 p-3.5 rounded-xl border border-slate-800">
+          <strong>Inkloom BrandGuard</strong> is an intelligent pre-publication governance platform that intercepts brand drift, factual hallucinations, and regulatory breaches before content goes public.
         </p>
 
-        {/* 3 Core Highlights */}
-        <div className="space-y-3 mb-6 text-xs">
-          <div className="flex items-start space-x-3 p-3 rounded-xl bg-slate-950/40 border border-slate-800/80">
-            <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0 mt-0.5">
-              <Sparkles className="w-4 h-4" />
+        {/* 3 Major Round 3 Improvements */}
+        <div className="space-y-2.5 mb-6 text-xs">
+          <div className="flex items-start space-x-3 p-2.5 rounded-xl bg-slate-950/40 border border-slate-800/80">
+            <div className="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0 mt-0.5 font-bold text-xs">
+              1
             </div>
             <div>
-              <h4 className="font-bold text-slate-200">1. Real-Time 6-Dimension Scanner</h4>
+              <h4 className="font-bold text-slate-200">In-Situ Extension & Web Overlay</h4>
               <p className="text-slate-400 text-[11px] mt-0.5">
-                Checks tone, deprecated terminology, verified enterprise facts, promotional claims, visual palettes, and accessibility in under 15ms.
+                Real-time Manifest V3 Chrome Extension and in-app interactive sandbox overlay for Google Docs and Notion.
               </p>
             </div>
           </div>
 
-          <div className="flex items-start space-x-3 p-3 rounded-xl bg-slate-950/40 border border-slate-800/80">
-            <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0 mt-0.5">
-              <Wand2 className="w-4 h-4" />
+          <div className="flex items-start space-x-3 p-2.5 rounded-xl bg-slate-950/40 border border-slate-800/80">
+            <div className="w-7 h-7 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0 mt-0.5 font-bold text-xs">
+              2
             </div>
             <div>
-              <h4 className="font-bold text-slate-200">2. Explainable 1-Click Smart Rewrites</h4>
+              <h4 className="font-bold text-slate-200">Multimodal Visual Brand Inspector</h4>
               <p className="text-slate-400 text-[11px] mt-0.5">
-                Never acts as an opaque blocker. Explains why an issue was flagged, cites the brand rule, and provides non-destructive 1-click rewrites.
+                HTML5 Canvas computer vision verifying logo clearspace, aspect ratio distortion, WCAG contrast, and forbidden hex colors.
               </p>
             </div>
           </div>
 
-          <div className="flex items-start space-x-3 p-3 rounded-xl bg-slate-950/40 border border-slate-800/80">
-            <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 flex-shrink-0 mt-0.5">
-              <Users2 className="w-4 h-4" />
+          <div className="flex items-start space-x-3 p-2.5 rounded-xl bg-slate-950/40 border border-slate-800/80">
+            <div className="w-7 h-7 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 flex-shrink-0 mt-0.5 font-bold text-xs">
+              3
             </div>
             <div>
-              <h4 className="font-bold text-slate-200">3. Human-in-the-Loop Collaboration</h4>
+              <h4 className="font-bold text-slate-200">Enterprise CI/CD & Webhook Gatekeeper</h4>
               <p className="text-slate-400 text-[11px] mt-0.5">
-                Switch roles between Creator, Reviewer, and Legal to inspect diffs, comment, approve, and generate certified compliance certificates.
+                Automated release blocker with signed HMAC-SHA256 compliance tokens and real-time Slack incident broadcasts.
               </p>
             </div>
           </div>
@@ -94,7 +93,7 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({ isOpen, onClose }) =
         {/* Primary Action Button */}
         <div className="flex items-center justify-between pt-2 border-t border-slate-800">
           <span className="text-[11px] text-slate-500">
-            Tested across all 6 governance dimensions
+            Tested across all 8 modules • Sub-15ms engine
           </span>
           <button
             onClick={onClose}
