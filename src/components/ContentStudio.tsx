@@ -206,37 +206,39 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-      {/* Top Action Toolbar (Clean, minimal, single row) */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 bg-slate-900/60 p-3 rounded-2xl border border-slate-800">
+      {/* Top Action Toolbar (Clean, minimal, single row with strict mobile bounds) */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 bg-slate-900/60 p-3 rounded-2xl border border-slate-800 overflow-hidden">
         {/* Left: Preset Selector & New Doc Button */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto min-w-0">
           <div className="flex items-center gap-2 w-full sm:w-auto min-w-0">
             <span className="text-xs text-slate-400 font-medium whitespace-nowrap shrink-0">Scenario:</span>
-            <select
-              value={selectedPresetId}
-              onChange={(e) => {
-                if (e.target.value === '__new__') {
-                  handleCreateNewDoc();
-                } else {
-                  handleSelectPreset(e.target.value);
-                }
-              }}
-              className="bg-slate-950 border border-slate-700 text-xs text-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500 flex-1 sm:flex-initial min-w-0 max-w-full sm:max-w-xs md:max-w-sm truncate"
-            >
-              <optgroup label="Sample Presets">
-                {samplePresetDocuments.map(doc => (
-                  <option key={doc.id} value={doc.id}>
-                    {doc.title} ({doc.format.replace('_', ' ')})
-                  </option>
-                ))}
-              </optgroup>
-              <optgroup label="Custom Document">
-                <option value="__new__">+ Blank Custom Document</option>
-                {selectedPresetId === 'custom' && (
-                  <option value="custom">Current: {docTitle || 'Untitled Document'}</option>
-                )}
-              </optgroup>
-            </select>
+            <div className="flex-1 sm:flex-initial min-w-0 overflow-hidden">
+              <select
+                value={selectedPresetId}
+                onChange={(e) => {
+                  if (e.target.value === '__new__') {
+                    handleCreateNewDoc();
+                  } else {
+                    handleSelectPreset(e.target.value);
+                  }
+                }}
+                className="w-full bg-slate-950 border border-slate-700 text-xs text-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:max-w-xs md:max-w-sm truncate"
+              >
+                <optgroup label="Sample Presets">
+                  {samplePresetDocuments.map(doc => (
+                    <option key={doc.id} value={doc.id}>
+                      {doc.title} ({doc.format.replace('_', ' ')})
+                    </option>
+                  ))}
+                </optgroup>
+                <optgroup label="Custom Document">
+                  <option value="__new__">+ Blank Custom Document</option>
+                  {selectedPresetId === 'custom' && (
+                    <option value="custom">Current: {docTitle || 'Untitled Document'}</option>
+                  )}
+                </optgroup>
+              </select>
+            </div>
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
@@ -344,6 +346,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                     type="text"
                     value={docTitle}
                     onChange={(e) => handleTitleChange(e.target.value)}
+                    maxLength={120}
                     placeholder="Enter document title..."
                     className="w-full bg-slate-950/40 hover:bg-slate-950/80 focus:bg-slate-950 text-white font-semibold text-xs sm:text-sm px-2.5 py-1 rounded-md border border-slate-800/60 hover:border-slate-700 focus:border-blue-500 focus:outline-none transition-all truncate pr-7"
                     title="Click to rename document"
@@ -416,6 +419,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                     }
                     runAudit(val);
                   }}
+                  maxLength={50000}
                   rows={14}
                   className="w-full bg-slate-950/70 border border-slate-800/80 rounded-xl p-4 text-slate-200 text-sm font-sans leading-relaxed focus:outline-none focus:ring-1 focus:ring-blue-500/60 resize-y"
                   placeholder="Type or paste your text here (e.g. blog post, press release, marketing copy) to audit compliance and brand voice..."

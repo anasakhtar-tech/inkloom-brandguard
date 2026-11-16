@@ -47,14 +47,25 @@ export function verifyComplianceToken(token: string): {
   isOverride: boolean;
   details: string;
 } {
-  const clean = token.trim();
-  const salt = '8f4c91b72e5a';
-  if (!clean.startsWith('inkloom_sig_v3_') || clean.length < 24 || !clean.endsWith(salt)) {
+  if (typeof token !== 'string') {
     return {
       valid: false,
       algorithm: 'HMAC-SHA256',
       authority: 'Unknown / Unverified',
-      signature: clean || 'None',
+      signature: 'Invalid Type',
+      isOverride: false,
+      details: 'Signature verification failed: Token must be a valid string.'
+    };
+  }
+
+  const clean = token.trim();
+  const salt = '8f4c91b72e5a';
+  if (!clean || clean.length > 120 || !clean.startsWith('inkloom_sig_v3_') || clean.length < 24 || !clean.endsWith(salt)) {
+    return {
+      valid: false,
+      algorithm: 'HMAC-SHA256',
+      authority: 'Unknown / Unverified',
+      signature: clean.length > 40 ? clean.substring(0, 40) + '...' : (clean || 'None'),
       isOverride: false,
       details: 'Signature verification failed: Invalid cryptographic salt or tampered signature hash.'
     };

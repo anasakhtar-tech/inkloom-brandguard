@@ -34,6 +34,8 @@
       if (!text) return;
 
       RULES.forEach(rule => {
+        // Reset lastIndex for global RegExp to prevent stateful false negatives across consecutive scans
+        rule.regex.lastIndex = 0;
         if (rule.regex.test(text)) {
           violationCount++;
         }

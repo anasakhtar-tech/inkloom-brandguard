@@ -227,6 +227,7 @@ export const ExtensionSimulator: React.FC<ExtensionSimulatorProps> = ({ onNaviga
               <textarea
                 value={editorText}
                 onChange={(e) => setEditorText(e.target.value)}
+                maxLength={20000}
                 rows={9}
                 className="w-full bg-slate-950/70 border border-slate-800 rounded-xl p-4 text-slate-100 font-mono text-sm leading-relaxed focus:outline-none focus:ring-2 focus:ring-blue-500/50 resize-y"
                 placeholder="Type or paste content here to test real-time extension scanning..."

@@ -31,15 +31,18 @@ export const BrandVault: React.FC = () => {
 
   const handleAddTerm = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newDeprecated || !newApproved) return;
+    const cleanDeprecated = newDeprecated.trim();
+    const cleanApproved = newApproved.trim();
+    const cleanReason = newReason.trim();
+    if (!cleanDeprecated || !cleanApproved) return;
 
     const newTerm: GlossaryTerm = {
       id: `GLOSS-${Date.now()}`,
-      deprecatedTerm: newDeprecated,
-      approvedTerm: newApproved,
+      deprecatedTerm: cleanDeprecated.slice(0, 100),
+      approvedTerm: cleanApproved.slice(0, 100),
       caseSensitive: false,
       category: 'Custom Product Standard',
-      reason: newReason || 'Added by brand management policy.'
+      reason: cleanReason.slice(0, 300) || 'Added by brand management policy.'
     };
 
     setGlossary(prev => [newTerm, ...prev]);
@@ -120,6 +123,7 @@ export const BrandVault: React.FC = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                maxLength={100}
                 placeholder="Search deprecated or approved terms..."
                 className="w-full bg-slate-950 border border-slate-800 rounded-lg pl-9 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
@@ -317,6 +321,7 @@ export const BrandVault: React.FC = () => {
                   required
                   value={newDeprecated}
                   onChange={(e) => setNewDeprecated(e.target.value)}
+                  maxLength={100}
                   placeholder="e.g. crypto coins"
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
@@ -329,6 +334,7 @@ export const BrandVault: React.FC = () => {
                   required
                   value={newApproved}
                   onChange={(e) => setNewApproved(e.target.value)}
+                  maxLength={100}
                   placeholder="e.g. Digital Assets"
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
@@ -340,6 +346,7 @@ export const BrandVault: React.FC = () => {
                   rows={3}
                   value={newReason}
                   onChange={(e) => setNewReason(e.target.value)}
+                  maxLength={300}
                   placeholder="Explain why this term was deprecated..."
                   className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-white focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />

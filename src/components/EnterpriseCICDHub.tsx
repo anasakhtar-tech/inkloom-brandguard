@@ -454,6 +454,7 @@ jobs:
                 type="text"
                 placeholder="Paste token (inkloom_sig_v3_...)"
                 value={verifyTokenInput}
+                maxLength={128}
                 onChange={(e) => {
                   setVerifyTokenInput(e.target.value);
                   if (tokenDetails) setTokenDetails(null);

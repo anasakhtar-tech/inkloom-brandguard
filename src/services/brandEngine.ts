@@ -356,18 +356,20 @@ export function applyCorrection(originalText: string, flaggedText: string, sugge
     const isPlural = casedCorrection.trim().endsWith('s') && !casedCorrection.trim().endsWith('ss');
     if (isPlural) {
       // Plural nouns do not take indefinite articles (e.g. "an end users" -> "customers")
-      return originalText.replace(match[0], casedCorrection);
+      // Use replacer function to prevent replacement pattern ($&, $', etc.) injection
+      return originalText.replace(match[0], () => casedCorrection);
     }
     // Check if suggested correction starts with vowel sound
     const startsWithVowel = /^[aeiou]/i.test(casedCorrection.trim());
     const correctArticle = startsWithVowel
       ? (article[0] === article[0].toUpperCase() ? 'An' : 'an')
       : (article[0] === article[0].toUpperCase() ? 'A' : 'a');
-    return originalText.replace(match[0], `${correctArticle} ${casedCorrection}`);
+    // Use replacer function to prevent replacement pattern ($&, $', etc.) injection
+    return originalText.replace(match[0], () => `${correctArticle} ${casedCorrection}`);
   }
 
-  // Exact replacement with preserved casing
-  return originalText.replace(flaggedText, casedCorrection);
+  // Exact replacement with preserved casing using replacer function to prevent $ replacement pattern injection
+  return originalText.replace(flaggedText, () => casedCorrection);
 }
 
 /**

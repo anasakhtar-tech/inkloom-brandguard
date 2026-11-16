@@ -71,8 +71,8 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
 
   const handleAddComment = (e?: React.FormEvent, customText?: string) => {
     if (e) e.preventDefault();
-    const commentText = customText || newCommentText;
-    if (!commentText.trim()) return;
+    const commentText = (customText || newCommentText).trim();
+    if (!commentText || commentText.length > 500) return;
 
     const roleName = currentRole === 'creator' 
       ? 'Alex Turner (Creator)'
@@ -84,7 +84,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
       id: `COMM-${Date.now()}`,
       author: roleName,
       role: currentRole,
-      text: commentText,
+      text: commentText.slice(0, 500),
       timestamp: 'Just now'
     };
 
@@ -283,6 +283,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
                 placeholder="Search documents by title, author, or content..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
+                maxLength={100}
                 className="w-full bg-slate-950 border border-slate-800/90 rounded-xl pl-8 pr-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
@@ -589,6 +590,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
                   type="text"
                   value={newCommentText}
                   onChange={(e) => setNewCommentText(e.target.value)}
+                  maxLength={500}
                   placeholder={`Write review note as ${currentRole === 'creator' ? 'Alex Turner (Creator)' : currentRole === 'reviewer' ? 'Elena Rostova (Brand Manager)' : 'Marcus Vance (Legal)'}...`}
                   className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500 min-w-0"
                 />

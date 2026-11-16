@@ -63,6 +63,7 @@ export const ResponsibleAICenter: React.FC = () => {
               rows={4}
               value={testInput}
               onChange={(e) => setTestInput(e.target.value)}
+              maxLength={5000}
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-slate-200 font-mono focus:outline-none focus:ring-1 focus:ring-emerald-500"
             />
           </div>

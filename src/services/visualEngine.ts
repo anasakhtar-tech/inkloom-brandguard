@@ -22,9 +22,13 @@ export interface VisualAssetReport {
   aspectRatio: number;
 }
 
-// Convert HEX to RGB
+// Convert HEX to RGB with input validation
 export function hexToRgb(hex: string): { r: number; g: number; b: number } | null {
-  const cleanHex = hex.replace('#', '');
+  if (typeof hex !== 'string') return null;
+  const cleanHex = hex.trim().replace(/^#/, '');
+  if (!/^[0-9a-fA-F]{3}$|^[0-9a-fA-F]{6}$/.test(cleanHex)) {
+    return null;
+  }
   if (cleanHex.length === 3) {
     return {
       r: parseInt(cleanHex[0] + cleanHex[0], 16),
