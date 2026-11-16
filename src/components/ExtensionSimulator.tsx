@@ -11,19 +11,40 @@ import {
   RefreshCw,
   Copy,
   Check,
-  GitBranch
+  GitBranch,
+  Wand2
 } from 'lucide-react';
-import { auditContent } from '../services/brandEngine';
+import confetti from 'canvas-confetti';
+import { auditContent, applyCorrection } from '../services/brandEngine';
 import { NextStageNavigator } from './NextStageNavigator';
 
 interface ExtensionSimulatorProps {
   onNavigateToTab?: (tab: string) => void;
 }
 
+const PLATFORM_PRESETS = {
+  docs: {
+    name: 'Google Docs',
+    url: 'docs.google.com/document/d/1XyZ...',
+    category: 'Corporate Press Release',
+    text: `Welcome to the new release of inkloom brandguard!\n\nOur system delivers guaranteed 100% flawless uptime with an unbeatable 99.999% SLA.\nCustomers can now replace their cheap legacy tools with our miraculous AI solution.`
+  },
+  notion: {
+    name: 'Notion',
+    url: 'notion.so/workspace/inkloom-engineering-rfc',
+    category: 'Engineering Architecture RFC',
+    text: `Engineering RFC #104: High-Throughput Worker Cluster\n\nAll background tasks must check the whitelist before dispatch.\nOur cluster runs on a master-slave topology with dummy data for local testing. Please run a quick sanity check before PR approval.`
+  },
+  cms: {
+    name: 'Headless CMS',
+    url: 'wordpress.org/wp-admin/post.php?id=842',
+    category: 'Marketing Landing Page',
+    text: `Inkloom AI delivers an unhackable cloud platform for growing organizations.\n\nTired of competitors that totally suck? Manage your crypto coins with zero bugs and double your revenue in 30 days guaranteed.`
+  }
+};
+
 export const ExtensionSimulator: React.FC<ExtensionSimulatorProps> = ({ onNavigateToTab }) => {
-  const [editorText, setEditorText] = useState<string>(
-    `Welcome to the new release of inkloom brandguard!\n\nOur system delivers guaranteed 100% flawless uptime with an unbeatable 99.999% SLA.\nCustomers can now replace their cheap legacy tools with our miraculous AI solution.`
-  );
+  const [editorText, setEditorText] = useState<string>(PLATFORM_PRESETS.docs.text);
   const [simulatedPlatform, setSimulatedPlatform] = useState<'docs' | 'notion' | 'cms'>('docs');
   const [copiedLink, setCopiedLink] = useState(false);
   const [logs, setLogs] = useState<string[]>([]);
@@ -33,18 +54,57 @@ export const ExtensionSimulator: React.FC<ExtensionSimulatorProps> = ({ onNaviga
   useEffect(() => {
     const timestamp = new Date().toLocaleTimeString();
     setLogs(prev => [
-      `[${timestamp}] [DOM_MUTATION] 1 text node modified. Re-scanned in 1.94ms. Violations: ${inspection.violations.length}`,
+      `[${timestamp}] [DOM_MUTATION] 1 text node modified. Re-scanned in 1.42ms. Violations: ${inspection.violations.length}`,
       ...prev.slice(0, 15)
     ]);
   }, [editorText]);
 
-  const applyFix = (target: string, replacement: string) => {
-    setEditorText(prev => prev.replace(target, replacement));
+  const handleSelectPlatform = (platform: 'docs' | 'notion' | 'cms') => {
+    setSimulatedPlatform(platform);
+    setEditorText(PLATFORM_PRESETS[platform].text);
     const timestamp = new Date().toLocaleTimeString();
     setLogs(prev => [
-      `[${timestamp}] [IN_SITU_PATCH] Replaced "${target}" with "${replacement}" directly in DOM.`,
+      `[${timestamp}] [PLATFORM_SWITCH] Loaded ${PLATFORM_PRESETS[platform].name} (${PLATFORM_PRESETS[platform].category}). In-situ AST initialized.`,
       ...prev.slice(0, 15)
     ]);
+  };
+
+  const handleResetCurrentScenario = () => {
+    setEditorText(PLATFORM_PRESETS[simulatedPlatform].text);
+    const timestamp = new Date().toLocaleTimeString();
+    setLogs(prev => [
+      `[${timestamp}] [SCENARIO_RESET] Reverted in-situ canvas to off-brand ${PLATFORM_PRESETS[simulatedPlatform].name} draft.`,
+      ...prev.slice(0, 15)
+    ]);
+  };
+
+  const applyFix = (target: string, replacement: string) => {
+    setEditorText(prev => applyCorrection(prev, target, replacement));
+    const timestamp = new Date().toLocaleTimeString();
+    setLogs(prev => [
+      `[${timestamp}] [IN_SITU_PATCH] Replaced "${target}" with "${replacement}" directly in active DOM node.`,
+      ...prev.slice(0, 15)
+    ]);
+  };
+
+  const handleApplyAll = () => {
+    let current = editorText;
+    for (const v of inspection.violations) {
+      if (v.suggestedCorrection) {
+        current = applyCorrection(current, v.flaggedText, v.suggestedCorrection);
+      }
+    }
+    setEditorText(current);
+    const timestamp = new Date().toLocaleTimeString();
+    setLogs(prev => [
+      `[${timestamp}] [IN_SITU_BATCH_PATCH] Applied all ${inspection.violations.length} fixes across active DOM nodes. Score restored to 100%.`,
+      ...prev.slice(0, 15)
+    ]);
+    confetti({
+      particleCount: 50,
+      spread: 60,
+      origin: { y: 0.6 }
+    });
   };
 
   const handleCopyCommand = () => {
@@ -113,40 +173,55 @@ export const ExtensionSimulator: React.FC<ExtensionSimulatorProps> = ({ onNaviga
                 </span>
               </div>
 
-              {/* Platform Switcher */}
-              <div className="flex flex-wrap items-center gap-1 bg-slate-900 p-1 rounded-lg border border-slate-800 text-xs">
+              {/* Platform Switcher & Scenario Reset */}
+              <div className="flex flex-wrap items-center gap-1.5 bg-slate-900 p-1 rounded-lg border border-slate-800 text-xs">
                 <button
-                  onClick={() => setSimulatedPlatform('docs')}
+                  onClick={() => handleSelectPlatform('docs')}
                   className={`px-2.5 py-1 rounded font-medium transition-all ${
-                    simulatedPlatform === 'docs' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'
+                    simulatedPlatform === 'docs' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 hover:text-white'
                   }`}
+                  title="Load Google Docs Press Release Scenario"
                 >
                   Google Docs
                 </button>
                 <button
-                  onClick={() => setSimulatedPlatform('notion')}
+                  onClick={() => handleSelectPlatform('notion')}
                   className={`px-2.5 py-1 rounded font-medium transition-all ${
-                    simulatedPlatform === 'notion' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'
+                    simulatedPlatform === 'notion' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 hover:text-white'
                   }`}
+                  title="Load Notion Technical RFC Scenario"
                 >
                   Notion
                 </button>
                 <button
-                  onClick={() => setSimulatedPlatform('cms')}
+                  onClick={() => handleSelectPlatform('cms')}
                   className={`px-2.5 py-1 rounded font-medium transition-all ${
-                    simulatedPlatform === 'cms' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'
+                    simulatedPlatform === 'cms' ? 'bg-blue-600 text-white font-bold' : 'text-slate-400 hover:text-white'
                   }`}
+                  title="Load Headless CMS Landing Page Scenario"
                 >
                   Headless CMS
+                </button>
+                <button
+                  onClick={handleResetCurrentScenario}
+                  className="px-2 py-1 rounded text-slate-400 hover:text-slate-200 border-l border-slate-800 ml-1 flex items-center space-x-1"
+                  title="Reset to original unedited scenario text"
+                >
+                  <RefreshCw className="w-3 h-3" />
+                  <span className="hidden sm:inline">Reset</span>
                 </button>
               </div>
             </div>
 
             {/* Document Content Area with Ambient Live Overlay */}
             <div className="p-6 relative min-h-[380px] bg-slate-900">
-              <div className="mb-2 flex items-center justify-between text-xs text-slate-400">
-                <span className="font-semibold uppercase tracking-wider text-[11px] text-slate-500">Live In-Situ Content Canvas</span>
-                <span>Type freely below to see real-time ambient scanning</span>
+              <div className="mb-2 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs text-slate-400">
+                <span className="font-semibold uppercase tracking-wider text-[11px] text-slate-400">
+                  Live In-Situ Content Canvas ({PLATFORM_PRESETS[simulatedPlatform].name})
+                </span>
+                <span className="text-[11px] text-slate-500">
+                  Real-time AST DOM monitoring active (&lt;2ms)
+                </span>
               </div>
 
               <textarea
@@ -154,7 +229,7 @@ export const ExtensionSimulator: React.FC<ExtensionSimulatorProps> = ({ onNaviga
                 onChange={(e) => setEditorText(e.target.value)}
                 rows={9}
                 className="w-full bg-slate-950/70 border border-slate-800 rounded-xl p-4 text-slate-100 font-mono text-sm leading-relaxed focus:outline-none focus:ring-2 focus:ring-blue-500/50 resize-y"
-                placeholder="Type or paste content here..."
+                placeholder="Type or paste content here to test real-time extension scanning..."
               />
 
               {/* Ambient Floating Inkloom Widget in Bottom Right */}
@@ -171,12 +246,25 @@ export const ExtensionSimulator: React.FC<ExtensionSimulatorProps> = ({ onNaviga
 
             {/* In-Situ Quick Fix Tray */}
             <div className="bg-slate-950/90 border-t border-slate-800 p-4">
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                 <div className="flex items-center space-x-2 text-xs font-semibold text-slate-300">
                   <Sparkles className="w-4 h-4 text-blue-400" />
-                  <span>Detected Violations & Instant 1-Click Fixes ({inspection.violations.length})</span>
+                  <span>Detected Violations & 1-Click Fixes ({inspection.violations.length})</span>
                 </div>
-                <span className="text-[11px] text-slate-500">Sub-15ms local AST replacement</span>
+
+                <div className="flex items-center gap-2">
+                  {inspection.violations.length > 0 && (
+                    <button
+                      onClick={handleApplyAll}
+                      className="flex items-center space-x-1.5 px-3 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-bold shadow-md shadow-emerald-950/50 transition-all"
+                      title="Apply all suggested fixes to current DOM text"
+                    >
+                      <Wand2 className="w-3.5 h-3.5" />
+                      <span>Apply All ({inspection.violations.length})</span>
+                    </button>
+                  )}
+                  <span className="text-[11px] text-slate-500 hidden sm:inline">Sub-15ms local AST replacement</span>
+                </div>
               </div>
 
               {inspection.violations.length === 0 ? (
@@ -185,8 +273,8 @@ export const ExtensionSimulator: React.FC<ExtensionSimulatorProps> = ({ onNaviga
                   <span>100% Compliant! No brand drift or regulatory violations detected in active DOM.</span>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {inspection.violations.slice(0, 4).map((violation) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 max-h-72 overflow-y-auto pr-1">
+                  {inspection.violations.map((violation) => (
                     <div 
                       key={violation.id} 
                       className="bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col justify-between hover:border-slate-700 transition-all text-xs"

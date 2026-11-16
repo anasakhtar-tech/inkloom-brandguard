@@ -5,9 +5,9 @@
 
   // Rules cache for fast in-situ parsing
   const RULES = [
-    { regex: /\binkloom\b/g, match: 'inkloom', fix: 'Inkloom', desc: 'Brand casing must be titlecase Inkloom', severity: 'critical' },
-    { regex: /\bbrandguard\b/gi, match: 'brandguard', fix: 'BrandGuard', desc: 'Product casing must be CamelCase BrandGuard', severity: 'major' },
-    { regex: /\b(100%|guaranteed|impossible to fail|flawless)\b/gi, fix: 'Enterprise-grade', desc: 'Forbidden promotional guarantee (FTC/SEC compliance)', severity: 'critical' },
+    { regex: /\b(?!Inkloom\b)[Ii]nkloom\b/g, match: 'inkloom', fix: 'Inkloom', desc: 'Brand casing must be titlecase Inkloom', severity: 'critical' },
+    { regex: /\b(?!BrandGuard\b)[Bb]rand[Gg]uard\b/g, match: 'brandguard', fix: 'BrandGuard', desc: 'Product casing must be CamelCase BrandGuard', severity: 'major' },
+    { regex: /\b(100% flawless|100% guarantee|guaranteed|impossible to fail|flawless)\b/gi, fix: 'enterprise-grade', desc: 'Forbidden promotional guarantee (FTC/SEC compliance)', severity: 'critical' },
     { regex: /\b99\.999%/g, fix: '99.9%', desc: 'Unapproved SLA claim (verified SLA is 99.9%)', severity: 'critical' },
     { regex: /\b(cheap|bargain)\b/gi, fix: 'cost-effective', desc: 'Tone violation: Avoid discount phrasing', severity: 'minor' }
   ];
