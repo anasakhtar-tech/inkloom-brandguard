@@ -327,7 +327,7 @@ doc.addTitle(
 
 doc.addCallout(
   "Top 50 Finalist Project (Selected from 1,000+ Registered Teams Nationwide)",
-  "Live Deployment: https://inkloom-brandguard.vercel.app  |  GitHub: https://github.com/anasakhtar-tech/inkloom-brandguard"
+  "Live Deployment: https://inkloom-brandguard-psi.vercel.app  |  GitHub: https://github.com/anasakhtar-tech/inkloom-brandguard"
 );
 
 // SECTION 1: EXECUTIVE OVERVIEW

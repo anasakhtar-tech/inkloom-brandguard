@@ -42,9 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   openStudioBtn.addEventListener('click', () => {
     if (chrome?.tabs?.create) {
-      chrome.tabs.create({ url: 'https://inkloom-brandguard.vercel.app' });
+      chrome.tabs.create({ url: 'https://inkloom-brandguard-psi.vercel.app' });
     } else {
-      window.open('https://inkloom-brandguard.vercel.app', '_blank');
+      window.open('https://inkloom-brandguard-psi.vercel.app', '_blank');
     }
   });
 });

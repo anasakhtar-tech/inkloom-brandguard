@@ -4,7 +4,7 @@
 > **Team Leader & AI/ML Engineer:** MD ANAS AKHTAR  
 > **Problem Track:** Inkloom AI Brand Governance & Pre-Publication Compliance  
 > **Finalist Standing:** Top 50 Finalist (Selected from 1,000+ Teams Nationwide)  
-> **Live Production URL:** [https://inkloom-brandguard.vercel.app](https://inkloom-brandguard.vercel.app)  
+> **Live Production URL:** [https://inkloom-brandguard-psi.vercel.app](https://inkloom-brandguard-psi.vercel.app)  
 > **GitHub Repository:** [https://github.com/anasakhtar-tech/inkloom-brandguard](https://github.com/anasakhtar-tech/inkloom-brandguard)  
 
 ---
@@ -25,7 +25,7 @@ In **Round 3 (The Final Build)**, Team ALTAIR delivered all **three promised maj
 
 ### Live Vercel Deployment (Instant Access)
 Visit the live, production-grade application running at:  
-👉 **[https://inkloom-brandguard.vercel.app](https://inkloom-brandguard.vercel.app)**  
+👉 **[https://inkloom-brandguard-psi.vercel.app](https://inkloom-brandguard-psi.vercel.app)**  
 *(Fully responsive and tested across Windows, macOS, Linux, iOS, and Android — zero setup or login required!)*
 
 ### Running Locally
