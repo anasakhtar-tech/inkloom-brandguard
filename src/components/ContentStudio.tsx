@@ -209,55 +209,59 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
       {/* Top Action Toolbar (Clean, minimal, single row) */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 bg-slate-900/60 p-3 rounded-2xl border border-slate-800">
         {/* Left: Preset Selector & New Doc Button */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs text-slate-400 font-medium">Scenario:</span>
-          <select
-            value={selectedPresetId}
-            onChange={(e) => {
-              if (e.target.value === '__new__') {
-                handleCreateNewDoc();
-              } else {
-                handleSelectPreset(e.target.value);
-              }
-            }}
-            className="bg-slate-950 border border-slate-700 text-xs text-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500"
-          >
-            <optgroup label="Sample Presets">
-              {samplePresetDocuments.map(doc => (
-                <option key={doc.id} value={doc.id}>
-                  {doc.title} ({doc.format.replace('_', ' ')})
-                </option>
-              ))}
-            </optgroup>
-            <optgroup label="Custom Document">
-              <option value="__new__">+ Blank Custom Document</option>
-              {selectedPresetId === 'custom' && (
-                <option value="custom">Current: {docTitle || 'Untitled Document'}</option>
-              )}
-            </optgroup>
-          </select>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto min-w-0">
+          <div className="flex items-center gap-2 w-full sm:w-auto min-w-0">
+            <span className="text-xs text-slate-400 font-medium whitespace-nowrap shrink-0">Scenario:</span>
+            <select
+              value={selectedPresetId}
+              onChange={(e) => {
+                if (e.target.value === '__new__') {
+                  handleCreateNewDoc();
+                } else {
+                  handleSelectPreset(e.target.value);
+                }
+              }}
+              className="bg-slate-950 border border-slate-700 text-xs text-slate-200 rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-blue-500 flex-1 sm:flex-initial min-w-0 max-w-full sm:max-w-xs md:max-w-sm truncate"
+            >
+              <optgroup label="Sample Presets">
+                {samplePresetDocuments.map(doc => (
+                  <option key={doc.id} value={doc.id}>
+                    {doc.title} ({doc.format.replace('_', ' ')})
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label="Custom Document">
+                <option value="__new__">+ Blank Custom Document</option>
+                {selectedPresetId === 'custom' && (
+                  <option value="custom">Current: {docTitle || 'Untitled Document'}</option>
+                )}
+              </optgroup>
+            </select>
+          </div>
 
-          <button
-            onClick={handleCreateNewDoc}
-            className="flex items-center space-x-1 px-2.5 py-1.5 text-xs text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 border border-emerald-800/60 rounded-lg transition-colors font-medium shadow-sm hover:bg-emerald-900/40"
-            title="Create a new blank document to enter and audit your own custom text"
-          >
-            <Plus className="w-3.5 h-3.5" />
-            <span>New Doc</span>
-          </button>
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={handleCreateNewDoc}
+              className="flex items-center space-x-1 px-2.5 py-1.5 text-xs text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 border border-emerald-800/60 rounded-lg transition-colors font-medium shadow-sm hover:bg-emerald-900/40"
+              title="Create a new blank document to enter and audit your own custom text"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>New Doc</span>
+            </button>
 
-          <button
-            onClick={handleResetToOriginal}
-            className="flex items-center space-x-1 px-2.5 py-1.5 text-xs text-slate-400 hover:text-slate-200 bg-slate-950 border border-slate-800 rounded-lg transition-colors"
-            title="Reset text back to original draft"
-          >
-            <RefreshCw className="w-3 h-3" />
-            <span className="hidden md:inline">Reset</span>
-          </button>
+            <button
+              onClick={handleResetToOriginal}
+              className="flex items-center space-x-1 px-2.5 py-1.5 text-xs text-slate-400 hover:text-slate-200 bg-slate-950 border border-slate-800 rounded-lg transition-colors"
+              title="Reset text back to original draft"
+            >
+              <RefreshCw className="w-3 h-3" />
+              <span className="hidden md:inline">Reset</span>
+            </button>
+          </div>
         </div>
 
         {/* Right: View Toggle & Role-Based Actions */}
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-2">
           {/* Editor vs Diff toggle (Diff is only enabled when text changes exist) */}
           <div className="flex items-center bg-slate-950 p-0.5 rounded-lg border border-slate-800 text-xs">
             <button

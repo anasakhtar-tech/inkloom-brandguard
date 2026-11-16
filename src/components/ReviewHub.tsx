@@ -252,7 +252,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
         {/* Left Side: Document Queue (5 Cols) */}
         <div className="lg:col-span-5 space-y-4">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
               <div>
                 <h3 className="text-xs font-bold text-white flex items-center space-x-1.5 uppercase tracking-wider">
                   <FileCheck className="w-4 h-4 text-blue-400" />
@@ -265,7 +265,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="bg-slate-950 border border-slate-800 text-xs text-slate-300 rounded-lg px-2.5 py-1 focus:outline-none"
+                className="bg-slate-950 border border-slate-800 text-xs text-slate-300 rounded-lg px-2.5 py-1 focus:outline-none max-w-full sm:max-w-xs truncate"
               >
                 <option value="all">All Statuses</option>
                 <option value="draft">Drafts</option>
