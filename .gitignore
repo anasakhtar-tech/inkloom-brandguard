@@ -17,6 +17,10 @@ yarn-error.log*
 .env.local
 .env.production
 
+# Scratch & Temporary
+scratch/
+
+
 # Editor
 .vscode
 .idea

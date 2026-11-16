@@ -415,7 +415,7 @@ doc.addTable(
 // SECTION 4: TESTING & VERIFICATION RESULTS
 doc.addHeading1("4. Automated Testing Battery & Verification Notes");
 doc.addParagraph(
-  "To guarantee rock-solid stability and zero judge confusion, the test battery was expanded to 53 automated scenarios covering text, vision, and webhook pipelines:"
+  "To guarantee rock-solid stability and zero judge confusion, the test battery was expanded to 103 automated scenarios across 15 distinct suites covering text, vision, and webhook pipelines:"
 );
 
 doc.addTable(
@@ -426,12 +426,17 @@ doc.addTable(
     ["Suite 3: Clean Compliant Benchmark", "2 tests", "100% PASS", "Clean enterprise press release receives 100/100"],
     ["Suite 4: Punctuation & Case Resilience", "4 tests", "100% PASS", "Punctuation-agnostic word boundary matching"],
     ["Suite 5: Client-Side PII Sanitizer", "5 tests", "100% PASS", "Masks emails, phone numbers, and codenames"],
-    ["Suite 6: Stress & Latency Benchmarks", "5 tests", "100% PASS", "1.76ms execution time on 4,560 words (30x faster than goal)"],
+    ["Suite 6: Stress & Latency Benchmarks", "5 tests", "100% PASS", "1.24ms execution time on 4,560 words (40x faster than goal)"],
     ["Suite 7: Extension In-Situ Interceptor", "5 tests", "100% PASS", "In-situ DOM scanning and 1-click patch verification"],
     ["Suite 8: Multimodal Visual Engine", "5 tests", "100% PASS", "Luminance math, 21:1 max contrast, aspect ratio +58%"],
     ["Suite 9: Enterprise CI/CD Gatekeeper", "6 tests", "100% PASS", "Exit code 1 blocking, Exit code 0 passing, HMAC tokens"],
     ["Suite 10: Expanded Terminology & Inclusivity", "7 tests", "100% PASS", "allowlist, denylist, sample data, team, customer"],
-    ["TOTAL TEST COVERAGE", "53 tests", "100% PASS", "53 / 53 Assertions Passing (100.0% Pass Rate)"]
+    ["Suite 11: Pluralization & Grammatical Agreement", "6 tests", "100% PASS", "Preserves plurals & vowel agreement ('a/an')"],
+    ["Suite 12: Morphology, Casing & Compound Resilience", "14 tests", "100% PASS", "Participles, gerunds, TitleCase, and UPPERCASE"],
+    ["Suite 13: Secrets, Plus-Aliased & International PII", "8 tests", "100% PASS", "AWS/OpenAI keys, +91/+44 phones, plus-aliases"],
+    ["Suite 14: Complex Adversarial Multi-Violations", "8 tests", "100% PASS", "Adversarial paragraphs, possessives, code ticks"],
+    ["Suite 15: Extreme Visual & Cryptographic Webhooks", "7 tests", "100% PASS", "Boundary contrast (4.49 vs 4.51), HMAC tampering"],
+    ["TOTAL TEST COVERAGE", "103 tests", "100% PASS", "103 / 103 Assertions Passing (100.0% Pass Rate)"]
   ],
   [165, 55, 65, 227]
 );
@@ -442,7 +447,7 @@ doc.addHeading1("5. Team ALTAIR Member Contributions");
 doc.addTable(
   ["Team Member", "Assigned Project Role", "Specific Round 3 Contributions & Engineering Ownership"],
   [
-    ["MD ANAS AKHTAR", "Team Leader & AI/ML Engineer", "Overall platform architecture, Manifest V3 extension, Canvas vision engine, CI/CD gatekeeper, HMAC token logic, 53-test battery, and final report compilation."],
+    ["MD ANAS AKHTAR", "Team Leader & AI/ML Engineer", "Overall platform architecture, Manifest V3 extension, Canvas vision engine, CI/CD gatekeeper, HMAC token logic, 103-test battery, and final report compilation."],
     ["Collaborating Teammates", "Full-Stack & UI/UX Engineers", "Vite/Tailwind UI implementation, mobile responsive navigation, Slack Block Kit simulator styling, and Brand Vault configuration."]
   ],
   [110, 145, 257]
