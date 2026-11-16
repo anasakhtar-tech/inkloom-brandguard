@@ -281,7 +281,7 @@ jobs:
                     <Key className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                     <div className="truncate">
                       <span className="text-[10px] text-slate-400 block">Signed Cryptographic Release Token (HMAC-SHA256)</span>
-                      <code className="text-xs text-emerald-300 font-mono truncate">{result.signedComplianceToken}</code>
+                      <code className="text-xs text-emerald-300 font-mono block truncate">{result.signedComplianceToken}</code>
                     </div>
                   </div>
                   <button

@@ -352,7 +352,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
                 </div>
               </div>
 
-              <div className="flex items-center space-x-2 shrink-0">
+              <div className="flex flex-wrap items-center gap-2 shrink-0">
                 <button
                   onClick={handleTogglePii}
                   className={`flex items-center space-x-1 px-2 py-1 rounded-md border transition-all text-[11px] ${
@@ -491,7 +491,7 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
             )}
 
             {/* Editor Footer Status Line */}
-            <div className="flex items-center justify-between pt-2.5 mt-2 border-t border-slate-800/60 text-[11px] text-slate-500">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-2.5 mt-2 border-t border-slate-800/60 text-[11px] text-slate-500">
               <span>Markdown and plaintext supported</span>
               <span className="flex items-center space-x-1 text-slate-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>

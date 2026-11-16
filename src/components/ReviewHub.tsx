@@ -162,11 +162,11 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
           </div>
 
           {/* Quick Active Role Switcher directly in the view */}
-          <div className="bg-slate-950 p-2 rounded-xl border border-slate-800 flex flex-col space-y-1.5 shrink-0">
+          <div className="bg-slate-950 p-2 rounded-xl border border-slate-800 flex flex-col space-y-1.5 shrink-0 w-full sm:w-auto">
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
               Simulate Team Role:
             </span>
-            <div className="flex items-center space-x-1 text-xs">
+            <div className="flex flex-wrap items-center gap-1.5 text-xs">
               <button
                 onClick={() => onRoleChange && onRoleChange('creator')}
                 className={`px-2.5 py-1 rounded-lg font-medium transition-all ${
@@ -408,7 +408,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
 
             {/* Approved Document Banner */}
             {selectedDoc.status === 'approved' && (
-              <div className="bg-emerald-950/30 border border-emerald-800/60 p-3 rounded-xl flex items-center justify-between text-xs text-emerald-300">
+              <div className="bg-emerald-950/30 border border-emerald-800/60 p-3 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs text-emerald-300">
                 <div className="flex items-center space-x-2">
                   <ShieldCheck className="w-5 h-5 text-emerald-400 flex-shrink-0" />
                   <div>
@@ -420,7 +420,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
                 </div>
                 <button
                   onClick={() => onOpenCertificate(selectedDoc)}
-                  className="px-3 py-1 rounded-lg bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500/50 text-white font-semibold text-xs transition-all"
+                  className="px-3 py-1 rounded-lg bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500/50 text-white font-semibold text-xs transition-all shrink-0 self-start sm:self-auto"
                 >
                   Inspect Certificate
                 </button>
@@ -429,7 +429,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
 
             {/* Visual Governance Lifecycle Stepper */}
             <div className="bg-slate-950 p-3.5 rounded-xl border border-slate-800/80 space-y-2">
-              <div className="flex items-center justify-between text-[11px] font-semibold text-slate-400">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] font-semibold text-slate-400">
                 <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500 flex items-center space-x-1">
                   <Layers className="w-3.5 h-3.5 text-blue-400" />
                   <span>Document Lifecycle Progress</span>
@@ -438,7 +438,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
                   Current Status: <strong className="text-white uppercase">{selectedDoc.status.replace('_', ' ')}</strong>
                 </span>
               </div>
-              <div className="grid grid-cols-4 gap-2 text-center text-[10px] font-medium">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-[10px] font-medium">
                 <div className={`p-2 rounded-lg border transition-all ${
                   selectedDoc.status === 'draft' 
                     ? 'bg-blue-600/20 border-blue-500/60 text-blue-300 font-bold'
@@ -531,7 +531,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
 
             {/* Threaded Discussion Section */}
             <div className="space-y-3 pt-2">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
                 <div>
                   <h4 className="text-xs font-bold text-slate-200 uppercase tracking-wider flex items-center space-x-1.5">
                     <MessageSquare className="w-3.5 h-3.5 text-blue-400" />
@@ -539,7 +539,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
                   </h4>
                   <span className="text-[10px] text-slate-500">Every comment is logged with author name, role, and timestamp</span>
                 </div>
-                <span className="text-[10px] text-indigo-400 font-mono bg-indigo-950/60 px-2 py-0.5 rounded border border-indigo-900/50">
+                <span className="text-[10px] text-indigo-400 font-mono bg-indigo-950/60 px-2 py-0.5 rounded border border-indigo-900/50 shrink-0 self-start sm:self-auto">
                   Posting as: {currentRole.toUpperCase()}
                 </span>
               </div>
@@ -590,7 +590,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
                   value={newCommentText}
                   onChange={(e) => setNewCommentText(e.target.value)}
                   placeholder={`Write review note as ${currentRole === 'creator' ? 'Alex Turner (Creator)' : currentRole === 'reviewer' ? 'Elena Rostova (Brand Manager)' : 'Marcus Vance (Legal)'}...`}
-                  className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                  className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-blue-500 min-w-0"
                 />
                 <button
                   type="submit"

@@ -52,10 +52,10 @@ export const AuditCertificateModal: React.FC<AuditCertificateModalProps> = ({
               This certifies that the digital publication collateral described below has been audited and approved in accordance with official Inkloom enterprise brand guidelines and regulatory mandates.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-900/80 p-4 rounded-xl border border-slate-800">
               <div>
                 <span className="text-[10px] text-slate-500 uppercase font-bold block">Document Title</span>
-                <span className="font-semibold text-slate-200">{document.title}</span>
+                <span className="font-semibold text-slate-200 break-words">{document.title}</span>
               </div>
               <div>
                 <span className="text-[10px] text-slate-500 uppercase font-bold block">Author / Submitter</span>
@@ -76,7 +76,7 @@ export const AuditCertificateModal: React.FC<AuditCertificateModalProps> = ({
               <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
                 Audited Compliance Dimensions:
               </span>
-              <div className="grid grid-cols-2 gap-2 text-[11px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
                 <div className="flex items-center space-x-1.5 text-emerald-400">
                   <CheckCircle2 className="w-3.5 h-3.5" />
                   <span>Tone & Empathetic Positioning</span>
@@ -105,7 +105,7 @@ export const AuditCertificateModal: React.FC<AuditCertificateModalProps> = ({
             </div>
 
             {/* Authorized Signatures */}
-            <div className="pt-6 border-t border-slate-800 grid grid-cols-2 gap-6 text-[11px]">
+            <div className="pt-6 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-[11px]">
               <div>
                 <div className="font-serif italic text-slate-300 text-sm mb-1">Elena Rostova</div>
                 <div className="text-[10px] text-slate-500 uppercase font-bold">Brand Governance Lead</div>
@@ -121,7 +121,7 @@ export const AuditCertificateModal: React.FC<AuditCertificateModalProps> = ({
         </div>
 
         {/* Modal Actions */}
-        <div className="flex items-center justify-end space-x-3 mt-6">
+        <div className="flex flex-col-reverse sm:flex-row sm:items-center justify-end gap-2 sm:gap-3 mt-6">
           <button
             onClick={onClose}
             className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors"

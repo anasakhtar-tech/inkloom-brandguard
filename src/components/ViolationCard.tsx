@@ -95,7 +95,7 @@ export const ViolationCard: React.FC<ViolationCardProps> = ({
       {/* Flagged Snippet */}
       <div className="mb-2 p-2 rounded-lg bg-slate-950 border border-slate-800/80">
         <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mb-0.5">Flagged Phrase:</div>
-        <div className="text-xs font-mono text-red-300 font-medium">
+        <div className="text-xs font-mono text-red-300 font-medium break-words">
           "{violation.flaggedText}"
         </div>
       </div>
