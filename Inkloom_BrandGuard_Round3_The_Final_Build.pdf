@@ -78,7 +78,7 @@ endobj
 << /Type /Page /Parent 11 0 R /MediaBox [ 0 0 612 792 ] /Contents 5 0 R /Resources 4 0 R >>
 endobj
 7 0 obj
-<< /Length 5506 >>
+<< /Length 5373 >>
 stream
 q 0.85 0.88 0.92 RG 0.5 w 50 753 562 753 m l S Q
 BT /F2 8 Tf 0.35 0.42 0.52 rg 50 757 Td (CodeTitans India 2026 | Round 3: The Final Build | Team ALTAIR) Tj ET
@@ -117,25 +117,25 @@ BT /F1 8.5 Tf 1 1 1 rg 311 439 Td (Technical Specifications & Hard Problems Solv
 q 0.88 0.90 0.94 RG 0.5 w 50 415 562 415 m l S Q
 BT /F1 8 Tf 0.15 0.20 0.35 rg 56 421 Td (In-Situ Extension) Tj ET
 BT /F3 8 Tf 0.25 0.30 0.40 rg 166 421 Td (Chrome Manifest V3 / Web APIs) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 311 421 Td (Service worker background architecture, DOM mutation observers, zero battery drain) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 421 Td (Service worker background architecture, DOM mutation...) Tj ET
 q 0.96 0.97 0.99 rg 50 397 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 397 562 397 m l S Q
 BT /F1 8 Tf 0.15 0.20 0.35 rg 56 403 Td (Visual Inspection) Tj ET
 BT /F3 8 Tf 0.25 0.30 0.40 rg 166 403 Td (HTML5 Canvas 2D Pixel Buffer) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 311 403 Td (Relative luminance contrast math, aspect ratio bounding boxes, color clustering) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 403 Td (Relative luminance contrast math, aspect ratio bound...) Tj ET
 q 0.88 0.90 0.94 RG 0.5 w 50 379 562 379 m l S Q
 BT /F1 8 Tf 0.15 0.20 0.35 rg 56 385 Td (CI/CD Gatekeeper) Tj ET
 BT /F3 8 Tf 0.25 0.30 0.40 rg 166 385 Td (Web Crypto API / HMAC-SHA256) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 311 385 Td (Exit code mapping \(0/1/2\), automated release blocking, Slack Block Kit payloads) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 385 Td (Exit code mapping \(0/1/2\), automated release blockin...) Tj ET
 q 0.96 0.97 0.99 rg 50 361 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 361 562 361 m l S Q
 BT /F1 8 Tf 0.15 0.20 0.35 rg 56 367 Td (Hybrid Text Engine) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 166 367 Td (Deterministic AST + Gemini Flash) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 311 367 Td (Sub-15ms local checks for 500+ rules, nuanced tone reasoning, 1-click token diffs) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 166 367 Td (Deterministic AST + Gemini ...) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 367 Td (Sub-15ms local checks for 500+ rules, nuanced tone r...) Tj ET
 q 0.88 0.90 0.94 RG 0.5 w 50 343 562 343 m l S Q
 BT /F1 8 Tf 0.15 0.20 0.35 rg 56 349 Td (Client-Side Privacy) Tj ET
 BT /F3 8 Tf 0.25 0.30 0.40 rg 166 349 Td (Zero-Retention Regex Sanitizer) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 311 349 Td (Pre-flight scrubbing of PII, internal codenames, and API keys before external transit) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 349 Td (Pre-flight scrubbing of PII, internal codenames, and...) Tj ET
 BT /F1 13 Tf 0.10 0.20 0.45 rg 50 317 Td (4. Automated Testing Battery & Verification Notes) Tj ET
 q 0.82 0.86 0.92 RG 1 w 50 313 562 313 m l S Q
 BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 299 Td (To guarantee rock-solid stability and zero judge confusion, the test battery was) Tj ET
@@ -150,104 +150,104 @@ endobj
 << /Type /Page /Parent 11 0 R /MediaBox [ 0 0 612 792 ] /Contents 7 0 R /Resources 4 0 R >>
 endobj
 9 0 obj
-<< /Length 10312 >>
+<< /Length 9983 >>
 stream
 q 0.85 0.88 0.92 RG 0.5 w 50 753 562 753 m l S Q
 BT /F2 8 Tf 0.35 0.42 0.52 rg 50 757 Td (CodeTitans India 2026 | Round 3: The Final Build | Team ALTAIR) Tj ET
 BT /F1 8 Tf 0.15 0.35 0.75 rg 442 757 Td (Inkloom BrandGuard) Tj ET
 q 0.12 0.22 0.42 rg 50 723 512 18 re f Q
 BT /F1 8.5 Tf 1 1 1 rg 56 729 Td (Test Suite Category) Tj ET
-BT /F1 8.5 Tf 1 1 1 rg 221 729 Td (Tests) Tj ET
-BT /F1 8.5 Tf 1 1 1 rg 276 729 Td (Result) Tj ET
-BT /F1 8.5 Tf 1 1 1 rg 341 729 Td (Latency / Metric Benchmark) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 241 729 Td (Tests) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 293 729 Td (Result) Tj ET
+BT /F1 8.5 Tf 1 1 1 rg 351 729 Td (Latency / Metric Benchmark) Tj ET
 q 0.88 0.90 0.94 RG 0.5 w 50 705 562 705 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 711 Td (Suite 1: Severe Multi-Violation Content) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 711 Td (7 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 711 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 711 Td (Catches all 6 governance dimensions simultaneously) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 711 Td (Suite 1: Multi-Violation Content) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 711 Td (7 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 711 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 711 Td (Catches all 6 governance dimensions simulta...) Tj ET
 q 0.96 0.97 0.99 rg 50 687 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 687 562 687 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 693 Td (Suite 2: 1-Click Diff & Correction) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 693 Td (7 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 693 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 693 Td (100% clean document restoration \(Score 100\)) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 693 Td (Suite 2: 1-Click Diff & Fixes) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 693 Td (7 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 693 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 693 Td (100% clean document restoration \(Score 100\)) Tj ET
 q 0.88 0.90 0.94 RG 0.5 w 50 669 562 669 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 675 Td (Suite 3: Clean Compliant Benchmark) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 675 Td (2 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 675 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 675 Td (Clean enterprise press release receives 100/100) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 675 Td (Suite 3: Clean Compliant Text) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 675 Td (2 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 675 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 675 Td (Clean enterprise press release receives 100...) Tj ET
 q 0.96 0.97 0.99 rg 50 651 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 651 562 651 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 657 Td (Suite 4: Punctuation & Case Resilience) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 657 Td (4 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 657 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 657 Td (Punctuation-agnostic word boundary matching) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 657 Td (Suite 4: Punctuation & Casing) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 657 Td (4 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 657 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 657 Td (Punctuation-agnostic word boundary matching) Tj ET
 q 0.88 0.90 0.94 RG 0.5 w 50 633 562 633 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 639 Td (Suite 5: Client-Side PII Sanitizer) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 639 Td (5 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 639 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 639 Td (Masks emails, phone numbers, and codenames) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 639 Td (Suite 5: Client-Side PII Scrub) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 639 Td (5 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 639 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 639 Td (Masks emails, phone numbers, and codenames) Tj ET
 q 0.96 0.97 0.99 rg 50 615 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 615 562 615 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 621 Td (Suite 6: Stress & Latency Benchmarks) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 621 Td (5 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 621 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 621 Td (1.24ms execution time on 4,560 words \(40x faster than goal\)) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 621 Td (Suite 6: Latency Benchmarks) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 621 Td (5 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 621 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 621 Td (1.24ms execution time on 4,560 words \(40x f...) Tj ET
 q 0.88 0.90 0.94 RG 0.5 w 50 597 562 597 m l S Q
 BT /F1 8 Tf 0.15 0.20 0.35 rg 56 603 Td (Suite 7: Extension In-Situ Interceptor) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 603 Td (5 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 603 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 603 Td (In-situ DOM scanning and 1-click patch verification) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 603 Td (5 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 603 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 603 Td (In-situ DOM scanning and 1-click patch veri...) Tj ET
 q 0.96 0.97 0.99 rg 50 579 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 579 562 579 m l S Q
 BT /F1 8 Tf 0.15 0.20 0.35 rg 56 585 Td (Suite 8: Multimodal Visual Engine) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 585 Td (5 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 585 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 585 Td (Luminance math, 21:1 max contrast, aspect ratio +58%) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 585 Td (5 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 585 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 585 Td (Luminance math, 21:1 max contrast, aspect r...) Tj ET
 q 0.88 0.90 0.94 RG 0.5 w 50 561 562 561 m l S Q
 BT /F1 8 Tf 0.15 0.20 0.35 rg 56 567 Td (Suite 9: Enterprise CI/CD Gatekeeper) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 567 Td (6 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 567 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 567 Td (Exit code 1 blocking, Exit code 0 passing, HMAC tokens) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 567 Td (6 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 567 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 567 Td (Exit code 1 blocking, Exit code 0 passing, ...) Tj ET
 q 0.96 0.97 0.99 rg 50 543 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 543 562 543 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 549 Td (Suite 10: Expanded Terminology & Inclusivity) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 549 Td (7 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 549 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 549 Td (allowlist, denylist, sample data, team, customer) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 549 Td (Suite 10: Terminology & Inclusivity) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 549 Td (7 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 549 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 549 Td (allowlist, denylist, sample data, team, cus...) Tj ET
 q 0.88 0.90 0.94 RG 0.5 w 50 525 562 525 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 531 Td (Suite 11: Pluralization & Grammatical Agreement) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 531 Td (6 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 531 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 531 Td (Preserves plurals & vowel agreement \('a/an'\)) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 531 Td (Suite 11: Grammar & Plural Agreement) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 531 Td (6 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 531 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 531 Td (Preserves plurals & vowel agreement \('a/an'\)) Tj ET
 q 0.96 0.97 0.99 rg 50 507 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 507 562 507 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 513 Td (Suite 12: Morphology, Casing & Compound Resilience) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 513 Td (14 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 513 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 513 Td (Participles, gerunds, TitleCase, and UPPERCASE) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 513 Td (Suite 12: Morphology & Compound Lexicon) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 513 Td (14 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 513 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 513 Td (Participles, gerunds, TitleCase, and UPPERCASE) Tj ET
 q 0.88 0.90 0.94 RG 0.5 w 50 489 562 489 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 495 Td (Suite 13: Secrets, Plus-Aliased & International PII) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 495 Td (8 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 495 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 495 Td (AWS/OpenAI keys, +91/+44 phones, plus-aliases) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 495 Td (Suite 13: Secrets & International PII) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 495 Td (8 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 495 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 495 Td (AWS/OpenAI keys, +91/+44 phones, plus-aliases) Tj ET
 q 0.96 0.97 0.99 rg 50 471 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 471 562 471 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 477 Td (Suite 14: Complex Adversarial Multi-Violations) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 477 Td (8 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 477 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 477 Td (Adversarial paragraphs, possessives, code ticks) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 477 Td (Suite 14: Adversarial Multi-Violations) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 477 Td (8 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 477 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 477 Td (Adversarial paragraphs, possessives, code t...) Tj ET
 q 0.88 0.90 0.94 RG 0.5 w 50 453 562 453 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 459 Td (Suite 15: Extreme Visual & Cryptographic Webhooks) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 459 Td (7 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 459 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 459 Td (Boundary contrast \(4.49 vs 4.51\), HMAC tampering) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 459 Td (Suite 15: Extreme Visual & Webhooks) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 459 Td (7 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 459 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 459 Td (Boundary contrast \(4.49 vs 4.51\), HMAC tamp...) Tj ET
 q 0.96 0.97 0.99 rg 50 435 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 435 562 435 m l S Q
 BT /F1 8 Tf 0.15 0.20 0.35 rg 56 441 Td (TOTAL TEST COVERAGE) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 221 441 Td (103 tests) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 276 441 Td (100% PASS) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 341 441 Td (103 / 103 Assertions Passing \(100.0% Pass Rate\)) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 241 441 Td (103 tests) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 293 441 Td (100% PASS) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 351 441 Td (103 / 103 Assertions Passing \(100.0% Pass R...) Tj ET
 BT /F1 13 Tf 0.10 0.20 0.45 rg 50 409 Td (5. Team ALTAIR Member Contributions) Tj ET
 q 0.82 0.86 0.92 RG 1 w 50 405 562 405 m l S Q
 q 0.12 0.22 0.42 rg 50 377 512 18 re f Q
@@ -257,12 +257,12 @@ BT /F1 8.5 Tf 1 1 1 rg 311 383 Td (Specific Round 3 Contributions & Engineering 
 q 0.88 0.90 0.94 RG 0.5 w 50 359 562 359 m l S Q
 BT /F1 8 Tf 0.15 0.20 0.35 rg 56 365 Td (MD ANAS AKHTAR) Tj ET
 BT /F3 8 Tf 0.25 0.30 0.40 rg 166 365 Td (Team Leader & AI/ML Engineer) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 311 365 Td (Overall platform architecture, Manifest V3 extension, Canvas vision engine, CI/CD gatekeeper, HMAC token logic, 103-test battery, and final report compilation.) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 365 Td (Overall platform architecture, Manifest V3 extension...) Tj ET
 q 0.96 0.97 0.99 rg 50 341 512 18 re f Q
 q 0.88 0.90 0.94 RG 0.5 w 50 341 562 341 m l S Q
-BT /F1 8 Tf 0.15 0.20 0.35 rg 56 347 Td (Collaborating Teammates) Tj ET
+BT /F1 8 Tf 0.15 0.20 0.35 rg 56 347 Td (Collaborating Teamm...) Tj ET
 BT /F3 8 Tf 0.25 0.30 0.40 rg 166 347 Td (Full-Stack & UI/UX Engineers) Tj ET
-BT /F3 8 Tf 0.25 0.30 0.40 rg 311 347 Td (Vite/Tailwind UI implementation, mobile responsive navigation, Slack Block Kit simulator styling, and Brand Vault configuration.) Tj ET
+BT /F3 8 Tf 0.25 0.30 0.40 rg 311 347 Td (Vite/Tailwind UI implementation, mobile responsive n...) Tj ET
 BT /F1 13 Tf 0.10 0.20 0.45 rg 50 315 Td (6. Product Roadmap & Future Commercial Horizon) Tj ET
 q 0.82 0.86 0.92 RG 1 w 50 311 562 311 m l S Q
 BT /F3 9.5 Tf 0.20 0.24 0.32 rg 50 297 Td (Inkloom BrandGuard is architected as an enterprise-grade commercial product. Our) Tj ET
@@ -311,13 +311,13 @@ xref
 0000000410 00000 n 
 0000006209 00000 n 
 0000006315 00000 n 
-0000011873 00000 n 
-0000011979 00000 n 
-0000022344 00000 n 
-0000022451 00000 n 
-0000022524 00000 n 
+0000011740 00000 n 
+0000011846 00000 n 
+0000021881 00000 n 
+0000021988 00000 n 
+0000022061 00000 n 
 trailer
 << /Size 13 /Root 12 0 R >>
 startxref
-22575
+22112
 %%EOF

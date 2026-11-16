@@ -229,9 +229,16 @@ class Round3PDFBuilder {
 
       curX = this.marginLeft;
       for (let c = 0; c < row.length; c++) {
-        const textVal = row[c] || '';
+        let textVal = row[c] || '';
         const font = c === 0 ? '/F1' : '/F3';
         const color = c === 0 ? '0.15 0.20 0.35' : '0.25 0.30 0.40';
+
+        // Defensive column boundary protection: prevent text from overlapping adjacent columns
+        const charLimit = Math.floor((colWidths[c] - 8) / 4.5);
+        if (textVal.length > charLimit) {
+          textVal = textVal.substring(0, charLimit - 3) + '...';
+        }
+
         this.currentPage.commands.push(
           `BT ${font} 8 Tf ${color} rg ${curX + 6} ${y - 8} Td (${this.escapeText(textVal)}) Tj ET`
         );
@@ -421,24 +428,24 @@ doc.addParagraph(
 doc.addTable(
   ["Test Suite Category", "Tests", "Result", "Latency / Metric Benchmark"],
   [
-    ["Suite 1: Severe Multi-Violation Content", "7 tests", "100% PASS", "Catches all 6 governance dimensions simultaneously"],
-    ["Suite 2: 1-Click Diff & Correction", "7 tests", "100% PASS", "100% clean document restoration (Score 100)"],
-    ["Suite 3: Clean Compliant Benchmark", "2 tests", "100% PASS", "Clean enterprise press release receives 100/100"],
-    ["Suite 4: Punctuation & Case Resilience", "4 tests", "100% PASS", "Punctuation-agnostic word boundary matching"],
-    ["Suite 5: Client-Side PII Sanitizer", "5 tests", "100% PASS", "Masks emails, phone numbers, and codenames"],
-    ["Suite 6: Stress & Latency Benchmarks", "5 tests", "100% PASS", "1.24ms execution time on 4,560 words (40x faster than goal)"],
+    ["Suite 1: Multi-Violation Content", "7 tests", "100% PASS", "Catches all 6 governance dimensions simultaneously"],
+    ["Suite 2: 1-Click Diff & Fixes", "7 tests", "100% PASS", "100% clean document restoration (Score 100)"],
+    ["Suite 3: Clean Compliant Text", "2 tests", "100% PASS", "Clean enterprise press release receives 100/100"],
+    ["Suite 4: Punctuation & Casing", "4 tests", "100% PASS", "Punctuation-agnostic word boundary matching"],
+    ["Suite 5: Client-Side PII Scrub", "5 tests", "100% PASS", "Masks emails, phone numbers, and codenames"],
+    ["Suite 6: Latency Benchmarks", "5 tests", "100% PASS", "1.24ms execution time on 4,560 words (40x faster)"],
     ["Suite 7: Extension In-Situ Interceptor", "5 tests", "100% PASS", "In-situ DOM scanning and 1-click patch verification"],
     ["Suite 8: Multimodal Visual Engine", "5 tests", "100% PASS", "Luminance math, 21:1 max contrast, aspect ratio +58%"],
     ["Suite 9: Enterprise CI/CD Gatekeeper", "6 tests", "100% PASS", "Exit code 1 blocking, Exit code 0 passing, HMAC tokens"],
-    ["Suite 10: Expanded Terminology & Inclusivity", "7 tests", "100% PASS", "allowlist, denylist, sample data, team, customer"],
-    ["Suite 11: Pluralization & Grammatical Agreement", "6 tests", "100% PASS", "Preserves plurals & vowel agreement ('a/an')"],
-    ["Suite 12: Morphology, Casing & Compound Resilience", "14 tests", "100% PASS", "Participles, gerunds, TitleCase, and UPPERCASE"],
-    ["Suite 13: Secrets, Plus-Aliased & International PII", "8 tests", "100% PASS", "AWS/OpenAI keys, +91/+44 phones, plus-aliases"],
-    ["Suite 14: Complex Adversarial Multi-Violations", "8 tests", "100% PASS", "Adversarial paragraphs, possessives, code ticks"],
-    ["Suite 15: Extreme Visual & Cryptographic Webhooks", "7 tests", "100% PASS", "Boundary contrast (4.49 vs 4.51), HMAC tampering"],
+    ["Suite 10: Terminology & Inclusivity", "7 tests", "100% PASS", "allowlist, denylist, sample data, team, customer"],
+    ["Suite 11: Grammar & Plural Agreement", "6 tests", "100% PASS", "Preserves plurals & vowel agreement ('a/an')"],
+    ["Suite 12: Morphology & Compound Lexicon", "14 tests", "100% PASS", "Participles, gerunds, TitleCase, and UPPERCASE"],
+    ["Suite 13: Secrets & International PII", "8 tests", "100% PASS", "AWS/OpenAI keys, +91/+44 phones, plus-aliases"],
+    ["Suite 14: Adversarial Multi-Violations", "8 tests", "100% PASS", "Adversarial paragraphs, possessives, code ticks"],
+    ["Suite 15: Extreme Visual & Webhooks", "7 tests", "100% PASS", "Boundary contrast (4.49 vs 4.51), HMAC tampering"],
     ["TOTAL TEST COVERAGE", "103 tests", "100% PASS", "103 / 103 Assertions Passing (100.0% Pass Rate)"]
   ],
-  [165, 55, 65, 227]
+  [185, 52, 58, 217]
 );
 
 // SECTION 5: TEAM ALTAIR CONTRIBUTIONS
