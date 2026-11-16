@@ -64,17 +64,17 @@ export const NextStageNavigator: React.FC<NextStageNavigatorProps> = ({
         </div>
 
         {/* Right: Navigation Controls */}
-        <div className="flex items-center space-x-2.5 shrink-0 pt-2 md:pt-0">
+        <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 shrink-0 pt-2 md:pt-0 w-full md:w-auto">
           {prevTab && prevTabName && (
             <button
               onClick={() => {
                 onNavigate(prevTab);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="flex items-center space-x-1 px-3 py-2 rounded-xl bg-slate-950 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition-all text-xs font-semibold"
+              className="flex-1 sm:flex-initial flex items-center justify-center space-x-1 px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition-all text-xs font-semibold"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Back: {prevTabName}</span>
+              <span>Back</span>
             </button>
           )}
 
@@ -83,7 +83,7 @@ export const NextStageNavigator: React.FC<NextStageNavigatorProps> = ({
               onNavigate(nextTab);
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white transition-all text-xs font-bold shadow-lg shadow-blue-600/30 group"
+            className="flex-1 sm:flex-initial flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white transition-all text-xs font-bold shadow-lg shadow-blue-600/30 group"
           >
             <span>Proceed to {nextTabName}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

@@ -16,18 +16,18 @@ export const AuditCertificateModal: React.FC<AuditCertificateModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-slate-900 border-2 border-slate-700 rounded-3xl max-w-2xl w-full p-8 shadow-2xl relative my-8 text-slate-100">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="bg-slate-900 border-2 border-slate-700 rounded-2xl sm:rounded-3xl max-w-2xl w-full p-4 sm:p-8 shadow-2xl relative my-6 text-slate-100">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white transition-colors"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Certificate Outer Border Frame */}
-        <div className="border border-blue-500/30 rounded-2xl p-6 bg-slate-950/80 relative overflow-hidden">
+        <div className="border border-blue-500/30 rounded-xl sm:rounded-2xl p-4 sm:p-6 bg-slate-950/80 relative overflow-hidden">
           {/* Watermark / Background Icon */}
           <div className="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
             <ShieldCheck className="w-80 h-80 text-blue-400" />

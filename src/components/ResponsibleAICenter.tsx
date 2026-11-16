@@ -39,17 +39,17 @@ export const ResponsibleAICenter: React.FC = () => {
 
       {/* Interactive PII Scrubber Simulator */}
       <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
-        <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b border-slate-800">
           <div>
             <h3 className="text-sm font-bold text-white flex items-center space-x-2">
               <Lock className="w-4 h-4 text-emerald-400" />
               <span>Interactive Client-Side PII & Confidentiality Redactor</span>
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className="text-xs text-slate-400 mt-0.5">
               Drafts are sanitized locally in-browser before any semantic or external processing takes place.
             </p>
           </div>
-          <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+          <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20 shrink-0 self-start sm:self-auto">
             {redactedCount} Sensitive Items Redacted
           </span>
         </div>

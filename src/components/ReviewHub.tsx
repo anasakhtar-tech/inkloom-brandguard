@@ -288,7 +288,7 @@ export const ReviewHub: React.FC<ReviewHubProps> = ({
             </div>
 
             {/* Document Cards List */}
-            <div className="space-y-2.5 max-h-[580px] overflow-y-auto pr-1">
+            <div className="space-y-2.5 max-h-[300px] sm:max-h-[380px] lg:max-h-[580px] overflow-y-auto pr-1">
               {filteredDocs.length === 0 ? (
                 <div className="p-6 text-center text-xs text-slate-500 bg-slate-950 rounded-xl border border-slate-800">
                   No collateral matches the search or filter.

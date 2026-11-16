@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
 
             <div className="flex flex-col justify-center">
               <div className="flex items-center space-x-2">
-                <span className="text-sm sm:text-base md:text-lg font-black tracking-tight text-white font-sans whitespace-nowrap">
+                <span className="text-xs sm:text-base md:text-lg font-black tracking-tight text-white font-sans whitespace-nowrap">
                   Inkloom BrandGuard
                 </span>
               </div>

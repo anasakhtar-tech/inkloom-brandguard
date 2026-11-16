@@ -44,7 +44,7 @@ export function App() {
       />
 
       {/* Main Tab Routing */}
-      <main className="flex-1 pb-16">
+      <main className="flex-1 pb-28 sm:pb-20 w-full max-w-full overflow-x-hidden">
         {activeTab === 'studio' && (
           <ContentStudio
             currentRole={currentRole}

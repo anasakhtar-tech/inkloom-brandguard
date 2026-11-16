@@ -235,7 +235,8 @@ jobs:
               ) : (
                 <>
                   <Send className="w-3.5 h-3.5" />
-                  <span>Execute Pre-Publication Gatekeeper Evaluation (POST /api/v1/evaluate)</span>
+                  <span className="hidden sm:inline">Execute Pre-Publication Gatekeeper Evaluation (POST /api/v1/evaluate)</span>
+                  <span className="sm:hidden">Run CI/CD Gate Evaluation (POST /evaluate)</span>
                 </>
               )}
             </button>

@@ -332,8 +332,8 @@ export const ContentStudio: React.FC<ContentStudioProps> = ({
         <div className="lg:col-span-7 flex flex-col space-y-3">
           <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-col flex-1">
             {/* Editor Sub-Header */}
-            <div className="flex items-center justify-between pb-3 mb-2.5 border-b border-slate-800 text-xs">
-              <div className="flex items-center space-x-2 flex-1 mr-2">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 mb-2.5 border-b border-slate-800 text-xs">
+              <div className="flex items-center space-x-2 flex-1 mr-0 sm:mr-2">
                 <FileText className="w-4 h-4 text-blue-400 shrink-0" />
                 <div className="relative flex items-center group max-w-sm sm:max-w-md w-full">
                   <input
